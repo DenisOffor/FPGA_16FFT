@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
-// DATE "03/10/2024 10:43:49"
+// DATE "03/10/2024 10:43:48"
 
 // 
 // Device: Altera EP4CE40F29I7 Package FBGA780
@@ -117,7 +117,7 @@ tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
 // synopsys translate_off
-initial $sdf_annotate("FPGA_8FFT_v.sdo");
+initial $sdf_annotate("FPGA_8FFT_7_1200mv_100c_v_slow.sdo");
 // synopsys translate_on
 
 wire \o_out0_re[0]~output_o ;

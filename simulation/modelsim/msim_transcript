@@ -55,7 +55,7 @@
 # Loading work.multiplier
 # Loading work.get_negative
 # Loading work.adder3
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(38): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(4).
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(40): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(4).
 # 
 #         Region: /butterfly2_tb/but2
 # 

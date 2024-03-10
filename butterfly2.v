@@ -2,6 +2,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 (
 	input 					i_clk,
 	input 					i_rst,
+	
 	//2 complex digits 
 	input 	[N-1:0] 		i_in0_re,
 	input 	[N-1:0] 		i_in0_im,
@@ -38,7 +39,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_rst(i_rst),
         .i_A(i_in1_re),
         .i_B(i_twiddle_re),
-        .o_C(out0_mul_re)
+        .out(out0_mul_re)
     );
 
 	  multiplier #(.N(N), .Q(Q)) M2
@@ -47,7 +48,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_rst(i_rst),
         .i_A(i_in1_im),
         .i_B(i_twiddle_im),
-        .o_C(out1_mul_re)
+        .out(out1_mul_re)
     );
 
     multiplier #(.N(N), .Q(Q)) M3
@@ -56,7 +57,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_rst(i_rst),
         .i_A(i_in1_re),
         .i_B(i_twiddle_im),
-        .o_C(out0_mul_im)
+        .out(out0_mul_im)
     );
 
     multiplier #(.N(N), .Q(Q)) M4
@@ -65,7 +66,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_rst(i_rst),
         .i_A(i_in1_im),
         .i_B(i_twiddle_re),
-        .o_C(out1_mul_im)
+        .out(out1_mul_im)
     );
 	 
 	// make the complement

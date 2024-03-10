@@ -10,7 +10,7 @@ entity multiplier is
         i_rst           : in     vl_logic;
         i_A             : in     vl_logic_vector;
         i_B             : in     vl_logic_vector;
-        o_C             : out    vl_logic_vector
+        \out\           : out    vl_logic_vector
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of N : constant is 1;

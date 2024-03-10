@@ -18,8 +18,8 @@
 // 
 
 //
-// This file contains Slow Corner delays for the design using part EP4CE40F29I7,
-// with speed grade 7, core voltage 1.2V, and temperature 100 Celsius
+// This file contains Fast Corner delays for the design using part EP4CE40F29I7,
+// with speed grade M, core voltage 1.2V, and temperature -40 Celsius
 //
 
 // 
