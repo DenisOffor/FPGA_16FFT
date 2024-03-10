@@ -8,6 +8,10 @@ module adder3 #(parameter N = 16)
     output reg  [N-1:0]     o_sum
 );
 
+	initial begin
+		o_sum <= 0;
+	end
+
     always @(posedge i_clk or posedge i_rst) begin
         if(i_rst) begin
             o_sum = 0;

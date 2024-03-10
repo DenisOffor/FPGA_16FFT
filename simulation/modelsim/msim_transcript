@@ -34,12 +34,24 @@
 # 
 # Top level modules:
 # 	adder3
-# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/clock_divider.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module butterfly2_tb
+# -- Compiling module clock_divider
 # 
 # Top level modules:
-# 	butterfly2_tb
+# 	clock_divider
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux2in1.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mux2in1
+# 
+# Top level modules:
+# 	mux2in1
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/flash.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module flash
+# 
+# Top level modules:
+# 	flash
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -52,12 +64,28 @@
 # vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps butterfly2_tb 
 # Loading work.butterfly2_tb
 # Loading work.butterfly2
+# Loading work.flash
+# Loading work.mux2in1
 # Loading work.multiplier
 # Loading work.get_negative
 # Loading work.adder3
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(40): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(4).
+# Loading work.clock_divider
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(80): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(4).
 # 
 #         Region: /butterfly2_tb/but2
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(154): [TFMPC] - Too few port connections. Expected 8, found 7.
+# 
+#         Region: /butterfly2_tb/but2/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(154): [TFMPC] - Missing connection for port 'o_clk_divided64'.
+# 
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(91): [TFMPC] - Too few port connections. Expected 8, found 7.
+# 
+#         Region: /butterfly2_tb/clc_div
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(91): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/clock_divider.v(4).
+# 
+#         Region: /butterfly2_tb/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v(91): [TFMPC] - Missing connection for port 'o_clk_divided64'.
+# 
 # 
 # add wave *
 # view structure
@@ -66,4 +94,4 @@
 # .main_pane.objects.interior.cs.body.tree
 # run -all
 # Break key hit 
-# Simulation stop requested.
+# Break in Module clock_divider at C:/Users/denlo/Documents/Quartus/FPGA_8FFT/clock_divider.v line 18
