@@ -17,45 +17,30 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	output 	[N-1:0]		o_out0_re,
 	output 	[N-1:0]		o_out0_im,
 	output 	[N-1:0]		o_out1_re,
-	output 	[N-1:0]		o_out1_im,
-	
-	output wire ena,
-	output wire		[N-1:0]		w_out_re0, 
-	output wire		[N-1:0]		w_out_re1, 
-	output wire		[N-1:0]		w_out_im0,
-	output wire		[N-1:0]		w_out_im1,
-	output wire		[N-1:0]		w_out_re0_neg, 
-	output wire		[N-1:0]		w_out_re1_neg, 
-	output wire		[N-1:0]		w_out_im0_neg, 
-	output wire		[N-1:0]		w_out_im1_neg,
-	
-	output wire 	[N-1:0] 		current_factor1,
-	output wire 	[N-1:0] 		current_factor2,
-	output wire		[N-1:0]     out_multiplier
+	output 	[N-1:0]		o_out1_im
 );
 
 	//wires for divided i_clk
-	wire 						clk_divided2;
-	wire 						clk_divided4;
-	wire 						clk_divided8;
 	wire 						clk_divided16;
 	wire 						clk_divided32;
-	wire 						clk_divided64;
-	
+	//wire for connect "multiple done" with "write_enable" for flash
+	wire 						mutiplier_done;
 	//current input data chosen for multiply them
-	
+	wire 		[N-1:0] 		current_factor1;
+	wire 		[N-1:0] 		current_factor2;
 	//wire for multiple complex in1 on complex twiddle
-	//wire		[N-1:0]     out_multiplier;
+	wire		[N-1:0]     out_multiplier;
 	//need for get negative 	
 	wire		[N-1:0]     out_multiplier_negative;
-	//memory for 8 digits: 2 real, 2 real negative, 2 im, 2 im negative
-	
+	//wires fan out from flash to adders 
+	wire		[N-1:0]		w_out_re0, w_out_re1, w_out_im0, w_out_im1;
+	wire		[N-1:0]		w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
 	 //////////////////////
 	 flash #(.N(N)) flash1
 	 ( 
 		   .i_clk(i_clk),
 		   .i_word(out_multiplier),
-		   .ena(ena),
+		   .write_enable(mutiplier_done),
 		   .address({clk_divided32, clk_divided16}),
 		   .o_word0(w_out_re0),
 		   .o_word1(w_out_im0),
@@ -66,7 +51,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	 ( 
 		   .i_clk(i_clk),
 		   .i_word(out_multiplier_negative),
-		   .ena(ena),
+		   .write_enable(mutiplier_done),
 		   .address({clk_divided32, clk_divided16}),
 		   .o_word0(w_out_re0_neg),
 		   .o_word1(w_out_im0_neg),
@@ -96,7 +81,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_A(current_factor1),
         .i_B(current_factor2),
         .out(out_multiplier),
-		  .o_multipl_done(ena)
+		  .o_multipl_done(mutiplier_done)
     );
 	 //make the complement
     get_negative #(.N(N)) neg1
@@ -146,9 +131,9 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
-		.o_clk_divided2(clk_divided2),
-		.o_clk_divided4(clk_divided4),
-		.o_clk_divided8(clk_divided8),
+		.o_clk_divided2(),
+		.o_clk_divided4(),
+		.o_clk_divided8(),
 		.o_clk_divided16(clk_divided16),
 		.o_clk_divided32(clk_divided32)
 	);

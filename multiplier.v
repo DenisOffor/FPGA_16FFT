@@ -25,9 +25,9 @@ module multiplier #(parameter N = 16, Q = 8)
 		o_multipl_done <= 0;
 	end
 	
-	wire state_changed = (temp3[N-1:0] ^ prev_temp3[N-1:0]) > 0 ? 1'b1 :1'b0;
+	//need to make sure, that finish result setted on out (check that out no changed during 3 cycles)
+	wire state_changed = (temp3 ^ prev_temp3) > 0 ? 1'b1 :1'b0;
 	wire max_counter = &counter;
-	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
 			counter <= 0;
@@ -63,6 +63,8 @@ module multiplier #(parameter N = 16, Q = 8)
 					temp1 <= i_A;
 					temp2 <= i_B;
 					P <= temp1 * temp2;
+					//result of multiplying 2 numbers is 32 bit lengths, so we need to cut it to 16 bit
+					//fot that we take 8 bit for int part of number and 8 bit for fractional part of number [23:8] 
 					temp3 <= P[N - 1 + Q:Q];
 				end
 				
@@ -97,8 +99,5 @@ module multiplier #(parameter N = 16, Q = 8)
 			endcase
 		end
 	end
-	
-	//result of multiplying 2 numbers is 32 bit lengths, so we need to cut it to 16 bit
-	//fot that we take 8 bit for int part of number and 8 bit for fractional part of number [23:8] 
 	assign out = temp3;
 endmodule
