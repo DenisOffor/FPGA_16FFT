@@ -9,30 +9,19 @@ module butterfly2_tb #(parameter N = 16, Q = 8)
 	reg [N-1:0] i_in0_re, i_in0_im, i_in1_re, i_in1_im;
 	reg [N-1:0] i_twiddle_re, i_twiddle_im;
 	
-	initial begin
-		//#0 i_in0_re = 		16'b0000001000000000;
-		//#0 i_in0_im = 		16'b0000001100000000;
-//
-		//#0 i_in1_re = 		16'b1111110000000000;
-		//#0 i_in1_im = 		16'b0000001000000000;
-//
-		//#0 i_twiddle_re = 16'b0000001100000000;
-		//#0 i_twiddle_im = 16'b11111111 0000 0000;
-
-		
+	initial begin		
 		#0 i_in0_re = 16'b0000000101101010;
 		#0 i_in0_im = 16'b0000000011001001;
 	
 		#0 i_in1_re = 16'b1111111010010110;
-		#0 i_in1_im = 16'b1111111100110111;
+		#0 i_in1_im = 16'b0000000011001001;
 	
-		#0 i_twiddle_re = 16'b00000000 11011100;
-		#0 i_twiddle_im = 16'b1111111110100101;
-									b00000000 01011011
+		#0 i_twiddle_re = 16'b1111111110100101;
+		#0 i_twiddle_im = 16'b0000000011001001;
 	end
 	
 	always @(*)
-		#2000 clk <= ~clk;
+		#100 clk <= ~clk;
 	
 	butterfly2 #(.N(N), .Q(Q)) but2 
 	(
