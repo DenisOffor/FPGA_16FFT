@@ -127,7 +127,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 		.o_sum(o_out1_im)
 	 );
 	 
-	 	clock_divider clc_div
+	 clock_divider clc_div
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
@@ -135,6 +135,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 		.o_clk_divided4(),
 		.o_clk_divided8(),
 		.o_clk_divided16(clk_divided16),
-		.o_clk_divided32(clk_divided32)
+		.o_clk_divided32(clk_divided32),
+		.o_clk_divided64()
 	);
 endmodule

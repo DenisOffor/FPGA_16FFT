@@ -19,15 +19,15 @@ Z4 !s92 -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8
 !i10b 1
 !s100 :X9G2m3Rn7W[FP<VLB[@Y3
 !s85 0
-!s108 1710264994.394000
+!s108 1710444897.361000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/adder3.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/adder3.v|
 !s101 -O0
 vbutterfly2
-IJGkZU?:1OD>AON8Q^e2BF0
+I69Zj64dGmg3IIzc87SNGX1
 V01c>9mU1?B23e0_E;Qh5_0
 R1
-w1710132600
+w1710444339
 8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v
 FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v
 L0 1
@@ -37,32 +37,12 @@ r1
 R3
 R4
 !i10b 1
-!s100 R9O7VHSJAFzjKJSBL]h=K2
+!s100 li`;]aoi5MM?SkENbefKK1
 !s85 0
-!s108 1710264994.167000
+!s108 1710444897.142000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v|
 !s101 -O0
-vbutterfly2_tb
-!i10b 1
-!s100 cfWGFL0mFPXJl8I=mIno51
-IjCWLBKh[oZN?2DeOO;f2Z3
-VT<gWPm2D31nG:]83@ggY<0
-R1
-w1710264960
-8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v
-FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v
-L0 1
-R2
-r1
-!s85 0
-31
-!s108 1710264994.680000
-!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2_tb.v|
-!s101 -O0
-R3
-R4
 vclock_divider
 I3e3D8T^:^`nQHHEBfU[U31
 VGI4Rl;VH@OnL:kA@k]R@^2
@@ -79,10 +59,93 @@ R4
 !i10b 1
 !s100 i[dzJhfP6:F_:];amoXW<0
 !s85 0
-!s108 1710264994.508000
+!s108 1710444897.418000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/clock_divider.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/clock_divider.v|
 !s101 -O0
+vcontrol_unit
+I3LJJSD7d^MzP5jjQGXCF^0
+V?X10QJ4N1J:?E9Q2I0]d]2
+R1
+w1710443067
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 Lm0lh2S;9?nM4MSo7iahi1
+!s85 0
+!s108 1710444897.941000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v|
+!s101 -O0
+vFFT16_top
+I4z0bXOldmDB0S>fMMPK2J3
+VM0_z62H;Qdi9?CU;Fl2A40
+R1
+w1710444261
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@f@f@t16_top
+!i10b 1
+!s100 GFP7IWfcA1dZg`3bCn:0A1
+!s85 0
+!s108 1710444897.585000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v|
+!s101 -O0
+vFFT_for_OFDM
+I^CfP[VcceM6Ok@^PfLJc13
+V@jQ7Ad`M]G1f:L;G0;Rzz0
+R1
+w1710444859
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@f@f@t_for_@o@f@d@m
+!i10b 1
+!s100 EzD54ZMN`0HF_Imk[:j?12
+!s85 0
+!s108 1710444897.766000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v|
+!s101 -O0
+vFFT_for_OFDM_tb
+!i10b 1
+!s100 coCCYbZfPd7KgCdBf0deB1
+I@3QdgD]Gg0^W<ld?f?1O?2
+Vl89he?=g2il`Nn4To]ilS0
+R1
+w1710444619
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1710444898.054000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v|
+!s101 -O0
+R3
+R4
+n@f@f@t_for_@o@f@d@m_tb
 vflash
 I>VOzBcK_bf`XKA?4Ka17]2
 Vj8J=:zBISDbiY?L]zE[E[0
@@ -99,7 +162,7 @@ R4
 !i10b 1
 !s100 HW^CTb:BBYl7An1XXoFdN0
 !s85 0
-!s108 1710264994.624000
+!s108 1710444897.529000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/flash.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/flash.v|
 !s101 -O0
@@ -119,7 +182,7 @@ R4
 !i10b 1
 !s100 4[NVSIC4S<mnQ8UDm<NLF2
 !s85 0
-!s108 1710264994.337000
+!s108 1710444897.304000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/get_negative.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/get_negative.v|
 !s101 -O0
@@ -139,7 +202,7 @@ R4
 !i10b 1
 !s100 j[QMU3Cb[]7zhF2XDiKWh2
 !s85 0
-!s108 1710264994.227000
+!s108 1710444897.205000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/multiplier.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/multiplier.v|
 !s101 -O0
@@ -159,7 +222,87 @@ R4
 !i10b 1
 !s100 SnJ:czCRn26L@4lFUM^SF1
 !s85 0
-!s108 1710264994.567000
+!s108 1710444897.473000
 !s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux2in1.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux2in1.v|
+!s101 -O0
+vmux4in1
+I@Kj5=k=I3X?aNI@GzOT8V0
+Vo6@14SV6Mze0ULY@di5N93
+R1
+w1710336059
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 ZISafcUWz2>L^GlaQUa6:1
+!s85 0
+!s108 1710444897.824000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v|
+!s101 -O0
+vram_16_byte
+IG2oURc^2>?ZdN4V6djd5f3
+V_6aTE?XbFZDDl?oVXOkim3
+R1
+w1710309328
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_16_byte.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_16_byte.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 LDno?OJMm8_;lUWfZi4NX2
+!s85 0
+!s108 1710444897.707000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_16_byte.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_16_byte.v|
+!s101 -O0
+vram_for_signal
+I>aT8mCBD<6`mF_la1dCoY0
+V^Y3cXe2Dblci7GP5E8N4A0
+R1
+w1710444855
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 L6]C3jmk6j9ZdRFV8bR;m1
+!s85 0
+!s108 1710444897.882000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v|
+!s101 -O0
+vrom_twiddle
+I0NR]O3bcFo@=G5>jWDd1`3
+VN?Oc4Wb=U?ZQoMJ>BP9gR1
+R1
+w1710340337
+8C:/Users/denlo/Documents/Quartus/FPGA_8FFT/rom_twiddle.v
+FC:/Users/denlo/Documents/Quartus/FPGA_8FFT/rom_twiddle.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 Hb]f?C2GWc6gD0H_HceKo0
+!s85 0
+!s108 1710444897.649000
+!s107 C:/Users/denlo/Documents/Quartus/FPGA_8FFT/rom_twiddle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT|C:/Users/denlo/Documents/Quartus/FPGA_8FFT/rom_twiddle.v|
 !s101 -O0
