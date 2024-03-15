@@ -10,6 +10,7 @@ module flash #(parameter N = 16)
 	output 	reg 	[N-1:0]	o_word3
 );
 	reg [N-1:0] mem [3:0];
+	
 	initial begin
 		mem[0] <= 0;
 		mem[1] <= 0;
@@ -22,7 +23,7 @@ module flash #(parameter N = 16)
 		end
 	end
 	
-	always @(posedge i_clk) begin
+	always @(*) begin
 		o_word0 <= mem[0];
 		o_word1 <= mem[1];
 		o_word2 <= mem[2];

@@ -374,3 +374,5 @@ instance = comp, \w_Mux0_out_twiddle_im[14]~output , w_Mux0_out_twiddle_im[14]~o
 instance = comp, \w_Mux0_out_twiddle_im[15]~output , w_Mux0_out_twiddle_im[15]~output, FFT16_top_tb, 1
 instance = comp, \o_Mux_switcher_butterfly[0]~output , o_Mux_switcher_butterfly[0]~output, FFT16_top_tb, 1
 instance = comp, \o_Mux_switcher_butterfly[1]~output , o_Mux_switcher_butterfly[1]~output, FFT16_top_tb, 1
+instance = comp, \o_butterfly_done~output , o_butterfly_done~output, FFT16_top_tb, 1
+instance = comp, \w_mutiplier_done~output , w_mutiplier_done~output, FFT16_top_tb, 1

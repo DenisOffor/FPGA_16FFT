@@ -82,7 +82,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	
 	output 			[N-1:0]		w_Mux0_out_twiddle_re,
 	output 			[N-1:0]     w_Mux0_out_twiddle_im,
-	output 			[1:0]			o_Mux_switcher_butterfly
+	output 			[1:0]			o_Mux_switcher_butterfly,
+	output 							o_butterfly_done,
+	output							w_mutiplier_done
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
 	wire        [N-1:0]     w_twiddle0_re;
@@ -204,13 +206,13 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 
 
 	wire 			[1:0]			Mux_switcher_butterfly;
-	wire 							w_clk_divided128;
+	wire 							w_clk_divided64;		
 	
 	assign o_Mux_switcher_butterfly = Mux_switcher_butterfly;
-	
+
 	control_unit #(.STAGES(STAGES)) control_unit 
 	(
-		.i_clk(w_clk_divided128),    
+		.i_clk(w_clk_divided64),    
 		.i_rst(i_rst),
 		.o_mux_sel(Mux_switcher_butterfly),
 		.o_cycle_done(o_FFT_cycle_done)
@@ -244,9 +246,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly0_in0_re 
 	(
 		.a(in0_re),
-		.b(w_out0_re_butterfly),
-		.c(w_out0_re_butterfly),
-		.d(w_out0_re_butterfly),
+		.b(out0_re),
+		.c(out0_re),
+		.d(out0_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux0_out0_re_butterfly_in)
 	);
@@ -254,9 +256,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly0_in0_im
 	(
 		.a(in0_im),
-		.b(w_out0_im_butterfly),
-		.c(w_out0_im_butterfly),
-		.d(w_out0_im_butterfly),
+		.b(out0_im),
+		.c(out0_im),
+		.d(out0_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux0_out0_im_butterfly_in)
 	);
@@ -264,9 +266,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly0_in1_re
 	(
 		.a(in8_re),
-		.b(w_out2_re_butterfly),
-		.c(w_out4_re_butterfly),
-		.d(w_out8_re_butterfly),
+		.b(out2_re),
+		.c(out4_re),
+		.d(out8_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux0_out1_re_butterfly_in)
 	);
@@ -274,9 +276,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly0_in1_im
 	(
 		.a(in8_im),
-		.b(w_out2_im_butterfly),
-		.c(w_out4_re_butterfly),
-		.d(w_out8_re_butterfly),
+		.b(out2_im),
+		.c(out4_im),
+		.d(out8_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux0_out1_im_butterfly_in)
 	);
@@ -317,7 +319,10 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.o_out0_re(w_out0_re_butterfly),
 		.o_out0_im(w_out0_im_butterfly),
 		.o_out1_re(w_out1_re_butterfly),
-		.o_out1_im(w_out1_im_butterfly)
+		.o_out1_im(w_out1_im_butterfly),
+		
+		.w_mutiplier_done(w_mutiplier_done),
+		.o_butterfly_done(o_butterfly_done)
 	);
 	/////////////////////////////////////////
 	//muxes for butterfly1///////////////////
@@ -325,9 +330,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly1_in0_re 
 	(
 		.a(in4_re),
-		.b(w_out1_re_butterfly),
-		.c(w_out1_re_butterfly),
-		.d(w_out1_re_butterfly),
+		.b(out1_re),
+		.c(out1_re),
+		.d(out1_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out0_re_butterfly_in)
 	);
@@ -335,9 +340,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly1_in0_im
 	(
 		.a(in4_im),
-		.b(w_out1_im_butterfly),
-		.c(w_out1_im_butterfly),
-		.d(w_out1_im_butterfly),
+		.b(out1_im),
+		.c(out1_im),
+		.d(out1_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out0_im_butterfly_in)
 	);
@@ -345,9 +350,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly1_in1_re
 	(
 		.a(in12_re),
-		.b(w_out3_re_butterfly),
-		.c(w_out5_re_butterfly),
-		.d(w_out9_re_butterfly),
+		.b(out3_re),
+		.c(out5_re),
+		.d(out9_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out1_re_butterfly_in)
 	);
@@ -355,9 +360,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly1_in1_im
 	(
 		.a(in12_im),
-		.b(w_out3_im_butterfly),
-		.c(w_out5_re_butterfly),
-		.d(w_out9_re_butterfly),
+		.b(out3_im),
+		.c(out5_im),
+		.d(out9_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out1_im_butterfly_in)
 	);
@@ -406,9 +411,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly2_in0_re 
 	(
 		.a(in2_re),
-		.b(w_out4_re_butterfly),
-		.c(w_out2_re_butterfly),
-		.d(w_out2_re_butterfly),
+		.b(out4_re),
+		.c(out2_re),
+		.d(out2_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out0_re_butterfly_in)
 	);
@@ -416,9 +421,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly2_in0_im
 	(
 		.a(in2_im),
-		.b(w_out4_im_butterfly),
-		.c(w_out2_im_butterfly),
-		.d(w_out2_im_butterfly),
+		.b(out4_im),
+		.c(out2_im),
+		.d(out2_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out0_im_butterfly_in)
 	);
@@ -426,9 +431,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly2_in1_re
 	(
 		.a(in10_re),
-		.b(w_out6_re_butterfly),
-		.c(w_out6_re_butterfly),
-		.d(w_out10_re_butterfly),
+		.b(out6_re),
+		.c(out6_re),
+		.d(out10_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out1_re_butterfly_in)
 	);
@@ -436,9 +441,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly2_in1_im
 	(
 		.a(in10_im),
-		.b(w_out6_im_butterfly),
-		.c(w_out6_re_butterfly),
-		.d(w_out10_re_butterfly),
+		.b(out6_im),
+		.c(out6_im),
+		.d(out10_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out1_im_butterfly_in)
 	);
@@ -487,9 +492,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly3_in0_re 
 	(
 		.a(in6_re),
-		.b(w_out5_re_butterfly),
-		.c(w_out3_re_butterfly),
-		.d(w_out3_re_butterfly),
+		.b(out5_re),
+		.c(out3_re),
+		.d(out3_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out0_re_butterfly_in)
 	);
@@ -497,9 +502,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly3_in0_im
 	(
 		.a(in6_im),
-		.b(w_out5_im_butterfly),
-		.c(w_out3_im_butterfly),
-		.d(w_out3_im_butterfly),
+		.b(out5_im),
+		.c(out3_im),
+		.d(out3_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out0_im_butterfly_in)
 	);
@@ -507,9 +512,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly3_in1_re
 	(
 		.a(in14_re),
-		.b(w_out7_re_butterfly),
-		.c(w_out7_re_butterfly),
-		.d(w_out11_re_butterfly),
+		.b(out7_re),
+		.c(out7_re),
+		.d(out11_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out1_re_butterfly_in)
 	);
@@ -517,9 +522,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly3_in1_im
 	(
 		.a(in14_im),
-		.b(w_out7_im_butterfly),
-		.c(w_out7_re_butterfly),
-		.d(w_out11_re_butterfly),
+		.b(out7_im),
+		.c(out7_im),
+		.d(out11_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out1_im_butterfly_in)
 	);
@@ -568,9 +573,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly4_in0_re 
 	(
 		.a(in1_re),
-		.b(w_out8_re_butterfly),
-		.c(w_out8_re_butterfly),
-		.d(w_out4_re_butterfly),
+		.b(out8_re),
+		.c(out8_re),
+		.d(out4_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out0_re_butterfly_in)
 	);
@@ -578,9 +583,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly4_in0_im
 	(
 		.a(in1_im),
-		.b(w_out8_im_butterfly),
-		.c(w_out8_im_butterfly),
-		.d(w_out4_im_butterfly),
+		.b(out8_im),
+		.c(out8_im),
+		.d(out4_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out0_im_butterfly_in)
 	);
@@ -588,9 +593,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly4_in1_re
 	(
 		.a(in9_re),
-		.b(w_out10_re_butterfly),
-		.c(w_out12_re_butterfly),
-		.d(w_out12_re_butterfly),
+		.b(out10_re),
+		.c(out12_re),
+		.d(out12_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out1_re_butterfly_in)
 	);
@@ -598,9 +603,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly4_in1_im
 	(
 		.a(in9_im),
-		.b(w_out10_im_butterfly),
-		.c(w_out12_re_butterfly),
-		.d(w_out12_re_butterfly),
+		.b(out10_im),
+		.c(out12_im),
+		.d(out12_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out1_im_butterfly_in)
 	);
@@ -649,9 +654,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly5_in0_re 
 	(
 		.a(in5_re),
-		.b(w_out9_re_butterfly),
-		.c(w_out9_re_butterfly),
-		.d(w_out5_re_butterfly),
+		.b(out9_re),
+		.c(out9_re),
+		.d(out5_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out0_re_butterfly_in)
 	);
@@ -659,9 +664,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly5_in0_im
 	(
 		.a(in5_im),
-		.b(w_out9_im_butterfly),
-		.c(w_out9_im_butterfly),
-		.d(w_out5_im_butterfly),
+		.b(out9_im),
+		.c(out9_im),
+		.d(out5_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out0_im_butterfly_in)
 	);
@@ -669,9 +674,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly5_in1_re
 	(
 		.a(in13_re),
-		.b(w_out11_re_butterfly),
-		.c(w_out13_re_butterfly),
-		.d(w_out13_re_butterfly),
+		.b(out11_re),
+		.c(out13_re),
+		.d(out13_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out1_re_butterfly_in)
 	);
@@ -679,9 +684,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly5_in1_im
 	(
 		.a(in13_im),
-		.b(w_out11_im_butterfly),
-		.c(w_out13_re_butterfly),
-		.d(w_out13_re_butterfly),
+		.b(out11_im),
+		.c(out13_im),
+		.d(out13_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out1_im_butterfly_in)
 	);
@@ -730,9 +735,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly6_in0_re 
 	(
 		.a(in3_re),
-		.b(w_out12_re_butterfly),
-		.c(w_out10_re_butterfly),
-		.d(w_out6_re_butterfly),
+		.b(out12_re),
+		.c(out10_re),
+		.d(out6_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out0_re_butterfly_in)
 	);
@@ -740,9 +745,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly6_in0_im
 	(
 		.a(in3_im),
-		.b(w_out12_im_butterfly),
-		.c(w_out10_im_butterfly),
-		.d(w_out6_im_butterfly),
+		.b(out12_im),
+		.c(out10_im),
+		.d(out6_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out0_im_butterfly_in)
 	);
@@ -750,9 +755,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly6_in1_re
 	(
 		.a(in11_re),
-		.b(w_out14_re_butterfly),
-		.c(w_out14_re_butterfly),
-		.d(w_out14_re_butterfly),
+		.b(out14_re),
+		.c(out14_re),
+		.d(out14_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out1_re_butterfly_in)
 	);
@@ -760,9 +765,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly6_in1_im
 	(
 		.a(in11_im),
-		.b(w_out14_im_butterfly),
-		.c(w_out14_re_butterfly),
-		.d(w_out14_re_butterfly),
+		.b(out14_im),
+		.c(out14_im),
+		.d(out14_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out1_im_butterfly_in)
 	);
@@ -811,9 +816,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	 mux4in1 #(.N(N)) mux_butterfly7_in0_re 
 	(
 		.a(in7_re),
-		.b(w_out13_re_butterfly),
-		.c(w_out11_re_butterfly),
-		.d(w_out7_re_butterfly),
+		.b(out13_re),
+		.c(out11_re),
+		.d(out7_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux7_out0_re_butterfly_in)
 	);
@@ -821,9 +826,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly7_in0_im
 	(
 		.a(in7_im),
-		.b(w_out13_im_butterfly),
-		.c(w_out11_im_butterfly),
-		.d(w_out7_im_butterfly),
+		.b(out13_im),
+		.c(out11_im),
+		.d(out7_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux7_out0_im_butterfly_in)
 	);
@@ -831,9 +836,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly7_in1_re
 	(
 		.a(in15_re),
-		.b(w_out15_re_butterfly),
-		.c(w_out15_re_butterfly),
-		.d(w_out15_re_butterfly),
+		.b(out15_re),
+		.c(out15_re),
+		.d(out15_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux7_out1_re_butterfly_in)
 	);
@@ -841,9 +846,9 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	mux4in1 #(.N(N)) mux_butterfly7_in1_im
 	(
 		.a(in15_im),
-		.b(w_out15_im_butterfly),
-		.c(w_out15_re_butterfly),
-		.d(w_out15_re_butterfly),
+		.b(out15_im),
+		.c(out15_im),
+		.d(out15_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux7_out1_im_butterfly_in)
 	);
@@ -890,8 +895,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	
 	ram_16_byte #( .N(N)) ram_out
 	(
-		.i_clk(i_clk),
 		.i_rst(i_rst),
+		.we(o_butterfly_done),
 		.in0_re(w_out0_re_butterfly),
 		.in0_im(w_out0_im_butterfly),
 		.in1_re(w_out1_re_butterfly),
@@ -968,8 +973,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.o_clk_divided8(),
 		.o_clk_divided16(),
 		.o_clk_divided32(),
-		.o_clk_divided64(),
-		.o_clk_divided128(w_clk_divided128)
+		.o_clk_divided64(w_clk_divided64),
+		.o_clk_divided128()
 	);
 endmodule
 

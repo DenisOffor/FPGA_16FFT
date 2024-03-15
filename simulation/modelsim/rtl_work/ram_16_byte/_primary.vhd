@@ -5,8 +5,8 @@ entity ram_16_byte is
         N               : integer := 16
     );
     port(
-        i_clk           : in     vl_logic;
         i_rst           : in     vl_logic;
+        we              : in     vl_logic;
         in0_re          : in     vl_logic_vector;
         in0_im          : in     vl_logic_vector;
         in1_re          : in     vl_logic_vector;

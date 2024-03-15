@@ -1,7 +1,7 @@
 module ram_16_byte #(parameter N = 16)
 (
-	input 						i_clk,
 	input							i_rst,
+	input							we,
 	input				[N-1:0]	in0_re,
 	input				[N-1:0]	in0_im,
 	input				[N-1:0]	in1_re,
@@ -68,7 +68,7 @@ module ram_16_byte #(parameter N = 16)
 	output	reg 	[N-1:0]	out15_re,
 	output	reg 	[N-1:0]	out15_im
 );
-	always @(posedge i_clk or posedge i_rst) begin
+	always @(posedge i_rst or negedge we) begin
 		if(i_rst) begin
 			out0_re 	<= 0;
 			out0_im 	<= 0;

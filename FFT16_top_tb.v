@@ -27,11 +27,13 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 	
 	output 			[N-1:0]		w_Mux0_out_twiddle_re,
 	output 			[N-1:0]     w_Mux0_out_twiddle_im,
-	output			[1:0]			o_Mux_switcher_butterfly
+	output			[1:0]			o_Mux_switcher_butterfly,
+	output 							o_butterfly_done,
+	output							w_mutiplier_done
 );
 
 	reg clk = 0;
-	reg [N-1:0] in_1Hz, in_2Hz, in_4Hz, in_8Hz;
+	reg [N-1:0] in_1Hz, in_2Hz, in_4Hz, in_8Hz, in_9HZ;
 	
 	initial begin		
 		#0 in_1Hz = 16'b0000000100000000;
@@ -44,6 +46,8 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 		//#0 i_twiddle_im = 16'b0000000011001001;
 		
 		#0 in_8Hz = 16'b0000010000000000;
+		
+		#0 in_9HZ = 16'b0000010100000000;
 	end
 	
 	always @(*)
@@ -69,7 +73,7 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 		.in6_im(0),
 		.in7_re(in_8Hz),
 		.in7_im(0),
-		.in8_re(0),
+		.in8_re(in_9HZ),
 		.in8_im(0),
 		.in9_re(0),
 		.in9_im(0),
@@ -133,7 +137,9 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 		
 		.w_Mux0_out_twiddle_re(w_Mux0_out_twiddle_re),
 		.w_Mux0_out_twiddle_im(w_Mux0_out_twiddle_im),
-		.o_Mux_switcher_butterfly(o_Mux_switcher_butterfly)
+		.o_Mux_switcher_butterfly(o_Mux_switcher_butterfly),
+		.o_butterfly_done(o_butterfly_done),
+		.w_mutiplier_done(w_mutiplier_done)
 	);
 
 endmodule

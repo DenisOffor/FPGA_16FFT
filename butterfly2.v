@@ -17,14 +17,17 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	output 	[N-1:0]		o_out0_re,
 	output 	[N-1:0]		o_out0_im,
 	output 	[N-1:0]		o_out1_re,
-	output 	[N-1:0]		o_out1_im
+	output 	[N-1:0]		o_out1_im,
+	
+	output					w_mutiplier_done,
+	output 					o_butterfly_done
 );
 
 	//wires for divided i_clk
 	wire 						clk_divided16;
 	wire 						clk_divided32;
 	//wire for connect "multiple done" with "write_enable" for flash
-	wire 						mutiplier_done;
+	//wire 						w_mutiplier_done;
 	//current input data chosen for multiply them
 	wire 		[N-1:0] 		current_factor1;
 	wire 		[N-1:0] 		current_factor2;
@@ -35,12 +38,34 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	//wires fan out from flash to adders 
 	wire		[N-1:0]		w_out_re0, w_out_re1, w_out_im0, w_out_im1;
 	wire		[N-1:0]		w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
+	
+	reg 		[2:0] 		counter_of_signals_multiplier_done;
+	reg  						r_butterfly_done;
+	
+	assign o_butterfly_done = r_butterfly_done; 
+	
+	initial begin
+		counter_of_signals_multiplier_done <= 0;
+		r_butterfly_done <= 0;
+	end
+	 
+	always @(w_mutiplier_done) begin
+		if(w_mutiplier_done) begin
+			counter_of_signals_multiplier_done <= counter_of_signals_multiplier_done + 1;
+			if(counter_of_signals_multiplier_done == 3) begin
+				r_butterfly_done <= 1;
+				counter_of_signals_multiplier_done <= 0;
+			end
+		end
+		else
+			r_butterfly_done <= 0;
+	end
 	 //////////////////////
 	 flash #(.N(N)) flash1
 	 ( 
 		   .i_clk(i_clk),
 		   .i_word(out_multiplier),
-		   .write_enable(mutiplier_done),
+		   .write_enable(w_mutiplier_done),
 		   .address({clk_divided32, clk_divided16}),
 		   .o_word0(w_out_re0),
 		   .o_word1(w_out_im0),
@@ -51,7 +76,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	 ( 
 		   .i_clk(i_clk),
 		   .i_word(out_multiplier_negative),
-		   .write_enable(mutiplier_done),
+		   .write_enable(w_mutiplier_done),
 		   .address({clk_divided32, clk_divided16}),
 		   .o_word0(w_out_re0_neg),
 		   .o_word1(w_out_im0_neg),
@@ -81,7 +106,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
         .i_A(current_factor1),
         .i_B(current_factor2),
         .out(out_multiplier),
-		  .o_multipl_done(mutiplier_done)
+		  .o_multipl_done(w_mutiplier_done)
     );
 	 //make the complement
     get_negative #(.N(N)) neg1
