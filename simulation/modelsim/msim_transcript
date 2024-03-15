@@ -70,48 +70,35 @@
 # 
 # Top level modules:
 # 	ram_16_byte
-# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module FFT_for_OFDM
-# 
-# Top level modules:
-# 	FFT_for_OFDM
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module mux4in1
 # 
 # Top level modules:
 # 	mux4in1
-# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module ram_for_signal
-# 
-# Top level modules:
-# 	ram_for_signal
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module control_unit
 # 
 # Top level modules:
 # 	control_unit
-# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module FFT_for_OFDM_tb
+# -- Compiling module FFT16_top_tb
 # 
 # Top level modules:
-# 	FFT_for_OFDM_tb
+# 	FFT16_top_tb
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_8FFT {C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module FFT_for_OFDM_tb
+# -- Compiling module FFT16_top_tb
 # 
 # Top level modules:
-# 	FFT_for_OFDM_tb
+# 	FFT16_top_tb
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  FFT_for_OFDM_tb
-# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps FFT_for_OFDM_tb 
-# Loading work.FFT_for_OFDM_tb
-# Loading work.FFT_for_OFDM
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  FFT16_top_tb
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps FFT16_top_tb 
+# Loading work.FFT16_top_tb
 # Loading work.FFT16_top
 # Loading work.control_unit
 # Loading work.rom_twiddle
@@ -124,439 +111,127 @@
 # Loading work.adder3
 # Loading work.clock_divider
 # Loading work.ram_16_byte
-# Loading work.ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v(42): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(4).
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(4).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v(42): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in_1Hz_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(7).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in0_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(6).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v(42): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in_2Hz_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(9).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in1_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(8).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v(42): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in_4Hz_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(11).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(9).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM_tb.v(42): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in_8Hz_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(13).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(10).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(9).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in3_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(12).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(10).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(13).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(13).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(14).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(14).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in5_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(16).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in5_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(15).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(17).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in5_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(16).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(18).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(17).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in7_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(20).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(18).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(21).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(21).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(22).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(22).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(23).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(23).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(24).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(24).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in10_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(25).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in10_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(25).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(27).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in10_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(26).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(28).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(27).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(29).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(28).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(30).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(29).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(31).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(30).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(32).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(31).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(33).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(32).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(34).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(33).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(35).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(34).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top_tb.v(137): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(36).
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(35).
+#         Region: /FFT16_top_tb/FFT16_top
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(36).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly0/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out0_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(38).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out0_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(39).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly1/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out1_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(40).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out1_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(41).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly2/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out2_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(42).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out2_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(43).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly3/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out3_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(44).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out3_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(45).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly4/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out4_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(46).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out4_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(47).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly5/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out5_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(48).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out5_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(49).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly6/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out6_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(50).
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Too few port connections. Expected 9, found 8.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out6_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(51).
+#         Region: /FFT16_top_tb/FFT16_top/butterfly7/clc_div
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/butterfly2.v(140): [TFMPC] - Missing connection for port 'o_clk_divided128'.
 # 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out7_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(52).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out7_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(53).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out8_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(54).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out8_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(55).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out9_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(56).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out9_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(57).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out10_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(58).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out10_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(59).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out11_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(60).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out11_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(61).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out12_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(62).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out12_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(63).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out13_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(64).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out13_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(65).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out14_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(66).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out14_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(67).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out15_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(68).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(133): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'out15_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(69).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(235): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'o_mux_sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/control_unit.v(5).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/control_unit
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(270): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(280): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(290): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(300): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(310): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(320): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly0_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(351): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(361): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(371): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(381): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(391): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(401): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly1_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(432): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(442): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(452): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(462): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(472): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(482): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly2_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(513): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(523): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(533): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(543): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(553): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(563): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly3_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(594): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(604): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(614): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(624): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(634): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(644): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly4_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(675): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(685): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(695): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(705): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(715): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(725): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly5_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(756): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(766): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(776): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(786): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(796): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(806): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly6_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(837): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_in0_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(847): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_in0_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(857): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_in1_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(867): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_in1_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(877): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_twi_re
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT16_top.v(887): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'sel'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/mux4in1.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/FFT16/mux_butterfly7_twi_im
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (4 or 4) does not match connection size (32) for port 'addr'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(4).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 're'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(5).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data00_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(6).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data01_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(7).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data02_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(8).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data03_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(9).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data04_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(10).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data05_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(11).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data06_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(12).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data07_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(13).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data08_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(14).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data09_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(15).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data10_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(16).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data11_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(17).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data12_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(18).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data13_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(19).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data14_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(20).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data15_r'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(21).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data00_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(23).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data01_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(24).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data02_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(25).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data03_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(26).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data04_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(27).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data05_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(28).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data06_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(29).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data07_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(30).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data08_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(31).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data09_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(32).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data10_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(33).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data11_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(34).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data12_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(35).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data13_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(36).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data14_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(37).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_8FFT/FFT_for_OFDM.v(175): [PCDPC] - Port size (16 or 16) does not match connection size (1) for port 'data15_i'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_8FFT/ram_for_signal.v(38).
-# 
-#         Region: /FFT_for_OFDM_tb/FFT_for_OFDM/ram_for_signal
 # 
 # add wave *
 # view structure

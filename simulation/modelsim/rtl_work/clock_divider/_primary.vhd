@@ -9,6 +9,7 @@ entity clock_divider is
         o_clk_divided8  : out    vl_logic;
         o_clk_divided16 : out    vl_logic;
         o_clk_divided32 : out    vl_logic;
-        o_clk_divided64 : out    vl_logic
+        o_clk_divided64 : out    vl_logic;
+        o_clk_divided128: out    vl_logic
     );
 end clock_divider;

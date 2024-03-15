@@ -21,18 +21,21 @@ module butterfly2_tb #(parameter N = 16, Q = 8)
 	end
 	
 	always @(*)
-		#100 clk <= ~clk;
+		#10 clk <= ~clk;
 	
 	butterfly2 #(.N(N), .Q(Q)) but2 
 	(
 		.i_clk(clk),
 		.i_rst(0),
+		
 	 	.i_in0_re(i_in0_re),
 	 	.i_in0_im(i_in0_im),
 	 	.i_in1_re(i_in1_re),
 	 	.i_in1_im(i_in1_im),
+		
 	 	.i_twiddle_re(i_twiddle_re),
 	 	.i_twiddle_im(i_twiddle_im),
+		
 		.o_out0_re(o_out0_re),
 		.o_out0_im(o_out0_im),
 		.o_out1_re(o_out1_re),
