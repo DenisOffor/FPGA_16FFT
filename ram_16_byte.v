@@ -68,7 +68,7 @@ module ram_16_byte #(parameter N = 16)
 	output	reg 	[N-1:0]	out15_re,
 	output	reg 	[N-1:0]	out15_im
 );
-	always @(posedge i_rst or negedge we) begin
+	always @(posedge i_rst or posedge we) begin
 		if(i_rst) begin
 			out0_re 	<= 0;
 			out0_im 	<= 0;

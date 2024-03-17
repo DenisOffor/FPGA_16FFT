@@ -1,7 +1,7 @@
 module rom_twiddle #(parameter N = 16)
 (
-	input				clk,
-	input				rst,
+	input 					i_clk,
+	input						i_rst,
 	output reg [N-1:0]	reg0_re,
 	output reg [N-1:0]	reg0_im,	
 	output reg [N-1:0]	reg1_re,
@@ -19,8 +19,8 @@ module rom_twiddle #(parameter N = 16)
 	output reg [N-1:0]	reg7_re,
 	output reg [N-1:0]	reg7_im
 );
-	always @ (posedge clk or posedge rst) begin
-		if(rst) begin
+	always @ (posedge i_clk or posedge i_rst) begin
+		if(i_rst) begin
 			reg0_re  <= 0;
 			reg0_im  <= 0;
 			reg1_re  <= 0;

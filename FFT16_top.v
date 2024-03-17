@@ -69,22 +69,16 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	output       	[N-1:0]     out15_im,
 	
 	output 							o_FFT_cycle_done,
-	
-	output 			[N-1:0]		w_out0_re_butterfly,
-	output 			[N-1:0]     w_out0_im_butterfly,
-	output 			[N-1:0]     w_out1_re_butterfly,
-	output 			[N-1:0]     w_out1_im_butterfly,
-	
-	output 			[N-1:0]		w_Mux0_out0_re_butterfly_in,
-	output 			[N-1:0]     w_Mux0_out0_im_butterfly_in,
-	output 			[N-1:0]     w_Mux0_out1_re_butterfly_in,
-	output 			[N-1:0]     w_Mux0_out1_im_butterfly_in,
-	
-	output 			[N-1:0]		w_Mux0_out_twiddle_re,
-	output 			[N-1:0]     w_Mux0_out_twiddle_im,
-	output 			[1:0]			o_Mux_switcher_butterfly,
 	output 							o_butterfly_done,
-	output							w_mutiplier_done
+	
+	//output 			[N-1:0]		w_Mux0_out0_re_butterfly_in,
+	//output         [N-1:0]     w_Mux0_out0_im_butterfly_in,
+	//output         [N-1:0]     w_Mux0_out1_re_butterfly_in,
+	//output         [N-1:0]     w_Mux0_out1_im_butterfly_in,
+	//
+	//output         [N-1:0]     w_Mux0_out_twiddle_re,
+	//output         [N-1:0]     w_Mux0_out_twiddle_im,
+	output 				[1:0]			Mux_switcher_butterfly
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
 	wire        [N-1:0]     w_twiddle0_re;
@@ -105,10 +99,10 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	wire        [N-1:0]     w_twiddle7_im;
 	
 	//instant of muxes of inputs of mac
-	//wire       	[N-1:0]     w_Mux0_out0_re_butterfly_in;
-	//wire       	[N-1:0]     w_Mux0_out0_im_butterfly_in;
-	//wire       	[N-1:0]     w_Mux0_out1_re_butterfly_in;
-	//wire       	[N-1:0]     w_Mux0_out1_im_butterfly_in;
+	wire       	[N-1:0]     w_Mux0_out0_re_butterfly_in;
+	wire       	[N-1:0]     w_Mux0_out0_im_butterfly_in;
+	wire       	[N-1:0]     w_Mux0_out1_re_butterfly_in;
+	wire       	[N-1:0]     w_Mux0_out1_im_butterfly_in;
 
 	wire       	[N-1:0]     w_Mux1_out0_re_butterfly_in;
 	wire       	[N-1:0]     w_Mux1_out0_im_butterfly_in;
@@ -146,10 +140,10 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	wire       	[N-1:0]     w_Mux7_out1_im_butterfly_in;
 	
 	//instant of butterfly2
-	//wire        [N-1:0]     w_out0_re_butterfly;
-	//wire        [N-1:0]     w_out0_im_butterfly;
-	//wire        [N-1:0]     w_out1_re_butterfly;
-	//wire        [N-1:0]     w_out1_im_butterfly;
+	wire        [N-1:0]     w_out0_re_butterfly;
+	wire        [N-1:0]     w_out0_im_butterfly;
+	wire        [N-1:0]     w_out1_re_butterfly;
+	wire        [N-1:0]     w_out1_im_butterfly;
 	wire        [N-1:0]     w_out2_re_butterfly;
 	wire        [N-1:0]     w_out2_im_butterfly;
 	wire        [N-1:0]     w_out3_re_butterfly;
@@ -180,8 +174,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	wire        [N-1:0]     w_out15_im_butterfly;
 	
 	//instant of muxes of twiddle
-	//wire    		[N-1:0] 		w_Mux0_out_twiddle_re;
-	//wire    		[N-1:0] 		w_Mux0_out_twiddle_im;
+	wire    		[N-1:0] 		w_Mux0_out_twiddle_re;
+	wire    		[N-1:0] 		w_Mux0_out_twiddle_im;
 
 	wire    		[N-1:0] 		w_Mux1_out_twiddle_re;
 	wire    		[N-1:0] 		w_Mux1_out_twiddle_im;
@@ -205,14 +199,13 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	wire    		[N-1:0] 		w_Mux7_out_twiddle_im;
 
 
-	wire 			[1:0]			Mux_switcher_butterfly;
-	wire 							w_clk_divided64;		
+	//wire 			[1:0]			Mux_switcher_butterfly;
+	wire 							clk_divided32;		
 	
-	assign o_Mux_switcher_butterfly = Mux_switcher_butterfly;
 
 	control_unit #(.STAGES(STAGES)) control_unit 
 	(
-		.i_clk(w_clk_divided64),    
+		.i_clk(o_butterfly_done),    
 		.i_rst(i_rst),
 		.o_mux_sel(Mux_switcher_butterfly),
 		.o_cycle_done(o_FFT_cycle_done)
@@ -221,8 +214,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	
 	rom_twiddle #(.N(N)) twiddle_rom 
 	(
-		.clk(i_clk),
-		.rst(i_rst),
+		.i_clk(i_clk),
+		.i_rst(i_rst),
 		.reg0_re(w_twiddle0_re),
 		.reg0_im(w_twiddle0_im),	
 		.reg1_re(w_twiddle1_re),
@@ -321,7 +314,6 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.o_out1_re(w_out1_re_butterfly),
 		.o_out1_im(w_out1_im_butterfly),
 		
-		.w_mutiplier_done(w_mutiplier_done),
 		.o_butterfly_done(o_butterfly_done)
 	);
 	/////////////////////////////////////////
@@ -964,17 +956,11 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out15_im(out15_im)
 	);
 
-	clock_divider clc_div
+	 clock_divider clc_div
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
-		.o_clk_divided2(),
-		.o_clk_divided4(),
-		.o_clk_divided8(),
-		.o_clk_divided16(),
-		.o_clk_divided32(),
-		.o_clk_divided64(w_clk_divided64),
-		.o_clk_divided128()
+		.o_clk_divided32(clk_divided32)
 	);
 endmodule
 

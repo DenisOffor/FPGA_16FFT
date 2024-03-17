@@ -5,8 +5,8 @@ entity rom_twiddle is
         N               : integer := 16
     );
     port(
-        clk             : in     vl_logic;
-        rst             : in     vl_logic;
+        i_clk           : in     vl_logic;
+        i_rst           : in     vl_logic;
         reg0_re         : out    vl_logic_vector;
         reg0_im         : out    vl_logic_vector;
         reg1_re         : out    vl_logic_vector;

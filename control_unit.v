@@ -18,8 +18,8 @@ module control_unit #(parameter STAGES = 4)
 			counter <= 0;
 			r_cycle_done <= 0;
 		end
-		else if(r_cycle_done == 0) begin
-			counter  <= counter + 1;
+		else begin
+			counter <= counter + 1;
 			if(counter == 4) begin
 				counter <= 0;
 				r_cycle_done <= 1;

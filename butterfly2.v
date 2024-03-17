@@ -19,13 +19,14 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	output 	[N-1:0]		o_out1_re,
 	output 	[N-1:0]		o_out1_im,
 	
-	output					w_mutiplier_done,
-	output 					o_butterfly_done
+	output 					o_butterfly_done,
+	output					clk_divided8,
+	output					clk_divided16
 );
 
 	//wires for divided i_clk
-	wire 						clk_divided16;
-	wire 						clk_divided32;
+	//wire 						clk_divided16;
+	//wire 						clk_divided32;
 	//wire for connect "multiple done" with "write_enable" for flash
 	//wire 						w_mutiplier_done;
 	//current input data chosen for multiply them
@@ -39,74 +40,69 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	wire		[N-1:0]		w_out_re0, w_out_re1, w_out_im0, w_out_im1;
 	wire		[N-1:0]		w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
 	
-	reg 		[2:0] 		counter_of_signals_multiplier_done;
 	reg  						r_butterfly_done;
 	
 	assign o_butterfly_done = r_butterfly_done; 
-	
+
 	initial begin
-		counter_of_signals_multiplier_done <= 0;
 		r_butterfly_done <= 0;
 	end
-	 
-	always @(w_mutiplier_done) begin
-		if(w_mutiplier_done) begin
-			counter_of_signals_multiplier_done <= counter_of_signals_multiplier_done + 1;
-			if(counter_of_signals_multiplier_done == 3) begin
-				r_butterfly_done <= 1;
-				counter_of_signals_multiplier_done <= 0;
-			end
-		end
-		else
-			r_butterfly_done <= 0;
+	
+	
+	always @(clk_divided8, clk_divided16) begin
+		if(i_rst)
+			r_butterfly_done <= 1'b0;
+		else if(~clk_divided8 && ~ clk_divided16)
+			r_butterfly_done <= 1'b1;
+			else
+				r_butterfly_done <= 1'b0;
 	end
 	 //////////////////////
 	 flash #(.N(N)) flash1
 	 ( 
-		   .i_clk(i_clk),
-		   .i_word(out_multiplier),
-		   .write_enable(w_mutiplier_done),
-		   .address({clk_divided32, clk_divided16}),
-		   .o_word0(w_out_re0),
-		   .o_word1(w_out_im0),
-		   .o_word2(w_out_im1),
-		   .o_word3(w_out_re1)
+		.i_clk(i_clk),
+		.i_word(out_multiplier),
+		.write_enable(1),
+		.address({clk_divided16, clk_divided8}),
+		.o_word0(w_out_re0),
+		.o_word1(w_out_im0),
+		.o_word2(w_out_im1),
+		.o_word3(w_out_re1)
 	 );
 	 flash #(.N(N)) flash2
 	 ( 
-		   .i_clk(i_clk),
-		   .i_word(out_multiplier_negative),
-		   .write_enable(w_mutiplier_done),
-		   .address({clk_divided32, clk_divided16}),
-		   .o_word0(w_out_re0_neg),
-		   .o_word1(w_out_im0_neg),
-		   .o_word2(w_out_im1_neg),
-		   .o_word3(w_out_re1_neg)
+		.i_clk(i_clk),
+		.i_word(out_multiplier_negative),
+		.write_enable(1),
+		.address({clk_divided16, clk_divided8}),
+		.o_word0(w_out_re0_neg),
+		.o_word1(w_out_im0_neg),
+		.o_word2(w_out_im1_neg),
+		.o_word3(w_out_re1_neg)
 	 );
 	  //////////////////////////////
 	  mux2in1 #(.N(N)) mux1
 	 (
 		  .a(i_in1_re),
 		  .b(i_in1_im),
-		  .sel(clk_divided16),
+		  .sel(clk_divided8),
 		  .out(current_factor1)
 	  );
      mux2in1 #(.N(N)) mux2
 	 (
 		  .a(i_twiddle_re),
 		  .b(i_twiddle_im),
-		  .sel(clk_divided32),
+		  .sel(clk_divided16),
 		  .out(current_factor2)
 	  );  
 	  ///////////////////////////////
 	  multiplier #(.N(N), .Q(Q)) M1
     (
         .i_clk(i_clk),
-        .i_rst(i_rst),
+        .i_rst(reset & ~i_rst),
         .i_A(current_factor1),
         .i_B(current_factor2),
-        .out(out_multiplier),
-		  .o_multipl_done(w_mutiplier_done)
+        .out(out_multiplier)
     );
 	 //make the complement
     get_negative #(.N(N)) neg1
@@ -156,11 +152,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
-		.o_clk_divided2(),
-		.o_clk_divided4(),
-		.o_clk_divided8(),
-		.o_clk_divided16(clk_divided16),
-		.o_clk_divided32(clk_divided32),
-		.o_clk_divided64()
+		.o_clk_divided8(clk_divided8),
+		.o_clk_divided16(clk_divided16)
 	);
 endmodule

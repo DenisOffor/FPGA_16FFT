@@ -14,12 +14,12 @@
 
 
 // 
-// Device: Altera EP4CE115F29C9L Package FBGA780
+// Device: Altera EP4CE30F29C6 Package FBGA780
 // 
 
 //
-// This file contains Slow Corner delays for the design using part EP4CE115F29C9L,
-// with speed grade 9L, core voltage 1.0V, and temperature 85 Celsius
+// This file contains Slow Corner delays for the design using part EP4CE30F29C6,
+// with speed grade 6, core voltage 1.2V, and temperature 0 Celsius
 //
 
 // 
@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "FFT16_top_tb")
-  (DATE "03/15/2024 16:05:46")
+  (DATE "03/17/2024 18:00:09")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version")

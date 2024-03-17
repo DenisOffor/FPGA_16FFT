@@ -74,19 +74,8 @@ entity FFT16_top is
         out15_re        : out    vl_logic_vector;
         out15_im        : out    vl_logic_vector;
         o_FFT_cycle_done: out    vl_logic;
-        w_out0_re_butterfly: out    vl_logic_vector;
-        w_out0_im_butterfly: out    vl_logic_vector;
-        w_out1_re_butterfly: out    vl_logic_vector;
-        w_out1_im_butterfly: out    vl_logic_vector;
-        w_Mux0_out0_re_butterfly_in: out    vl_logic_vector;
-        w_Mux0_out0_im_butterfly_in: out    vl_logic_vector;
-        w_Mux0_out1_re_butterfly_in: out    vl_logic_vector;
-        w_Mux0_out1_im_butterfly_in: out    vl_logic_vector;
-        w_Mux0_out_twiddle_re: out    vl_logic_vector;
-        w_Mux0_out_twiddle_im: out    vl_logic_vector;
-        o_Mux_switcher_butterfly: out    vl_logic_vector(1 downto 0);
         o_butterfly_done: out    vl_logic;
-        w_mutiplier_done: out    vl_logic
+        Mux_switcher_butterfly: out    vl_logic_vector(1 downto 0)
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of N : constant is 1;
