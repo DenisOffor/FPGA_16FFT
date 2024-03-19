@@ -52,7 +52,7 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 	
 	initial begin
 		#0 rst = 1;
-		#20 rst = 0;
+		#100 rst = 0;
 		#0 in_1Hz = 16'b0000000100000000;
 		//#0 i_in0_im = 16'b0000000011001001;
 	
@@ -65,6 +65,11 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 		#0 in_8Hz = 16'b0000010000000000;
 		
 		#0 in_9HZ = 16'b0000010100000000;
+		
+		#1500 in_1Hz = 16'b0000001000000000;
+		#0 in_2Hz = 16'b0000001000000000;
+		#0 rst = 1;
+		#100 rst = 0;
 	end
 	
 	always @(*)
@@ -73,7 +78,7 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 	FFT16_top #(.N(N), .Q(Q), .STAGES(STAGES)) FFT16_top
 	(
 		.i_clk(clk),
-		.i_rst(0),
+		.i_rst(rst),
 		.in0_re(in_1Hz),
 		.in0_im(16'b0000000000000000),
 		.in1_re(in_2Hz),

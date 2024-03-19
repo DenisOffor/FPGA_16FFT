@@ -7,7 +7,6 @@ entity flash is
     port(
         i_clk           : in     vl_logic;
         i_word          : in     vl_logic_vector;
-        write_enable    : in     vl_logic;
         address         : in     vl_logic_vector(1 downto 0);
         o_word0         : out    vl_logic_vector;
         o_word1         : out    vl_logic_vector;

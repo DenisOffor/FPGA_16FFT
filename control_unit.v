@@ -19,10 +19,10 @@ module control_unit #(parameter STAGES = 4)
 			r_cycle_done <= 0;
 		end
 		else begin
-			counter <= counter + 1;
-			if(counter == 4) begin
+			counter <= counter + 1'b1;
+			if(counter == STAGES - 1) begin
 				counter <= 0;
-				r_cycle_done <= 1;
+				r_cycle_done <= 1'b1;
 			end
 		end
 	end

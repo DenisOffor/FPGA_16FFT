@@ -18,10 +18,10 @@ module clock_divider
 	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
-			counter <= 0;
+			counter <= 7'b0000000;
 		end
 		else begin
-			counter <= counter + 1;
+			counter <= counter + 1'b1;
 		end
 	end
 

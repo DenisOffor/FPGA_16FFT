@@ -2,7 +2,6 @@ module flash #(parameter N = 16)
 (
 	input 						i_clk,
 	input 			[N-1:0] 	i_word,
-	input 						write_enable,
 	input				[1:0]		address,
 	output 	reg 	[N-1:0]	o_word0,
 	output 	reg 	[N-1:0]	o_word1,
@@ -18,9 +17,7 @@ module flash #(parameter N = 16)
 		mem[3] <= 0;
 	end
 	always @(*) begin
-		if(write_enable) begin
-			mem[address] <= i_word; 
-		end
+		mem[address] <= i_word; 
 	end
 	
 	always @(*) begin

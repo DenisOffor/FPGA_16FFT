@@ -69,19 +69,23 @@ set_global_assignment -name VERILOG_FILE ram_16_byte.v
 set_global_assignment -name VERILOG_FILE mux4in1.v
 set_global_assignment -name VERILOG_FILE ram_for_signal.v
 set_global_assignment -name VERILOG_FILE control_unit.v
-set_global_assignment -name EDA_TEST_BENCH_NAME butterfly2_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id butterfly2_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME butterfly2_tb -section_id butterfly2_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME FFT16_top_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FFT16_top_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FFT16_top_tb -section_id FFT16_top_tb
 set_global_assignment -name VERILOG_FILE Frequency_Divider_86.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb.v -section_id butterfly2_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE FFT16_top_tb.v -section_id FFT16_top_tb
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb.v -section_id butterfly2_tb
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_formal_verification
+set_global_assignment -name EDA_TEST_BENCH_NAME FFT_for_OFDM_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FFT_for_OFDM_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FFT_for_OFDM_tb -section_id FFT_for_OFDM_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_FILE FFT16_top_tb.v -section_id FFT16_top_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE FFT_for_OFDM_tb.v -section_id FFT_for_OFDM_tb

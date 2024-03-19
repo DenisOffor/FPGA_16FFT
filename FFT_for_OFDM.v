@@ -13,50 +13,53 @@ module FFT_for_OFDM #(parameter N = 16, Q = 8, STAGES = 4)
 	input 			[N-1:0]		in_8Hz_im,
 	
 	output			[2*N-1:0]	out_instant,
-	output							o_FFT_cycle_done
+	output							o_FFT_cycle_done,
+	output reg		[STAGES-1:0]fft_out_switcher
 );
-	wire 			w_fft_out0_re;
-	wire 			w_fft_out0_im;
-	wire 			w_fft_out1_re;
-	wire 			w_fft_out1_im;
-	wire 			w_fft_out2_re;
-	wire 			w_fft_out2_im;
-	wire 			w_fft_out3_re;
-	wire 			w_fft_out3_im;
-	wire 			w_fft_out4_re;
-	wire 			w_fft_out4_im;
-	wire 			w_fft_out5_re;
-	wire 			w_fft_out5_im;
-	wire 			w_fft_out6_re;
-	wire 			w_fft_out6_im;
-	wire 			w_fft_out7_re;
-	wire 			w_fft_out7_im;
-	wire 			w_fft_out8_re;
-	wire 			w_fft_out8_im;
-	wire 			w_fft_out9_re;
-	wire 			w_fft_out9_im;
-	wire 			w_fft_out10_re;
-	wire 			w_fft_out10_im;
-	wire 			w_fft_out11_re;
-	wire 			w_fft_out11_im;
-	wire 			w_fft_out12_re;
-	wire 			w_fft_out12_im;
-	wire 			w_fft_out13_re;
-	wire 			w_fft_out13_im;
-	wire 			w_fft_out14_re;
-	wire 			w_fft_out14_im;
-	wire 			w_fft_out15_re;
-	wire 			w_fft_out15_im;
+	wire 		[N-1:0]	w_fft_out0_re;
+	wire 		[N-1:0]	w_fft_out0_im;
+	wire 		[N-1:0]	w_fft_out1_re;
+	wire 		[N-1:0]	w_fft_out1_im;
+	wire 		[N-1:0]	w_fft_out2_re;
+	wire 		[N-1:0]	w_fft_out2_im;
+	wire 		[N-1:0]	w_fft_out3_re;
+	wire 		[N-1:0]	w_fft_out3_im;
+	wire 		[N-1:0]	w_fft_out4_re;
+	wire 		[N-1:0]	w_fft_out4_im;
+	wire 		[N-1:0]	w_fft_out5_re;
+	wire 		[N-1:0]	w_fft_out5_im;
+	wire 		[N-1:0]	w_fft_out6_re;
+	wire 		[N-1:0]	w_fft_out6_im;
+	wire 		[N-1:0]	w_fft_out7_re;
+	wire 		[N-1:0]	w_fft_out7_im;
+	wire 		[N-1:0]	w_fft_out8_re;
+	wire 		[N-1:0]	w_fft_out8_im;
+	wire 		[N-1:0]	w_fft_out9_re;
+	wire 		[N-1:0]	w_fft_out9_im;
+	wire 		[N-1:0]	w_fft_out10_re;
+	wire 		[N-1:0]	w_fft_out10_im;
+	wire 		[N-1:0]	w_fft_out11_re;
+	wire 		[N-1:0]	w_fft_out11_im;
+	wire 		[N-1:0]	w_fft_out12_re;
+	wire 		[N-1:0]	w_fft_out12_im;
+	wire 		[N-1:0]	w_fft_out13_re;
+	wire 		[N-1:0]	w_fft_out13_im;
+	wire 		[N-1:0]	w_fft_out14_re;
+	wire 		[N-1:0]	w_fft_out14_im;
+	wire 		[N-1:0]	w_fft_out15_re;
+	wire 		[N-1:0]	w_fft_out15_im;
 
 	wire 			w_re;
-	reg [3:0] 	fft_out_switcher;
+	//reg [3:0] 	fft_out_switcher;
 	
 	initial begin
 		fft_out_switcher <= 0;
 	end
 	
 	always @(posedge i_clk) begin
-	
+		if(o_FFT_cycle_done) begin
+			fft_out_switcher <= fft_out_switcher + 1'b1;
+		end
 	end
 	
 	FFT16_top #(.N(N), .Q(Q), .STAGES(STAGES)) FFT16
@@ -136,40 +139,40 @@ module FFT_for_OFDM #(parameter N = 16, Q = 8, STAGES = 4)
 	ram_for_signal #(.ADDR_WIDTH(STAGES), .DATA_WIDTH(N), .DEPTH(N)) ram_for_signal
 	(
 		.clk(i_clk),
-		.addr(0),
+		.addr(1),
 		.re(1),
 		.data00_r(w_fft_out0_re),
-		.data01_r(w_fft_out1_re),
-		.data02_r(w_fft_out2_re),
-		.data03_r(w_fft_out3_re),
-		.data04_r(w_fft_out4_re),
-		.data05_r(w_fft_out5_re),
+		.data01_r(w_fft_out8_re),
+		.data02_r(w_fft_out4_re),
+		.data03_r(w_fft_out12_re),
+		.data04_r(w_fft_out2_re),
+		.data05_r(w_fft_out10_re),
 		.data06_r(w_fft_out6_re),
-		.data07_r(w_fft_out7_re),
-		.data08_r(w_fft_out8_re),
+		.data07_r(w_fft_out14_re),
+		.data08_r(w_fft_out1_re),
 		.data09_r(w_fft_out9_re),
-		.data10_r(w_fft_out10_re),
-		.data11_r(w_fft_out11_re),
-		.data12_r(w_fft_out12_re),
-		.data13_r(w_fft_out13_re),
-		.data14_r(w_fft_out14_re),
+		.data10_r(w_fft_out5_re),
+		.data11_r(w_fft_out13_re),
+		.data12_r(w_fft_out3_re),
+		.data13_r(w_fft_out11_re),
+		.data14_r(w_fft_out7_re),
 		.data15_r(w_fft_out15_re),
 		
 		.data00_i(w_fft_out0_im),
-		.data01_i(w_fft_out1_im),
-		.data02_i(w_fft_out2_im),
-		.data03_i(w_fft_out3_im),
-		.data04_i(w_fft_out4_im),
-		.data05_i(w_fft_out5_im),
+		.data01_i(w_fft_out8_im),
+		.data02_i(w_fft_out4_im),
+		.data03_i(w_fft_out12_im),
+		.data04_i(w_fft_out2_im),
+		.data05_i(w_fft_out10_im),
 		.data06_i(w_fft_out6_im),
-		.data07_i(w_fft_out7_im),
-		.data08_i(w_fft_out8_im),
+		.data07_i(w_fft_out14_im),
+		.data08_i(w_fft_out1_im),
 		.data09_i(w_fft_out9_im),
-		.data10_i(w_fft_out10_im),
-		.data11_i(w_fft_out11_im),
-		.data12_i(w_fft_out12_im),
-		.data13_i(w_fft_out13_im),
-		.data14_i(w_fft_out14_im),
+		.data10_i(w_fft_out5_im),
+		.data11_i(w_fft_out13_im),
+		.data12_i(w_fft_out3_im),
+		.data13_i(w_fft_out11_im),
+		.data14_i(w_fft_out7_im),
 		.data15_i(w_fft_out15_im),
 		.data(out_instant)
 	);

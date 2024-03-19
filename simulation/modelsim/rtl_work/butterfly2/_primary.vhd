@@ -18,9 +18,7 @@ entity butterfly2 is
         o_out0_im       : out    vl_logic_vector;
         o_out1_re       : out    vl_logic_vector;
         o_out1_im       : out    vl_logic_vector;
-        o_butterfly_done: out    vl_logic;
-        clk_divided8    : out    vl_logic;
-        clk_divided16   : out    vl_logic
+        o_butterfly_done: out    vl_logic
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of N : constant is 1;

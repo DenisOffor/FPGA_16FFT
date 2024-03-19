@@ -29,21 +29,207 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "FFT16_top_tb")
-  (DATE "03/18/2024 08:26:13")
+  (DATE "03/19/2024 19:19:32")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version")
   (DIVIDER .)
   (TIMESCALE 1 ps)
 
-	// No Timing Cells with timing info are found in the compiled design. A dummy “dff” Timing Cell is created.
   (CELL
-    (CELLTYPE "dff")
-    (INSTANCE * )
+    (CELLTYPE "cycloneive_io_obuf")
+    (INSTANCE o_FFT_cycle_done\~output)
+    (DELAY
+      (ABSOLUTE
+        (PORT i (260:260:260) (302:302:302))
+        (IOPATH i o (1657:1657:1657) (1637:1637:1637))
+      )
+    )
   )
-	// No Timing Cells with timing info are found in the compiled design. A dummy “dff” Timing Cell is created.
   (CELL
-    (CELLTYPE "dff")
-    (INSTANCE * )
+    (CELLTYPE "cycloneive_io_obuf")
+    (INSTANCE o_butterfly_done\~output)
+    (DELAY
+      (ABSOLUTE
+        (PORT i (302:302:302) (260:260:260))
+        (IOPATH i o (1627:1627:1627) (1647:1647:1647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_io_obuf")
+    (INSTANCE Mux_switcher_butterfly\[0\]\~output)
+    (DELAY
+      (ABSOLUTE
+        (PORT i (281:281:281) (322:322:322))
+        (IOPATH i o (1647:1647:1647) (1627:1627:1627))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_io_obuf")
+    (INSTANCE Mux_switcher_butterfly\[1\]\~output)
+    (DELAY
+      (ABSOLUTE
+        (PORT i (291:291:291) (330:330:330))
+        (IOPATH i o (1667:1667:1667) (1647:1647:1647))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_clkctrl")
+    (INSTANCE FFT16_top\|control_unit\|r_cycle_done\~clkctrl)
+    (DELAY
+      (ABSOLUTE
+        (PORT inclk[0] (528:528:528) (575:575:575))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|counter\[0\]\~3)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datac combout (190:190:190) (195:195:195))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "dffeas")
+    (INSTANCE FFT16_top\|control_unit\|counter\[0\])
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (973:973:973) (963:963:963))
+        (PORT d (37:37:37) (50:50:50))
+        (IOPATH (posedge clk) q (105:105:105) (105:105:105))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (84:84:84))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|counter\[1\]\~0)
+    (DELAY
+      (ABSOLUTE
+        (PORT datad (140:140:140) (183:183:183))
+        (IOPATH datac combout (190:190:190) (195:195:195))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "dffeas")
+    (INSTANCE FFT16_top\|control_unit\|counter\[1\])
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (973:973:973) (963:963:963))
+        (PORT d (37:37:37) (50:50:50))
+        (IOPATH (posedge clk) q (105:105:105) (105:105:105))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (84:84:84))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|counter\~2)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (135:135:135) (188:188:188))
+        (PORT datab (160:160:160) (210:210:210))
+        (PORT datad (142:142:142) (185:185:185))
+        (IOPATH dataa combout (158:158:158) (163:163:163))
+        (IOPATH datab combout (160:160:160) (176:176:176))
+        (IOPATH datac combout (190:190:190) (195:195:195))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "dffeas")
+    (INSTANCE FFT16_top\|control_unit\|counter\[2\])
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (973:973:973) (963:963:963))
+        (PORT d (37:37:37) (50:50:50))
+        (IOPATH (posedge clk) q (105:105:105) (105:105:105))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (84:84:84))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|counter\[3\]\~1)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (156:156:156) (211:211:211))
+        (PORT datab (161:161:161) (211:211:211))
+        (PORT datad (128:128:128) (165:165:165))
+        (IOPATH dataa combout (158:158:158) (173:173:173))
+        (IOPATH datab combout (160:160:160) (176:176:176))
+        (IOPATH datac combout (190:190:190) (195:195:195))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "dffeas")
+    (INSTANCE FFT16_top\|control_unit\|counter\[3\])
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (973:973:973) (963:963:963))
+        (PORT d (37:37:37) (50:50:50))
+        (IOPATH (posedge clk) q (105:105:105) (105:105:105))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (84:84:84))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|Equal0\~0)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (480:480:480) (565:565:565))
+        (PORT datab (220:220:220) (276:276:276))
+        (PORT datac (121:121:121) (165:165:165))
+        (PORT datad (366:366:366) (433:433:433))
+        (IOPATH dataa combout (158:158:158) (157:157:157))
+        (IOPATH datab combout (166:166:166) (158:158:158))
+        (IOPATH datac combout (119:119:119) (125:125:125))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneive_lcell_comb")
+    (INSTANCE FFT16_top\|control_unit\|r_cycle_done\~0)
+    (DELAY
+      (ABSOLUTE
+        (PORT datad (187:187:187) (221:221:221))
+        (IOPATH datac combout (190:190:190) (195:195:195))
+        (IOPATH datad combout (68:68:68) (63:63:63))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "dffeas")
+    (INSTANCE FFT16_top\|control_unit\|r_cycle_done)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (973:973:973) (963:963:963))
+        (PORT d (37:37:37) (50:50:50))
+        (IOPATH (posedge clk) q (105:105:105) (105:105:105))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD d (posedge clk) (84:84:84))
+    )
   )
 )

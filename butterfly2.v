@@ -14,31 +14,29 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	input 	[N-1:0] 		i_twiddle_im,
 	
 	//2 compex digits
-	output 	[N-1:0]		o_out0_re,
-	output 	[N-1:0]		o_out0_im,
-	output 	[N-1:0]		o_out1_re,
-	output 	[N-1:0]		o_out1_im,
+	output 	[N-1:0]			o_out0_re,
+	output 	[N-1:0]			o_out0_im,
+	output 	[N-1:0]			o_out1_re,
+	output 	[N-1:0]			o_out1_im,
 	
-	output 					o_butterfly_done,
-	output					clk_divided8,
-	output					clk_divided16
+	output 					o_butterfly_done
 );
 
 	//wires for divided i_clk
-	//wire 						clk_divided16;
-	//wire 						clk_divided32;
+	wire 						clk_divided8;
+	wire 						clk_divided16;
 	//wire for connect "multiple done" with "write_enable" for flash
 	//wire 						w_mutiplier_done;
 	//current input data chosen for multiply them
 	wire 		[N-1:0] 		current_factor1;
 	wire 		[N-1:0] 		current_factor2;
 	//wire for multiple complex in1 on complex twiddle
-	wire		[N-1:0]     out_multiplier;
+	wire		[N-1:0]     	out_multiplier;
 	//need for get negative 	
-	wire		[N-1:0]     out_multiplier_negative;
+	wire		[N-1:0]     	out_multiplier_negative;
 	//wires fan out from flash to adders 
-	wire		[N-1:0]		w_out_re0, w_out_re1, w_out_im0, w_out_im1;
-	wire		[N-1:0]		w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
+	wire		[N-1:0]			w_out_re0, w_out_re1, w_out_im0, w_out_im1;
+	wire		[N-1:0]			w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
 	
 	reg  						r_butterfly_done;
 	
@@ -48,21 +46,17 @@ module butterfly2 #(parameter N = 16, Q = 8)
 		r_butterfly_done <= 0;
 	end
 	
-	
-	always @(clk_divided8, clk_divided16) begin
+	always @(posedge i_rst or negedge clk_divided8 or negedge clk_divided16) begin
 		if(i_rst)
 			r_butterfly_done <= 1'b0;
-		else if(~clk_divided8 && ~ clk_divided16)
-			r_butterfly_done <= 1'b1;
-			else
-				r_butterfly_done <= 1'b0;
+		else 
+			r_butterfly_done <= (~clk_divided8 && ~clk_divided16);
 	end
 	 //////////////////////
 	 flash #(.N(N)) flash1
 	 ( 
 		.i_clk(i_clk),
 		.i_word(out_multiplier),
-		.write_enable(1),
 		.address({clk_divided16, clk_divided8}),
 		.o_word0(w_out_re0),
 		.o_word1(w_out_im0),
@@ -73,7 +67,6 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	 ( 
 		.i_clk(i_clk),
 		.i_word(out_multiplier_negative),
-		.write_enable(1),
 		.address({clk_divided16, clk_divided8}),
 		.o_word0(w_out_re0_neg),
 		.o_word1(w_out_im0_neg),
@@ -99,7 +92,7 @@ module butterfly2 #(parameter N = 16, Q = 8)
 	  multiplier #(.N(N), .Q(Q)) M1
     (
         .i_clk(i_clk),
-        .i_rst(reset & ~i_rst),
+        .i_rst(i_rst),
         .i_A(current_factor1),
         .i_B(current_factor2),
         .out(out_multiplier)
