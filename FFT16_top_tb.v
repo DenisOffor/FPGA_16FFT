@@ -47,10 +47,13 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 );
 
 	reg clk = 0;
+	reg rst = 0;
 	reg [N-1:0] in_1Hz, in_2Hz, in_4Hz, in_8Hz, in_9HZ;
 	
-	initial begin		
-		#930 in_1Hz = 16'b0000000100000000;
+	initial begin
+		#0 rst = 1;
+		#20 rst = 0;
+		#0 in_1Hz = 16'b0000000100000000;
 		//#0 i_in0_im = 16'b0000000011001001;
 	
 		#0 in_2Hz = 16'b0000000100000000;
