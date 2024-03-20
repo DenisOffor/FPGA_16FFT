@@ -71,13 +71,13 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	output 							o_FFT_cycle_done,
 	output 							o_butterfly_done,
 	
-	//output 			[N-1:0]		w_Mux0_out0_re_butterfly_in,
-	//output         [N-1:0]     w_Mux0_out0_im_butterfly_in,
-	//output         [N-1:0]     w_Mux0_out1_re_butterfly_in,
-	//output         [N-1:0]     w_Mux0_out1_im_butterfly_in,
+	//output 			[N-1:0]		w_Mux4_out0_re_butterfly_in,
+	//output         [N-1:0]     w_Mux4_out0_im_butterfly_in,
+	//output         [N-1:0]     w_Mux4_out1_re_butterfly_in,
+	//output         [N-1:0]     w_Mux4_out1_im_butterfly_in,
 	//
-	//output         [N-1:0]     w_Mux0_out_twiddle_re,
-	//output         [N-1:0]     w_Mux0_out_twiddle_im,
+	//output         [N-1:0]     w_Mux4_out_twiddle_re,
+	//output         [N-1:0]     w_Mux4_out_twiddle_im,
 	output 				[1:0]			Mux_switcher_butterfly
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
@@ -321,8 +321,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in4_re),
 		.b(out1_re),
-		.c(out1_re),
-		.d(out1_re),
+		.c(out2_re),
+		.d(out2_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out0_re_butterfly_in)
 	);
@@ -331,8 +331,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in4_im),
 		.b(out1_im),
-		.c(out1_im),
-		.d(out1_im),
+		.c(out2_im),
+		.d(out2_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out0_im_butterfly_in)
 	);
@@ -341,8 +341,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in12_re),
 		.b(out3_re),
-		.c(out5_re),
-		.d(out9_re),
+		.c(out6_re),
+		.d(out10_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out1_re_butterfly_in)
 	);
@@ -351,8 +351,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in12_im),
 		.b(out3_im),
-		.c(out5_im),
-		.d(out9_im),
+		.c(out6_im),
+		.d(out10_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux1_out1_im_butterfly_in)
 	);
@@ -402,8 +402,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in2_re),
 		.b(out4_re),
-		.c(out2_re),
-		.d(out2_re),
+		.c(out1_re),
+		.d(out4_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out0_re_butterfly_in)
 	);
@@ -412,8 +412,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in2_im),
 		.b(out4_im),
-		.c(out2_im),
-		.d(out2_im),
+		.c(out1_im),
+		.d(out4_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out0_im_butterfly_in)
 	);
@@ -422,8 +422,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in10_re),
 		.b(out6_re),
-		.c(out6_re),
-		.d(out10_re),
+		.c(out5_re),
+		.d(out12_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out1_re_butterfly_in)
 	);
@@ -432,8 +432,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in10_im),
 		.b(out6_im),
-		.c(out6_im),
-		.d(out10_im),
+		.c(out5_im),
+		.d(out12_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux2_out1_im_butterfly_in)
 	);
@@ -484,7 +484,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in6_re),
 		.b(out5_re),
 		.c(out3_re),
-		.d(out3_re),
+		.d(out6_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out0_re_butterfly_in)
 	);
@@ -494,7 +494,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in6_im),
 		.b(out5_im),
 		.c(out3_im),
-		.d(out3_im),
+		.d(out6_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out0_im_butterfly_in)
 	);
@@ -504,7 +504,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in14_re),
 		.b(out7_re),
 		.c(out7_re),
-		.d(out11_re),
+		.d(out14_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out1_re_butterfly_in)
 	);
@@ -514,7 +514,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in14_im),
 		.b(out7_im),
 		.c(out7_im),
-		.d(out11_im),
+		.d(out14_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux3_out1_im_butterfly_in)
 	);
@@ -565,7 +565,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in1_re),
 		.b(out8_re),
 		.c(out8_re),
-		.d(out4_re),
+		.d(out1_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out0_re_butterfly_in)
 	);
@@ -575,7 +575,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in1_im),
 		.b(out8_im),
 		.c(out8_im),
-		.d(out4_im),
+		.d(out1_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out0_im_butterfly_in)
 	);
@@ -585,7 +585,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in9_re),
 		.b(out10_re),
 		.c(out12_re),
-		.d(out12_re),
+		.d(out9_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out1_re_butterfly_in)
 	);
@@ -595,7 +595,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.a(in9_im),
 		.b(out10_im),
 		.c(out12_im),
-		.d(out12_im),
+		.d(out9_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux4_out1_im_butterfly_in)
 	);
@@ -645,8 +645,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in5_re),
 		.b(out9_re),
-		.c(out9_re),
-		.d(out5_re),
+		.c(out10_re),
+		.d(out3_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out0_re_butterfly_in)
 	);
@@ -655,8 +655,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in5_im),
 		.b(out9_im),
-		.c(out9_im),
-		.d(out5_im),
+		.c(out10_im),
+		.d(out3_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out0_im_butterfly_in)
 	);
@@ -665,8 +665,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in13_re),
 		.b(out11_re),
-		.c(out13_re),
-		.d(out13_re),
+		.c(out14_re),
+		.d(out11_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out1_re_butterfly_in)
 	);
@@ -675,8 +675,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in13_im),
 		.b(out11_im),
-		.c(out13_im),
-		.d(out13_im),
+		.c(out14_im),
+		.d(out11_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux5_out1_im_butterfly_in)
 	);
@@ -726,8 +726,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in3_re),
 		.b(out12_re),
-		.c(out10_re),
-		.d(out6_re),
+		.c(out9_re),
+		.d(out5_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out0_re_butterfly_in)
 	);
@@ -736,8 +736,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in3_im),
 		.b(out12_im),
-		.c(out10_im),
-		.d(out6_im),
+		.c(out9_im),
+		.d(out5_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out0_im_butterfly_in)
 	);
@@ -746,8 +746,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in11_re),
 		.b(out14_re),
-		.c(out14_re),
-		.d(out14_re),
+		.c(out13_re),
+		.d(out13_re),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out1_re_butterfly_in)
 	);
@@ -756,8 +756,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	(
 		.a(in11_im),
 		.b(out14_im),
-		.c(out14_im),
-		.d(out14_im),
+		.c(out13_im),
+		.d(out13_im),
 		.sel(Mux_switcher_butterfly),
 		.out(w_Mux6_out1_im_butterfly_in)
 	);
