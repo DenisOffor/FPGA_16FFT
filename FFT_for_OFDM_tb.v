@@ -1,75 +1,57 @@
-module FFT_for_OFDM_tb #(parameter N = 16, Q = 8, STAGES = 4)
+module FFT_for_OFDM_tb #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4)
 (
-	output 			[N-1:0]     out0_re,
-	output 			[N-1:0]     out0_im,
-	output 			[N-1:0]     out1_re,
-	output 			[N-1:0]     out1_im,
-	output 			[N-1:0]     out2_re,
-	output 			[N-1:0]     out2_im,
-	output 			[N-1:0]     out3_re,
-	output 			[N-1:0]     out3_im,
-	output 			[N-1:0]     out4_re,
-	output 			[N-1:0]     out4_im,
-	output 			[N-1:0]     out5_re,
-	output 			[N-1:0]     out5_im,
-	output 			[N-1:0]     out6_re,
-	output 			[N-1:0]     out6_im,
-	output 			[N-1:0]     out7_re,
-	output 			[N-1:0]     out7_im,
-	output 			[N-1:0]     out8_re,
-	output 			[N-1:0]     out8_im,
-	output 			[N-1:0]     out9_re,
-	output 			[N-1:0]     out9_im,
-	output 			[N-1:0]     out10_re,
-	output 			[N-1:0]     out10_im,
-	output 			[N-1:0]     out11_re,
-	output 			[N-1:0]     out11_im,
-	output 			[N-1:0]     out12_re,
-	output 			[N-1:0]     out12_im,
-	output 			[N-1:0]     out13_re,
-	output 			[N-1:0]     out13_im,
-	output 			[N-1:0]     out14_re,
-	output 			[N-1:0]     out14_im,
-	output 			[N-1:0]     out15_re,
-	output 			[N-1:0]     out15_im
+	output 			[WORD_SIZE-1:0]     out0_re,
+	output 			[WORD_SIZE-1:0]     out0_im,
+	output 			[WORD_SIZE-1:0]     out1_re,
+	output 			[WORD_SIZE-1:0]     out1_im,
+	output 			[WORD_SIZE-1:0]     out2_re,
+	output 			[WORD_SIZE-1:0]     out2_im,
+	output 			[WORD_SIZE-1:0]     out3_re,
+	output 			[WORD_SIZE-1:0]     out3_im,
+	output 			[WORD_SIZE-1:0]     out4_re,
+	output 			[WORD_SIZE-1:0]     out4_im,
+	output 			[WORD_SIZE-1:0]     out5_re,
+	output 			[WORD_SIZE-1:0]     out5_im,
+	output 			[WORD_SIZE-1:0]     out6_re,
+	output 			[WORD_SIZE-1:0]     out6_im,
+	output 			[WORD_SIZE-1:0]     out7_re,
+	output 			[WORD_SIZE-1:0]     out7_im,
+	output 			[WORD_SIZE-1:0]     out8_re,
+	output 			[WORD_SIZE-1:0]     out8_im,
+	output 			[WORD_SIZE-1:0]     out9_re,
+	output 			[WORD_SIZE-1:0]     out9_im,
+	output 			[WORD_SIZE-1:0]     out10_re,
+	output 			[WORD_SIZE-1:0]     out10_im,
+	output 			[WORD_SIZE-1:0]     out11_re,
+	output 			[WORD_SIZE-1:0]     out11_im,
+	output 			[WORD_SIZE-1:0]     out12_re,
+	output 			[WORD_SIZE-1:0]     out12_im,
+	output 			[WORD_SIZE-1:0]     out13_re,
+	output 			[WORD_SIZE-1:0]     out13_im,
+	output 			[WORD_SIZE-1:0]     out14_re,
+	output 			[WORD_SIZE-1:0]     out14_im,
+	output 			[WORD_SIZE-1:0]     out15_re,
+	output 			[WORD_SIZE-1:0]     out15_im
 );
 
 	reg clk = 0;
 	reg rst = 0;
-	reg [N-1:0] in_1Hz_re, in_1Hz_im, in_2Hz_re, in_2Hz_im, in_4Hz_re, in_4Hz_im, in_8Hz_re, in_8Hz_im;
+	reg [DATA_LENGTH-1:0] byte;
 	
 	initial begin		
 		#10 rst = 1;
 		#50 rst = 0;
-		#0 in_1Hz_re = 16'b0000000101101010;
-		#0 in_1Hz_im = 16'b0000000011001001;
-
-		#0 in_2Hz_re = 16'b1111111010010110;
-		#0 in_2Hz_im = 16'b0000000011001001;
-
-		#0 in_4Hz_re = 16'b0000000101101010;
-		#0 in_4Hz_im = 16'b1111111100110111;
-
-		#0 in_8Hz_re = 16'b1111111010010110;
-		#0 in_8Hz_im = 16'b1111111100110111;
+		#0 byte = 8'b00000000;
 	end
 	
 	always @(*)
 		#10 clk <= ~clk;
 	
-	FFT_for_OFDM #(.N(N), .Q(Q), .STAGES(STAGES)) FFT_for_OFDM
+	FFT_for_OFDM #(.WORD_SIZE(WORD_SIZE),.DATA_LENGTH(DATA_LENGTH), .FRACTION(FRACTION), .STAGES(STAGES)) FFT_for_OFDM
 	(
 		.i_clk(clk),
 		.i_rst(rst),
-		
-		.in_1Hz_re(in_1Hz_re),
-		.in_1Hz_im(in_1Hz_im),
-		.in_2Hz_re(in_2Hz_re), 
-		.in_2Hz_im(in_2Hz_im),
-		.in_4Hz_re(in_4Hz_re),
-		.in_4Hz_im(in_4Hz_im),
-		.in_8Hz_re(in_8Hz_re),
-		.in_8Hz_im(in_8Hz_im),
+		.i_byte(byte),
 	
 		.out0_re(out0_re),
 		.out0_im(out0_im),

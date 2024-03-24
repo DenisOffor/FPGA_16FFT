@@ -1,7 +1,7 @@
 module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 (
-	input							 	i_clk,
-	input 							i_rst,
+	input						i_clk,
+	input 						i_rst,
 	input       	[N-1:0]     in0_re,
 	input       	[N-1:0]     in0_im,
 	input       	[N-1:0]     in1_re,
@@ -68,8 +68,8 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	output       	[N-1:0]     out15_re,
 	output       	[N-1:0]     out15_im,
 	
-	output 							o_FFT_cycle_done,
-	output 							o_butterfly_done,
+	output 						o_FFT_cycle_done,
+	output 						o_butterfly_done,
 	
 	//output 			[N-1:0]		w_Mux4_out0_re_butterfly_in,
 	//output         [N-1:0]     w_Mux4_out0_im_butterfly_in,
@@ -78,7 +78,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//
 	//output         [N-1:0]     w_Mux4_out_twiddle_re,
 	//output         [N-1:0]     w_Mux4_out_twiddle_im,
-	output 				[1:0]			Mux_switcher_butterfly
+	output 			[1:0]		Mux_switcher_butterfly
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
 	wire        [N-1:0]     w_twiddle0_re;
@@ -99,79 +99,79 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	wire        [N-1:0]     w_twiddle7_im;
 	
 	//instant of muxes of inputs of mac
-	wire       	[N-1:0]     w_Mux0_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux0_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux0_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux0_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux1_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux1_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux1_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux1_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux2_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux2_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux2_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux2_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux3_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux3_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux3_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux3_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux4_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux4_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux4_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux4_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux5_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux5_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux5_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux5_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux6_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux6_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux6_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux6_out1_im_butterfly_in;
-
-	wire       	[N-1:0]     w_Mux7_out0_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux7_out0_im_butterfly_in;
-	wire       	[N-1:0]     w_Mux7_out1_re_butterfly_in;
-	wire       	[N-1:0]     w_Mux7_out1_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux0_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux0_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux0_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux0_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux1_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux1_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux1_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux1_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux2_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux2_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux2_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux2_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux3_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux3_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux3_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux3_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux4_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux4_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux4_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux4_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux5_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux5_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux5_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux5_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux6_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux6_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux6_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux6_out1_im_butterfly_in;
+	
+	wire       		[N-1:0]     	w_Mux7_out0_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux7_out0_im_butterfly_in;
+	wire       		[N-1:0]     	w_Mux7_out1_re_butterfly_in;
+	wire       		[N-1:0]     	w_Mux7_out1_im_butterfly_in;
 	
 	//instant of butterfly2
-	wire        [N-1:0]     w_out0_re_butterfly;
-	wire        [N-1:0]     w_out0_im_butterfly;
-	wire        [N-1:0]     w_out1_re_butterfly;
-	wire        [N-1:0]     w_out1_im_butterfly;
-	wire        [N-1:0]     w_out2_re_butterfly;
-	wire        [N-1:0]     w_out2_im_butterfly;
-	wire        [N-1:0]     w_out3_re_butterfly;
-	wire        [N-1:0]     w_out3_im_butterfly;
-	wire        [N-1:0]     w_out4_re_butterfly;
-	wire        [N-1:0]     w_out4_im_butterfly;
-	wire        [N-1:0]     w_out5_re_butterfly;
-	wire        [N-1:0]     w_out5_im_butterfly;
-	wire        [N-1:0]     w_out6_re_butterfly;
-	wire        [N-1:0]     w_out6_im_butterfly;
-	wire        [N-1:0]     w_out7_re_butterfly;
-	wire        [N-1:0]     w_out7_im_butterfly;
-	wire        [N-1:0]     w_out8_re_butterfly;
-	wire        [N-1:0]     w_out8_im_butterfly;
-	wire        [N-1:0]     w_out9_re_butterfly;
-	wire        [N-1:0]     w_out9_im_butterfly;
-	wire        [N-1:0]     w_out10_re_butterfly;
-	wire        [N-1:0]     w_out10_im_butterfly;
-	wire        [N-1:0]     w_out11_re_butterfly;
-	wire        [N-1:0]     w_out11_im_butterfly;
-	wire        [N-1:0]     w_out12_re_butterfly;
-	wire        [N-1:0]     w_out12_im_butterfly;
-	wire        [N-1:0]     w_out13_re_butterfly;
-	wire        [N-1:0]     w_out13_im_butterfly;
-	wire        [N-1:0]     w_out14_re_butterfly;
-	wire        [N-1:0]     w_out14_im_butterfly;
-	wire        [N-1:0]     w_out15_re_butterfly;
-	wire        [N-1:0]     w_out15_im_butterfly;
+	wire        	[N-1:0]     	w_out0_re_butterfly;
+	wire        	[N-1:0]     	w_out0_im_butterfly;
+	wire        	[N-1:0]     	w_out1_re_butterfly;
+	wire        	[N-1:0]     	w_out1_im_butterfly;
+	wire        	[N-1:0]     	w_out2_re_butterfly;
+	wire        	[N-1:0]     	w_out2_im_butterfly;
+	wire        	[N-1:0]     	w_out3_re_butterfly;
+	wire        	[N-1:0]     	w_out3_im_butterfly;
+	wire        	[N-1:0]     	w_out4_re_butterfly;
+	wire        	[N-1:0]     	w_out4_im_butterfly;
+	wire        	[N-1:0]     	w_out5_re_butterfly;
+	wire        	[N-1:0]     	w_out5_im_butterfly;
+	wire        	[N-1:0]     	w_out6_re_butterfly;
+	wire        	[N-1:0]     	w_out6_im_butterfly;
+	wire        	[N-1:0]     	w_out7_re_butterfly;
+	wire        	[N-1:0]     	w_out7_im_butterfly;
+	wire        	[N-1:0]     	w_out8_re_butterfly;
+	wire        	[N-1:0]     	w_out8_im_butterfly;
+	wire        	[N-1:0]     	w_out9_re_butterfly;
+	wire        	[N-1:0]     	w_out9_im_butterfly;
+	wire        	[N-1:0]     	w_out10_re_butterfly;
+	wire        	[N-1:0]     	w_out10_im_butterfly;
+	wire        	[N-1:0]     	w_out11_re_butterfly;
+	wire        	[N-1:0]     	w_out11_im_butterfly;
+	wire        	[N-1:0]     	w_out12_re_butterfly;
+	wire        	[N-1:0]     	w_out12_im_butterfly;
+	wire        	[N-1:0]     	w_out13_re_butterfly;
+	wire        	[N-1:0]     	w_out13_im_butterfly;
+	wire        	[N-1:0]     	w_out14_re_butterfly;
+	wire        	[N-1:0]     	w_out14_im_butterfly;
+	wire        	[N-1:0]     	w_out15_re_butterfly;
+	wire        	[N-1:0]     	w_out15_im_butterfly;
 	
 	//instant of muxes of twiddle
 	wire    		[N-1:0] 		w_Mux0_out_twiddle_re;
