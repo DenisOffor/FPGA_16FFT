@@ -885,8 +885,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	
 	ram_16_byte #( .N(N)) ram_out
 	(
-		.i_rst(i_rst),
-		.we(o_butterfly_done && ~o_FFT_cycle_done),
+		.we(o_butterfly_done && ~o_FFT_cycle_done && ~i_rst),
 		.in0_re(w_out0_re_butterfly),
 		.in0_im(w_out0_im_butterfly),
 		.in1_re(w_out1_re_butterfly),
