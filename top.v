@@ -99,7 +99,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		end
 	end
 	
-	mux32in1 #(.DATA_LENGTH(DATA_LENGTH))
+	mux32in1 #(.DATA_LENGTH(DATA_LENGTH)) mymux
 	(
 		.in0(w_FFT_out0_re[7:0]),
 		.in1(w_FFT_out0_re[15:8]),
