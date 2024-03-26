@@ -23,6 +23,14 @@ module UART_TX #(parameter CLOCK_PER_BIT = 40)
 	reg 		[2:0]	r_bits_num;
 	reg 		[2:0]	r_transfer_task;
 	
+	initial begin
+		r_TX_counter <= 0;
+		r_bits_num <= 0;
+		o_TX_bit <= 1;
+		r_transfer_state <= 0;
+		r_TX_done <= 0;
+	end
+	
 	always @(posedge i_clk or posedge i_rst)
 	begin
 		if(i_rst)

@@ -4,7 +4,8 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	input 			i_rst,
 	input 			i_RX_bit,
 			
-	output 			o_TX_bit
+	output 			o_TX_bit,
+	output			w_full_TX_state
 );
 	//reg and wires for UART_RX
 	wire 	[DATA_LENGTH - 1:0] 	w_Received_byte;
@@ -16,7 +17,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	reg								r_TX_start;
 	reg								r_full_TX_state; //1 - process, 0 - wait
 	wire 							w_TX_start;
-	wire							w_full_TX_state;
+	//wire							w_full_TX_state;
 	wire 							w_transfer_state;
 	wire 							w_TX_done;
 	assign w_TX_start = r_TX_start;
@@ -92,7 +93,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		end
 		else begin
 			counter_of_sended_bytes <= counter_of_sended_bytes + 1'b1;
-			if(counter_of_sended_bytes == 32) begin
+			if(counter_of_sended_bytes == 31) begin
 				counter_of_sended_bytes <= 0;
 				r_full_TX_state <= 1'b0;
 			end

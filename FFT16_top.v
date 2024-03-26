@@ -1,205 +1,196 @@
-module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
+module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter STAGES = 4)
 (
 	input						i_clk,
 	input 						i_rst,
-	input       	[N-1:0]     in0_re,
-	input       	[N-1:0]     in0_im,
-	input       	[N-1:0]     in1_re,
-	input       	[N-1:0]     in1_im,
-	input       	[N-1:0]     in2_re,
-	input       	[N-1:0]     in2_im,
-	input       	[N-1:0]     in3_re,
-	input       	[N-1:0]     in3_im,
-	input       	[N-1:0]     in4_re,
-	input       	[N-1:0]     in4_im,
-	input       	[N-1:0]     in5_re,
-	input       	[N-1:0]     in5_im,
-	input       	[N-1:0]     in6_re,
-	input       	[N-1:0]     in6_im,
-	input       	[N-1:0]     in7_re,
-	input       	[N-1:0]     in7_im,
-	input       	[N-1:0]     in8_re,
-	input       	[N-1:0]     in8_im,
-	input       	[N-1:0]     in9_re,
-	input       	[N-1:0]     in9_im,
-	input       	[N-1:0]     in10_re,
-	input       	[N-1:0]     in10_im,
-	input       	[N-1:0]     in11_re,
-	input       	[N-1:0]     in11_im,
-	input       	[N-1:0]     in12_re,
-	input       	[N-1:0]     in12_im,
-	input       	[N-1:0]     in13_re,
-	input       	[N-1:0]     in13_im,
-	input       	[N-1:0]     in14_re,
-	input       	[N-1:0]     in14_im,
-	input       	[N-1:0]     in15_re,
-	input       	[N-1:0]     in15_im,
+	input       	[WORD_SIZE-1:0]     in0_re,
+	input       	[WORD_SIZE-1:0]     in0_im,
+	input       	[WORD_SIZE-1:0]     in1_re,
+	input       	[WORD_SIZE-1:0]     in1_im,
+	input       	[WORD_SIZE-1:0]     in2_re,
+	input       	[WORD_SIZE-1:0]     in2_im,
+	input       	[WORD_SIZE-1:0]     in3_re,
+	input       	[WORD_SIZE-1:0]     in3_im,
+	input       	[WORD_SIZE-1:0]     in4_re,
+	input       	[WORD_SIZE-1:0]     in4_im,
+	input       	[WORD_SIZE-1:0]     in5_re,
+	input       	[WORD_SIZE-1:0]     in5_im,
+	input       	[WORD_SIZE-1:0]     in6_re,
+	input       	[WORD_SIZE-1:0]     in6_im,
+	input       	[WORD_SIZE-1:0]     in7_re,
+	input       	[WORD_SIZE-1:0]     in7_im,
+	input       	[WORD_SIZE-1:0]     in8_re,
+	input       	[WORD_SIZE-1:0]     in8_im,
+	input       	[WORD_SIZE-1:0]     in9_re,
+	input       	[WORD_SIZE-1:0]     in9_im,
+	input       	[WORD_SIZE-1:0]     in10_re,
+	input       	[WORD_SIZE-1:0]     in10_im,
+	input       	[WORD_SIZE-1:0]     in11_re,
+	input       	[WORD_SIZE-1:0]     in11_im,
+	input       	[WORD_SIZE-1:0]     in12_re,
+	input       	[WORD_SIZE-1:0]     in12_im,
+	input       	[WORD_SIZE-1:0]     in13_re,
+	input       	[WORD_SIZE-1:0]     in13_im,
+	input       	[WORD_SIZE-1:0]     in14_re,
+	input       	[WORD_SIZE-1:0]     in14_im,
+	input       	[WORD_SIZE-1:0]     in15_re,
+	input       	[WORD_SIZE-1:0]     in15_im,
 	
-	output       	[N-1:0]     out0_re,
-	output       	[N-1:0]     out0_im,
-	output       	[N-1:0]     out1_re,
-	output       	[N-1:0]     out1_im,
-	output       	[N-1:0]     out2_re,
-	output       	[N-1:0]     out2_im,
-	output       	[N-1:0]     out3_re,
-	output       	[N-1:0]     out3_im,
-	output       	[N-1:0]     out4_re,
-	output       	[N-1:0]     out4_im,
-	output       	[N-1:0]     out5_re,
-	output       	[N-1:0]     out5_im,
-	output       	[N-1:0]     out6_re,
-	output       	[N-1:0]     out6_im,
-	output       	[N-1:0]     out7_re,
-	output       	[N-1:0]     out7_im,
-	output       	[N-1:0]     out8_re,
-	output       	[N-1:0]     out8_im,
-	output       	[N-1:0]     out9_re,
-	output       	[N-1:0]     out9_im,
-	output       	[N-1:0]     out10_re,
-	output       	[N-1:0]     out10_im,
-	output       	[N-1:0]     out11_re,
-	output       	[N-1:0]     out11_im,
-	output       	[N-1:0]     out12_re,
-	output       	[N-1:0]     out12_im,
-	output       	[N-1:0]     out13_re,
-	output       	[N-1:0]     out13_im,
-	output       	[N-1:0]     out14_re,
-	output       	[N-1:0]     out14_im,
-	output       	[N-1:0]     out15_re,
-	output       	[N-1:0]     out15_im,
+	output       	[WORD_SIZE-1:0]     out0_re,
+	output       	[WORD_SIZE-1:0]     out0_im,
+	output       	[WORD_SIZE-1:0]     out1_re,
+	output       	[WORD_SIZE-1:0]     out1_im,
+	output       	[WORD_SIZE-1:0]     out2_re,
+	output       	[WORD_SIZE-1:0]     out2_im,
+	output       	[WORD_SIZE-1:0]     out3_re,
+	output       	[WORD_SIZE-1:0]     out3_im,
+	output       	[WORD_SIZE-1:0]     out4_re,
+	output       	[WORD_SIZE-1:0]     out4_im,
+	output       	[WORD_SIZE-1:0]     out5_re,
+	output       	[WORD_SIZE-1:0]     out5_im,
+	output       	[WORD_SIZE-1:0]     out6_re,
+	output       	[WORD_SIZE-1:0]     out6_im,
+	output       	[WORD_SIZE-1:0]     out7_re,
+	output       	[WORD_SIZE-1:0]     out7_im,
+	output       	[WORD_SIZE-1:0]     out8_re,
+	output       	[WORD_SIZE-1:0]     out8_im,
+	output       	[WORD_SIZE-1:0]     out9_re,
+	output       	[WORD_SIZE-1:0]     out9_im,
+	output       	[WORD_SIZE-1:0]     out10_re,
+	output       	[WORD_SIZE-1:0]     out10_im,
+	output       	[WORD_SIZE-1:0]     out11_re,
+	output       	[WORD_SIZE-1:0]     out11_im,
+	output       	[WORD_SIZE-1:0]     out12_re,
+	output       	[WORD_SIZE-1:0]     out12_im,
+	output       	[WORD_SIZE-1:0]     out13_re,
+	output       	[WORD_SIZE-1:0]     out13_im,
+	output       	[WORD_SIZE-1:0]     out14_re,
+	output       	[WORD_SIZE-1:0]     out14_im,
+	output       	[WORD_SIZE-1:0]     out15_re,
+	output       	[WORD_SIZE-1:0]     out15_im,
 	
 	output 						o_FFT_cycle_done,
-	output 						o_butterfly_done,
-	
-	//output 			[N-1:0]		w_Mux4_out0_re_butterfly_in,
-	//output         [N-1:0]     w_Mux4_out0_im_butterfly_in,
-	//output         [N-1:0]     w_Mux4_out1_re_butterfly_in,
-	//output         [N-1:0]     w_Mux4_out1_im_butterfly_in,
-	//
-	//output         [N-1:0]     w_Mux4_out_twiddle_re,
-	//output         [N-1:0]     w_Mux4_out_twiddle_im,
-	output 			[1:0]		Mux_switcher_butterfly
+	output 						o_butterfly_done
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
-	wire        [N-1:0]     w_twiddle0_re;
-	wire        [N-1:0]     w_twiddle0_im;
-	wire        [N-1:0]     w_twiddle1_re;
-	wire        [N-1:0]     w_twiddle1_im;
-	wire        [N-1:0]     w_twiddle2_re;
-	wire        [N-1:0]     w_twiddle2_im;
-	wire        [N-1:0]     w_twiddle3_re;
-	wire        [N-1:0]     w_twiddle3_im;
-	wire        [N-1:0]     w_twiddle4_re;
-	wire        [N-1:0]     w_twiddle4_im;
-	wire        [N-1:0]     w_twiddle5_re;
-	wire        [N-1:0]     w_twiddle5_im;
-	wire        [N-1:0]     w_twiddle6_re;
-	wire        [N-1:0]     w_twiddle6_im;
-	wire        [N-1:0]     w_twiddle7_re;
-	wire        [N-1:0]     w_twiddle7_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle0_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle0_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle1_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle1_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle2_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle2_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle3_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle3_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle4_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle4_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle5_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle5_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle6_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle6_im;
+	wire        [WORD_SIZE-1:0]     w_twiddle7_re;
+	wire        [WORD_SIZE-1:0]     w_twiddle7_im;
 	
 	//instant of muxes of inputs of mac
-	wire       		[N-1:0]     	w_Mux0_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux0_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux0_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux0_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux0_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux0_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux0_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux0_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux1_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux1_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux1_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux1_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux1_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux1_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux1_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux1_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux2_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux2_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux2_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux2_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux2_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux2_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux2_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux2_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux3_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux3_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux3_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux3_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux3_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux3_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux3_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux3_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux4_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux4_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux4_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux4_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux4_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux4_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux4_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux4_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux5_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux5_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux5_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux5_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux5_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux5_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux5_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux5_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux6_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux6_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux6_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux6_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux6_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux6_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux6_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux6_out1_im_butterfly_in;
 	
-	wire       		[N-1:0]     	w_Mux7_out0_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux7_out0_im_butterfly_in;
-	wire       		[N-1:0]     	w_Mux7_out1_re_butterfly_in;
-	wire       		[N-1:0]     	w_Mux7_out1_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux7_out0_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux7_out0_im_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux7_out1_re_butterfly_in;
+	wire       		[WORD_SIZE-1:0]     	w_Mux7_out1_im_butterfly_in;
 	
 	//instant of butterfly2
-	wire        	[N-1:0]     	w_out0_re_butterfly;
-	wire        	[N-1:0]     	w_out0_im_butterfly;
-	wire        	[N-1:0]     	w_out1_re_butterfly;
-	wire        	[N-1:0]     	w_out1_im_butterfly;
-	wire        	[N-1:0]     	w_out2_re_butterfly;
-	wire        	[N-1:0]     	w_out2_im_butterfly;
-	wire        	[N-1:0]     	w_out3_re_butterfly;
-	wire        	[N-1:0]     	w_out3_im_butterfly;
-	wire        	[N-1:0]     	w_out4_re_butterfly;
-	wire        	[N-1:0]     	w_out4_im_butterfly;
-	wire        	[N-1:0]     	w_out5_re_butterfly;
-	wire        	[N-1:0]     	w_out5_im_butterfly;
-	wire        	[N-1:0]     	w_out6_re_butterfly;
-	wire        	[N-1:0]     	w_out6_im_butterfly;
-	wire        	[N-1:0]     	w_out7_re_butterfly;
-	wire        	[N-1:0]     	w_out7_im_butterfly;
-	wire        	[N-1:0]     	w_out8_re_butterfly;
-	wire        	[N-1:0]     	w_out8_im_butterfly;
-	wire        	[N-1:0]     	w_out9_re_butterfly;
-	wire        	[N-1:0]     	w_out9_im_butterfly;
-	wire        	[N-1:0]     	w_out10_re_butterfly;
-	wire        	[N-1:0]     	w_out10_im_butterfly;
-	wire        	[N-1:0]     	w_out11_re_butterfly;
-	wire        	[N-1:0]     	w_out11_im_butterfly;
-	wire        	[N-1:0]     	w_out12_re_butterfly;
-	wire        	[N-1:0]     	w_out12_im_butterfly;
-	wire        	[N-1:0]     	w_out13_re_butterfly;
-	wire        	[N-1:0]     	w_out13_im_butterfly;
-	wire        	[N-1:0]     	w_out14_re_butterfly;
-	wire        	[N-1:0]     	w_out14_im_butterfly;
-	wire        	[N-1:0]     	w_out15_re_butterfly;
-	wire        	[N-1:0]     	w_out15_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out0_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out0_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out1_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out1_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out2_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out2_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out3_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out3_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out4_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out4_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out5_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out5_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out6_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out6_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out7_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out7_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out8_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out8_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out9_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out9_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out10_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out10_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out11_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out11_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out12_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out12_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out13_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out13_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out14_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out14_im_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out15_re_butterfly;
+	wire        	[WORD_SIZE-1:0]     	w_out15_im_butterfly;
 	
 	//instant of muxes of twiddle
-	wire    		[N-1:0] 		w_Mux0_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux0_out_twiddle_im;
+	wire    		[WORD_SIZE-1:0] 		w_Mux0_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux0_out_twiddle_im;
 
-	wire    		[N-1:0] 		w_Mux1_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux1_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux2_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux2_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux3_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux3_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux4_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux4_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux5_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux5_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux6_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux6_out_twiddle_im;
-					
-	wire    		[N-1:0] 		w_Mux7_out_twiddle_re;
-	wire    		[N-1:0] 		w_Mux7_out_twiddle_im;
+	wire    		[WORD_SIZE-1:0] 		w_Mux1_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux1_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux2_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux2_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux3_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux3_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux4_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux4_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux5_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux5_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux6_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux6_out_twiddle_im;
+				
+	wire    		[WORD_SIZE-1:0] 		w_Mux7_out_twiddle_re;
+	wire    		[WORD_SIZE-1:0] 		w_Mux7_out_twiddle_im;
 
 
-	//wire 			[1:0]			Mux_switcher_butterfly;
+	wire 			[1:0]			Mux_switcher_butterfly;
 
 	control_unit #(.STAGES(STAGES)) control_unit 
 	(
@@ -210,7 +201,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	);
 	
 	
-	rom_twiddle #(.N(N)) twiddle_rom 
+	rom_twiddle #(.WORD_SIZE(WORD_SIZE)) twiddle_rom 
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -234,7 +225,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	///////////////////////////////////////
 	////////modules for butterfly0/////////
 	///////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly0_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_in0_re 
 	(
 		.a(in0_re),
 		.b(out0_re),
@@ -244,7 +235,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly0_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_in0_im
 	(
 		.a(in0_im),
 		.b(out0_im),
@@ -254,7 +245,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly0_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_in1_re
 	(
 		.a(in8_re),
 		.b(out2_re),
@@ -264,7 +255,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly0_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_in1_im
 	(
 		.a(in8_im),
 		.b(out2_im),
@@ -274,7 +265,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly0_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle0_re),
@@ -284,7 +275,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly0_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle0_im),
@@ -294,7 +285,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux0_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly0
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly0
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -317,7 +308,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	/////////////////////////////////////////
 	//muxes for butterfly1///////////////////
 	/////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly1_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_in0_re 
 	(
 		.a(in4_re),
 		.b(out1_re),
@@ -327,7 +318,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly1_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_in0_im
 	(
 		.a(in4_im),
 		.b(out1_im),
@@ -337,7 +328,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly1_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_in1_re
 	(
 		.a(in12_re),
 		.b(out3_re),
@@ -347,7 +338,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly1_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_in1_im
 	(
 		.a(in12_im),
 		.b(out3_im),
@@ -357,7 +348,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly1_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle4_re),
@@ -367,7 +358,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly1_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle4_im),
@@ -377,7 +368,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux1_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly1
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly1
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -398,7 +389,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////
 	//muxes for butterfly2////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly2_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_in0_re 
 	(
 		.a(in2_re),
 		.b(out4_re),
@@ -408,7 +399,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly2_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_in0_im
 	(
 		.a(in2_im),
 		.b(out4_im),
@@ -418,7 +409,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly2_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_in1_re
 	(
 		.a(in10_re),
 		.b(out6_re),
@@ -428,7 +419,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly2_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_in1_im
 	(
 		.a(in10_im),
 		.b(out6_im),
@@ -438,7 +429,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly2_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle0_re),
@@ -448,7 +439,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly2_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle0_im),
@@ -458,7 +449,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux2_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly2
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly2
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -479,7 +470,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////
 	//muxes for butterfly3////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly3_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_in0_re 
 	(
 		.a(in6_re),
 		.b(out5_re),
@@ -489,7 +480,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly3_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_in0_im
 	(
 		.a(in6_im),
 		.b(out5_im),
@@ -499,7 +490,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly3_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_in1_re
 	(
 		.a(in14_re),
 		.b(out7_re),
@@ -509,7 +500,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly3_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_in1_im
 	(
 		.a(in14_im),
 		.b(out7_im),
@@ -519,7 +510,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly3_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle4_re),
@@ -529,7 +520,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly3_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle4_im),
@@ -539,7 +530,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux3_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly3
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly3
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -560,7 +551,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////	
 	//muxes for butterfly4////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly4_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_in0_re 
 	(
 		.a(in1_re),
 		.b(out8_re),
@@ -570,7 +561,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly4_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_in0_im
 	(
 		.a(in1_im),
 		.b(out8_im),
@@ -580,7 +571,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly4_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_in1_re
 	(
 		.a(in9_re),
 		.b(out10_re),
@@ -590,7 +581,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly4_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_in1_im
 	(
 		.a(in9_im),
 		.b(out10_im),
@@ -600,7 +591,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly4_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle0_re),
@@ -610,7 +601,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly4_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle0_im),
@@ -620,7 +611,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux4_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly4
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly4
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -641,7 +632,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////	
 	//muxes for butterfly5////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly5_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_in0_re 
 	(
 		.a(in5_re),
 		.b(out9_re),
@@ -651,7 +642,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly5_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_in0_im
 	(
 		.a(in5_im),
 		.b(out9_im),
@@ -661,7 +652,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly5_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_in1_re
 	(
 		.a(in13_re),
 		.b(out11_re),
@@ -671,7 +662,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly5_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_in1_im
 	(
 		.a(in13_im),
 		.b(out11_im),
@@ -681,7 +672,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly5_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle4_re),
@@ -691,7 +682,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly5_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle4_im),
@@ -701,7 +692,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux5_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly5
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly5
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -722,7 +713,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////	
 	//muxes for butterfly6////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly6_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_in0_re 
 	(
 		.a(in3_re),
 		.b(out12_re),
@@ -732,7 +723,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly6_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_in0_im
 	(
 		.a(in3_im),
 		.b(out12_im),
@@ -742,7 +733,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly6_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_in1_re
 	(
 		.a(in11_re),
 		.b(out14_re),
@@ -752,7 +743,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly6_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_in1_im
 	(
 		.a(in11_im),
 		.b(out14_im),
@@ -762,7 +753,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly6_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle0_re),
@@ -772,7 +763,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly6_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle0_im),
@@ -782,7 +773,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux6_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly6
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly6
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -803,7 +794,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	//////////////////////////////////////////
 	//muxes for butterfly7////////////////////
 	//////////////////////////////////////////
-	 mux4in1 #(.N(N)) mux_butterfly7_in0_re 
+	 mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_in0_re 
 	(
 		.a(in7_re),
 		.b(out13_re),
@@ -813,7 +804,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out0_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly7_in0_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_in0_im
 	(
 		.a(in7_im),
 		.b(out13_im),
@@ -823,7 +814,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out0_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly7_in1_re
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_in1_re
 	(
 		.a(in15_re),
 		.b(out15_re),
@@ -833,7 +824,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out1_re_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly7_in1_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_in1_im
 	(
 		.a(in15_im),
 		.b(out15_im),
@@ -843,7 +834,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out1_im_butterfly_in)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly7_twi_re 
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_twi_re 
 	(
 		.a(w_twiddle0_re),
 		.b(w_twiddle4_re),
@@ -853,7 +844,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out_twiddle_re)
 	);
 	
-	mux4in1 #(.N(N)) mux_butterfly7_twi_im
+	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_twi_im
 	(
 		.a(w_twiddle0_im),
 		.b(w_twiddle4_im),
@@ -863,7 +854,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 		.out(w_Mux7_out_twiddle_im)
 	);
 	
-	butterfly2 #(.N(N), .Q(Q)) butterfly7
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly7
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst || o_FFT_cycle_done),
@@ -883,7 +874,7 @@ module FFT16_top #(parameter N = 16, parameter Q = 8, parameter STAGES = 4)
 	);
 	//////////////////////////////////////////
 	
-	ram_16_byte #( .N(N)) ram_out
+	ram_16_byte #( .WORD_SIZE(WORD_SIZE)) ram_out
 	(
 		.we(o_butterfly_done && ~o_FFT_cycle_done && ~i_rst),
 		.in0_re(w_out0_re_butterfly),

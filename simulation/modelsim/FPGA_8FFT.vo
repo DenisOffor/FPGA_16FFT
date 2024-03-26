@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
-// DATE "03/25/2024 11:55:22"
+// DATE "03/26/2024 23:04:02"
 
 // 
 // Device: Altera EP4CE40F29C8 Package FBGA780
@@ -31,22 +31,25 @@
 module top_tb (
 	o_TX_bit,
 	o_received_byte,
-	o_receive_state);
+	o_receive_state,
+	w_full_TX_state);
 output 	o_TX_bit;
 output 	[7:0] o_received_byte;
 output 	o_receive_state;
+output 	w_full_TX_state;
 
 // Design Ports Information
 // o_TX_bit	=>  Location: PIN_P27,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[0]	=>  Location: PIN_D21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[1]	=>  Location: PIN_L7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[0]	=>  Location: PIN_U28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[1]	=>  Location: PIN_D21,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // o_received_byte[2]	=>  Location: PIN_AD25,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[3]	=>  Location: PIN_M9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[4]	=>  Location: PIN_U25,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[5]	=>  Location: PIN_AB22,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[6]	=>  Location: PIN_H15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// o_received_byte[7]	=>  Location: PIN_D2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[3]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[4]	=>  Location: PIN_E1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[5]	=>  Location: PIN_U3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[6]	=>  Location: PIN_K2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_received_byte[7]	=>  Location: PIN_H15,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // o_receive_state	=>  Location: PIN_F5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// w_full_TX_state	=>  Location: PIN_M7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -70,11 +73,12 @@ wire \o_received_byte[5]~output_o ;
 wire \o_received_byte[6]~output_o ;
 wire \o_received_byte[7]~output_o ;
 wire \o_receive_state~output_o ;
+wire \w_full_TX_state~output_o ;
 
 
 // Location: IOOBUF_X67_Y27_N16
 cycloneive_io_obuf \o_TX_bit~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -85,7 +89,7 @@ defparam \o_TX_bit~output .bus_hold = "false";
 defparam \o_TX_bit~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X54_Y43_N2
+// Location: IOOBUF_X67_Y15_N2
 cycloneive_io_obuf \o_received_byte[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -98,7 +102,7 @@ defparam \o_received_byte[0]~output .bus_hold = "false";
 defparam \o_received_byte[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y33_N2
+// Location: IOOBUF_X54_Y43_N2
 cycloneive_io_obuf \o_received_byte[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -124,7 +128,7 @@ defparam \o_received_byte[2]~output .bus_hold = "false";
 defparam \o_received_byte[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y41_N16
+// Location: IOOBUF_X11_Y43_N30
 cycloneive_io_obuf \o_received_byte[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -137,7 +141,7 @@ defparam \o_received_byte[3]~output .bus_hold = "false";
 defparam \o_received_byte[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X67_Y19_N16
+// Location: IOOBUF_X0_Y36_N23
 cycloneive_io_obuf \o_received_byte[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -150,7 +154,7 @@ defparam \o_received_byte[4]~output .bus_hold = "false";
 defparam \o_received_byte[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X67_Y2_N16
+// Location: IOOBUF_X0_Y20_N16
 cycloneive_io_obuf \o_received_byte[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -163,7 +167,7 @@ defparam \o_received_byte[5]~output .bus_hold = "false";
 defparam \o_received_byte[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X48_Y43_N23
+// Location: IOOBUF_X0_Y29_N16
 cycloneive_io_obuf \o_received_byte[6]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -176,7 +180,7 @@ defparam \o_received_byte[6]~output .bus_hold = "false";
 defparam \o_received_byte[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y41_N23
+// Location: IOOBUF_X48_Y43_N23
 cycloneive_io_obuf \o_received_byte[7]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -202,6 +206,19 @@ defparam \o_receive_state~output .bus_hold = "false";
 defparam \o_receive_state~output .open_drain_output = "false";
 // synopsys translate_on
 
+// Location: IOOBUF_X0_Y33_N16
+cycloneive_io_obuf \w_full_TX_state~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\w_full_TX_state~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \w_full_TX_state~output .bus_hold = "false";
+defparam \w_full_TX_state~output .open_drain_output = "false";
+// synopsys translate_on
+
 assign o_TX_bit = \o_TX_bit~output_o ;
 
 assign o_received_byte[0] = \o_received_byte[0]~output_o ;
@@ -221,5 +238,7 @@ assign o_received_byte[6] = \o_received_byte[6]~output_o ;
 assign o_received_byte[7] = \o_received_byte[7]~output_o ;
 
 assign o_receive_state = \o_receive_state~output_o ;
+
+assign w_full_TX_state = \w_full_TX_state~output_o ;
 
 endmodule

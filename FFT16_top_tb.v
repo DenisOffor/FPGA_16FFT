@@ -1,44 +1,44 @@
-module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
+module FFT16_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8, STAGES = 4)
 (
-	output 		[N-1:0] 		out0_re,
-	output 		[N-1:0] 		out0_im,
-	output 		[N-1:0] 		out1_re,
-	output 		[N-1:0] 		out1_im,
-	output 		[N-1:0] 		out2_re,
-	output 		[N-1:0] 		out2_im,
-	output 		[N-1:0] 		out3_re,
-	output 		[N-1:0] 		out3_im,
-	output 		[N-1:0] 		out4_re,
-	output 		[N-1:0] 		out4_im,
-	output 		[N-1:0] 		out5_re,
-	output 		[N-1:0] 		out5_im,
-	output 		[N-1:0] 		out6_re,
-	output 		[N-1:0] 		out6_im,
-	output 		[N-1:0] 		out7_re,
-	output 		[N-1:0] 		out7_im,
-	output 		[N-1:0] 		out8_re,
-	output 		[N-1:0] 		out8_im,
-	output 		[N-1:0] 		out9_re,
-	output 		[N-1:0] 		out9_im,
-	output 		[N-1:0] 		out10_re,
-	output 		[N-1:0] 		out10_im,
-	output 		[N-1:0] 		out11_re,
-	output 		[N-1:0] 		out11_im,
-	output 		[N-1:0] 		out12_re,
-	output 		[N-1:0] 		out12_im,
-	output 		[N-1:0] 		out13_re,
-	output 		[N-1:0] 		out13_im,
-	output 		[N-1:0] 		out14_re,
-	output 		[N-1:0] 		out14_im,
-	output 		[N-1:0] 		out15_re,
-	output 		[N-1:0] 		out15_im,
+	output 		[WORD_SIZE-1:0] 		out0_re,
+	output 		[WORD_SIZE-1:0] 		out0_im,
+	output 		[WORD_SIZE-1:0] 		out1_re,
+	output 		[WORD_SIZE-1:0] 		out1_im,
+	output 		[WORD_SIZE-1:0] 		out2_re,
+	output 		[WORD_SIZE-1:0] 		out2_im,
+	output 		[WORD_SIZE-1:0] 		out3_re,
+	output 		[WORD_SIZE-1:0] 		out3_im,
+	output 		[WORD_SIZE-1:0] 		out4_re,
+	output 		[WORD_SIZE-1:0] 		out4_im,
+	output 		[WORD_SIZE-1:0] 		out5_re,
+	output 		[WORD_SIZE-1:0] 		out5_im,
+	output 		[WORD_SIZE-1:0] 		out6_re,
+	output 		[WORD_SIZE-1:0] 		out6_im,
+	output 		[WORD_SIZE-1:0] 		out7_re,
+	output 		[WORD_SIZE-1:0] 		out7_im,
+	output 		[WORD_SIZE-1:0] 		out8_re,
+	output 		[WORD_SIZE-1:0] 		out8_im,
+	output 		[WORD_SIZE-1:0] 		out9_re,
+	output 		[WORD_SIZE-1:0] 		out9_im,
+	output 		[WORD_SIZE-1:0] 		out10_re,
+	output 		[WORD_SIZE-1:0] 		out10_im,
+	output 		[WORD_SIZE-1:0] 		out11_re,
+	output 		[WORD_SIZE-1:0] 		out11_im,
+	output 		[WORD_SIZE-1:0] 		out12_re,
+	output 		[WORD_SIZE-1:0] 		out12_im,
+	output 		[WORD_SIZE-1:0] 		out13_re,
+	output 		[WORD_SIZE-1:0] 		out13_im,
+	output 		[WORD_SIZE-1:0] 		out14_re,
+	output 		[WORD_SIZE-1:0] 		out14_im,
+	output 		[WORD_SIZE-1:0] 		out15_re,
+	output 		[WORD_SIZE-1:0] 		out15_im,
 	
 	output						o_FFT_cycle_done
 );
 
 	reg clk = 0;
 	reg rst = 0;
-	reg [N-1:0] in_1Hz_re, in_1Hz_im, in_2Hz_re, in_2Hz_im, in_4Hz_re, in_4Hz_im, in_8Hz_re, in_8Hz_im;
+	reg [WORD_SIZE-1:0] in_1Hz_re, in_1Hz_im, in_2Hz_re, in_2Hz_im, in_4Hz_re, in_4Hz_im, in_8Hz_re, in_8Hz_im;
 	
 	initial begin
 		#0 rst = 1;
@@ -83,7 +83,7 @@ module FFT16_top_tb #(parameter N = 16, Q = 8, STAGES = 4)
 	always @(*)
 		#10 clk <= ~clk;
 		
-	FFT16_top #(.N(N), .Q(Q), .STAGES(STAGES)) FFT16_top
+	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION), .STAGES(STAGES)) FFT16_top
 	(
 		.i_clk(clk),
 		.i_rst(rst),

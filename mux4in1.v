@@ -1,14 +1,11 @@
-module mux4in1 #
+module mux4in1 #(parameter WORD_SIZE = 16)
 (
-    parameter N = 16
-)
-(
-    input       [N-1:0]    a,
-    input       [N-1:0]    b,
-	 input       [N-1:0]    c,
-	 input       [N-1:0]    d,
+    input       [WORD_SIZE-1:0]    a,
+    input       [WORD_SIZE-1:0]    b,
+	 input       [WORD_SIZE-1:0]    c,
+	 input       [WORD_SIZE-1:0]    d,
 	 input 		 [1:0]		sel,
-    output reg  [N-1:0]    out
+    output reg  [WORD_SIZE-1:0]    out
 );
 	initial begin
 	

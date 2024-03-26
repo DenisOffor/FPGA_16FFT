@@ -1,11 +1,11 @@
-module adder3 #(parameter N = 16)
+module adder3 #(parameter WORD_SIZE = 16)
 (
     input                   i_clk,
     input                   i_rst,
-    input       [N-1:0]     i_A,
-    input       [N-1:0]     i_B,
-    input       [N-1:0]     i_C,
-    output reg  [N-1:0]     o_sum
+    input       [WORD_SIZE-1:0]     i_A,
+    input       [WORD_SIZE-1:0]     i_B,
+    input       [WORD_SIZE-1:0]     i_C,
+    output reg  [WORD_SIZE-1:0]     o_sum
 );
 
 	initial begin

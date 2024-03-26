@@ -1,17 +1,17 @@
-module butterfly2_tb #(parameter N = 16, Q = 8)
+module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 (	
-	output 	[N-1:0]		o_out0_re,
-	output 	[N-1:0]		o_out0_im,
-	output 	[N-1:0]		o_out1_re,
-	output 	[N-1:0]		o_out1_im,
+	output 	[WORD_SIZE-1:0]		o_out0_re,
+	output 	[WORD_SIZE-1:0]		o_out0_im,
+	output 	[WORD_SIZE-1:0]		o_out1_re,
+	output 	[WORD_SIZE-1:0]		o_out1_im,
 	
 	output 					o_butterfly_done,
 	output					clk_divided8,
 	output					clk_divided16
 );
 	reg clk = 0;
-	reg [N-1:0] i_in0_re, i_in0_im, i_in1_re, i_in1_im;
-	reg [N-1:0] i_twiddle_re, i_twiddle_im;
+	reg [WORD_SIZE-1:0] i_in0_re, i_in0_im, i_in1_re, i_in1_im;
+	reg [WORD_SIZE-1:0] i_twiddle_re, i_twiddle_im;
 	
 	initial begin		
 		//#0 i_in0_re = 16'b0000000101101010;
@@ -46,7 +46,7 @@ module butterfly2_tb #(parameter N = 16, Q = 8)
 		#10 clk <= ~clk;
 	
 	
-	butterfly2 #(.N(N), .Q(Q)) but2 
+	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) but2 
 	(
 		.i_clk(clk),
 		.i_rst(0),

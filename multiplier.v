@@ -1,16 +1,16 @@
-module multiplier #(parameter N = 16, Q = 8)
+module multiplier #(parameter WORD_SIZE = 16, FRACTION = 8)
 (
 	input 						i_clk,
 	input 						i_rst,
-	input 		[N-1:0] 		i_A,
-	input 		[N-1:0] 		i_B,
-	output 		[N-1:0] 		out
+	input 		[WORD_SIZE-1:0] 		i_A,
+	input 		[WORD_SIZE-1:0] 		i_B,
+	output 		[WORD_SIZE-1:0] 		out
 );
 	
-	reg [2*N-1:0] 	P;
-	reg [N-1:0]		temp1;
-	reg [N-1:0]		temp2;
-	reg [N-1:0]    temp3;
+	reg [2*WORD_SIZE-1:0] 	P;
+	reg [WORD_SIZE-1:0]		temp1;
+	reg [WORD_SIZE-1:0]		temp2;
+	reg [WORD_SIZE-1:0]    temp3;
 	
 	initial begin
 		P <= 0;
@@ -28,7 +28,7 @@ module multiplier #(parameter N = 16, Q = 8)
 			P 		<= 0;
 		end
 		else begin
-			case({i_A[N-1], i_B[N-1]})
+			case({i_A[WORD_SIZE-1], i_B[WORD_SIZE-1]})
 				2'b00:
 				begin
 					//two positive number
@@ -37,7 +37,7 @@ module multiplier #(parameter N = 16, Q = 8)
 					P <= temp1 * temp2;
 					//result of multiplying 2 numbers is 32 bit lengths, so we need to cut it to 16 bit
 					//fot that we take 8 bit for int part of number and 8 bit for fractional part of number [23:8] 
-					temp3 <= P[N - 1 + Q:Q];
+					temp3 <= P[WORD_SIZE - 1 + FRACTION:FRACTION];
 				end
 				
 				2'b01:
@@ -48,7 +48,7 @@ module multiplier #(parameter N = 16, Q = 8)
 					temp2 <= ~i_B + 1'b1;
 					//take complement of negative number
 					P <= temp1 * temp2;
-					temp3 <= ~(P[N - 1 + Q:Q]) + 1'b1;
+					temp3 <= ~(P[WORD_SIZE - 1 + FRACTION:FRACTION]) + 1'b1;
 				end
 				
 				2'b10:
@@ -57,7 +57,7 @@ module multiplier #(parameter N = 16, Q = 8)
 					temp1 <= ~i_A + 1'b1;
 					temp2 <= i_B;
 					P <= temp1 * temp2;
-					temp3 <= ~(P[N - 1 + Q:Q]) + 1'b1;
+					temp3 <= ~(P[WORD_SIZE - 1 + FRACTION:FRACTION]) + 1'b1;
 				end
 				
 				2'b11:
@@ -66,7 +66,7 @@ module multiplier #(parameter N = 16, Q = 8)
 					temp1 <= ~i_A + 1'b1;
 					temp2 <= ~i_B + 1'b1;
 					P <= temp1 * temp2;
-					temp3 <= P[N - 1 + Q:Q];
+					temp3 <= P[WORD_SIZE - 1 + FRACTION:FRACTION];
 				end	
 			endcase
 		end

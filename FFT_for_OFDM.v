@@ -133,7 +133,7 @@ module FFT_for_OFDM #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, S
 		.o_harmonic_im(w_8Hz_im)
 	);
 
-	FFT16_top #(.N(WORD_SIZE), .Q(FRACTION), .STAGES(STAGES)) FFT16
+	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION), .STAGES(STAGES)) FFT16
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),

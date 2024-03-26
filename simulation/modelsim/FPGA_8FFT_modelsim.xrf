@@ -38,3 +38,4 @@ instance = comp, \o_received_byte[5]~output , o_received_byte[5]~output, top_tb,
 instance = comp, \o_received_byte[6]~output , o_received_byte[6]~output, top_tb, 1
 instance = comp, \o_received_byte[7]~output , o_received_byte[7]~output, top_tb, 1
 instance = comp, \o_receive_state~output , o_receive_state~output, top_tb, 1
+instance = comp, \w_full_TX_state~output , w_full_TX_state~output, top_tb, 1

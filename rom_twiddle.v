@@ -1,23 +1,23 @@
-module rom_twiddle #(parameter N = 16)
+module rom_twiddle #(parameter WORD_SIZE = 16)
 (
 	input 					i_clk,
 	input						i_rst,
-	output reg [N-1:0]	reg0_re,
-	output reg [N-1:0]	reg0_im,	
-	output reg [N-1:0]	reg1_re,
-	output reg [N-1:0]	reg1_im,
-	output reg [N-1:0]	reg2_re,
-	output reg [N-1:0]	reg2_im,
-	output reg [N-1:0]	reg3_re,
-	output reg [N-1:0]	reg3_im,
-	output reg [N-1:0]	reg4_re,
-	output reg [N-1:0]	reg4_im,
-	output reg [N-1:0]	reg5_re,
-	output reg [N-1:0]	reg5_im,
-	output reg [N-1:0]	reg6_re,
-	output reg [N-1:0]	reg6_im,
-	output reg [N-1:0]	reg7_re,
-	output reg [N-1:0]	reg7_im
+	output reg [WORD_SIZE-1:0]	reg0_re,
+	output reg [WORD_SIZE-1:0]	reg0_im,	
+	output reg [WORD_SIZE-1:0]	reg1_re,
+	output reg [WORD_SIZE-1:0]	reg1_im,
+	output reg [WORD_SIZE-1:0]	reg2_re,
+	output reg [WORD_SIZE-1:0]	reg2_im,
+	output reg [WORD_SIZE-1:0]	reg3_re,
+	output reg [WORD_SIZE-1:0]	reg3_im,
+	output reg [WORD_SIZE-1:0]	reg4_re,
+	output reg [WORD_SIZE-1:0]	reg4_im,
+	output reg [WORD_SIZE-1:0]	reg5_re,
+	output reg [WORD_SIZE-1:0]	reg5_im,
+	output reg [WORD_SIZE-1:0]	reg6_re,
+	output reg [WORD_SIZE-1:0]	reg6_im,
+	output reg [WORD_SIZE-1:0]	reg7_re,
+	output reg [WORD_SIZE-1:0]	reg7_im
 );
 	always @ (posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin

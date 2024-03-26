@@ -1,7 +1,7 @@
-module get_negative #(parameter N = 16)
+module get_negative #(parameter WORD_SIZE = 16)
 (
-	input 	[N-1:0] in,
-	output 	[N-1:0] out
+	input 	[WORD_SIZE-1:0] in,
+	output 	[WORD_SIZE-1:0] out
 );
 	assign out = ~in + 1'b1;
 endmodule

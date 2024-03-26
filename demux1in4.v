@@ -1,14 +1,11 @@
-module demux1in4 #
+module demux1in4 #(parameter WORD_SIZE = 16)
 (
-    parameter N = 16
-)
-(
-    input       [N-1:0]    a,
+    input       [WORD_SIZE-1:0]    a,
 	 input 		 [1:0]		sel,
-	 output reg  [N-1:0]    out0,
-    output reg  [N-1:0]    out1,
-	 output reg  [N-1:0]    out2,
-	 output reg  [N-1:0]    out3
+	 output reg  [WORD_SIZE-1:0]    out0,
+    output reg  [WORD_SIZE-1:0]    out1,
+	 output reg  [WORD_SIZE-1:0]    out2,
+	 output reg  [WORD_SIZE-1:0]    out3
 );
 	initial begin
 		out0 <= 0;
