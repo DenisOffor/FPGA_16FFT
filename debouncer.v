@@ -3,7 +3,7 @@ module debouncer(
 	input button, 
 	output reg button_state
 );
-	reg [21:0] counter;
+	reg [20:0] counter;
 	wire change_state = button ^ button_state;	
 	wire max_cnt = &counter;
 	

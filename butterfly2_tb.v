@@ -9,6 +9,10 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	//wire									w_rst;
 	assign 								w_rst = r_rst;
 	
+	reg 	r_start = 0;
+	wire	w_start;
+	assign w_start = r_start;
+	
 	reg   [WORD_SIZE-1:0] 			i_in0_re, i_in0_im, i_in1_re, i_in1_im;
 	reg   [WORD_SIZE-1:0] 			i_twiddle_re, i_twiddle_im;
 		
@@ -70,6 +74,15 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	always @(posedge w_btn_state) begin
 		r_rst <= r_rst ^ 1'b1;
 	end
+	
+	always @(posedge i_clk or posedge w_TX_done) begin
+		if(w_TX_done) begin
+			r_start <= 1'b1;
+		end
+		else begin
+			r_start <= 1'b0;
+		end
+	end
 		
 	always @(posedge w_TX_done) begin
 		counter_of_sended_bytes <= counter_of_sended_bytes + 1'b1;
@@ -80,7 +93,7 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	
 	debouncer my_debouncer(
 		.clk(i_clk), 
-		.button(i_btn), 
+		.button(~i_btn), 
 		.button_state(w_btn_state)
 	);
 	
@@ -160,8 +173,8 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	UART_TX Transmitter
 	(
 		.i_clk(i_clk),
-		.i_rst(w_rst),
-		.i_start(o_butterfly_done), 
+		.i_rst(1),
+		.i_start(o_butterfly_done || w_start), 
 		.i_TX_byte(w_Transmitted_byte),
 		.o_TX_bit(o_TX_bit), 
 		.o_transfer_state(), 

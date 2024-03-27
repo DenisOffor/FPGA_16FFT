@@ -19,12 +19,14 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	output 	[WORD_SIZE-1:0]			o_out1_re,
 	output 	[WORD_SIZE-1:0]			o_out1_im,
 	
-	output 					o_butterfly_done
+	output 					o_butterfly_done,
+	output					clk_divided8,
+	output					clk_divided16
 );
 
 	//wires for divided i_clk
-	wire 						clk_divided8;
-	wire 						clk_divided16;
+	//wire 						clk_divided8;
+	//wire 						clk_divided16;
 	//wire for connect "multiple done" with "write_enable" for flash
 	//wire 						w_mutiplier_done;
 	//current input data chosen for multiply them
@@ -43,11 +45,11 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	assign o_butterfly_done = r_butterfly_done; 
 
 	
-	always @(posedge i_rst or posedge clk_divided8 or negedge clk_divided16) begin
-		if(i_rst)
-			r_butterfly_done <= (~clk_divided8 && ~clk_divided16);
-		else 
+	always @(negedge i_rst or negedge clk_divided8 or negedge clk_divided16) begin
+		if(~i_rst)
 			r_butterfly_done <= 1'b0;
+		else 
+			r_butterfly_done <= (~clk_divided8 && ~clk_divided16);
 	end
 	 //////////////////////
 	 flash #(.WORD_SIZE(WORD_SIZE)) flash1
