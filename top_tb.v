@@ -3,7 +3,12 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 	output	o_TX_bit,
 	output 	[DATA_LENGTH-1:0] 	o_received_byte,
 	output	o_receive_state,
-	output	w_full_TX_state
+	output	w_full_TX_state,
+	output 			w_led1,
+	output         w_led2,
+	output 			w_FFT_cycle_done,
+	output			w_TX_done,
+	output			w_FFT_rst
 );
 	reg clk = 0;
 	reg rst = 0;
@@ -14,13 +19,11 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 	wire w_TX_bit_tb;
 	
 	initial begin		
-		#10 rst = 1;
-		#50 rst = 0;
-		#0 r_tx_start = 1'b1;
-		#0 byte = 8'b00110001;
-		#20 r_tx_start = 1'b0;
+		//#0 r_tx_start = 1'b1;
+		//#0 byte = 8'b00110001;
+		//#20 r_tx_start = 1'b0;
 		
-		#320000 r_tx_start = 1'b1;
+		#3200000 r_tx_start = 1'b1;
 		#0 byte = 8'b00000000;
 		#20 r_tx_start = 1'b0;
 	end
@@ -33,11 +36,14 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 	top #(.FFT_SIZE(FFT_SIZE), .WORD_SIZE(WORD_SIZE), .DATA_LENGTH(DATA_LENGTH),.FRACTION(FRACTION), .STAGES(STAGES)) tb_top
 	(
 		.i_clk(clk),
-		.i_rst(rst),
 		.i_RX_bit(w_TX_bit_tb),
 		
 		.o_TX_bit(o_TX_bit),
-		.w_full_TX_state(w_full_TX_state)
+		.w_led1(w_led1),
+		.w_led2(w_led2),
+		.w_FFT_cycle_done(w_FFT_cycle_done),
+		.w_TX_done(w_TX_done),
+		.w_FFT_rst(w_FFT_rst)
 	);
 
 	UART_TX tb_Transmitter

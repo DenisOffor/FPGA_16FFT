@@ -1,11 +1,14 @@
 module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4)
 (
 	input 			i_clk,
-	input 			i_rst,
 	input 			i_RX_bit,
 			
 	output 			o_TX_bit,
-	output			w_full_TX_state
+	output 			w_led1,
+	output         w_led2,
+	output 			w_FFT_cycle_done,
+	output			w_TX_done,
+	output			w_FFT_rst
 );
 	//reg and wires for UART_RX
 	wire 	[DATA_LENGTH - 1:0] 	w_Received_byte;
@@ -17,12 +20,11 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	reg								r_TX_start;
 	reg								r_full_TX_state; //1 - process, 0 - wait
 	wire 							w_TX_start;
-	//wire							w_full_TX_state;
+	wire							w_full_TX_state;
 	wire 							w_transfer_state;
-	wire 							w_TX_done;
+	//wire 							w_TX_done;
 	assign w_TX_start = r_TX_start;
 	assign w_full_TX_state = r_full_TX_state;
-	
 	reg 	[5:0]	    counter_of_sended_bytes;
 	
 	//wires for out from FFT
@@ -42,33 +44,37 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
     wire	[WORD_SIZE-1:0]			w_FFT_out13_re;
     wire	[WORD_SIZE-1:0]			w_FFT_out14_re;
     wire	[WORD_SIZE-1:0]			w_FFT_out15_re;
-	wire							w_FFT_cycle_done;
+	//wire							w_FFT_cycle_done;
 	
 	//wire and reg for reset FFT
 	reg								r_FFT_rst;
-	wire							w_FFT_rst;
+	//wire							w_FFT_rst;
 	assign w_FFT_rst = r_FFT_rst;
+	reg 	led1;
+	reg	led2;
+	assign w_led1 = led1;
+	assign w_led2 = led2;
 	
 	initial begin
 		r_FFT_rst  <= 1'b1;
 		r_TX_start <= 1'b0;
 		r_full_TX_state <= 1'b0;
 		counter_of_sended_bytes <= 0;
+		led1 <= 0;
+		led2 <= 1;
 	end
 	
 	//manage reset state of FFT
 	//if external reset -> then reset fft
 	//if FFT cycle done -> reset in order to save data after FFT in ram and FFT cycle not start again
 	//if new byte received -> then start new cycle, so reset = 0
-	always @(posedge i_clk or posedge w_receive_state or posedge w_FFT_cycle_done or posedge i_rst) begin
-		if(i_rst) begin
-			r_FFT_rst <= 1'b1;
-		end
-			else if(w_FFT_cycle_done) begin
+	always @(posedge w_receive_state or posedge w_FFT_cycle_done) begin
+			if(w_FFT_cycle_done) begin
 				r_FFT_rst <= 1'b1;
 			end
 				else if(w_receive_state) begin
 					r_FFT_rst <= 1'b0;
+					led1 <= 1'b1;
 				end
 	end
 	
@@ -92,6 +98,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 			counter_of_sended_bytes <= 0;
 		end
 		else begin
+			led2 <= led2 ^ 1'b1;
 			counter_of_sended_bytes <= counter_of_sended_bytes + 1'b1;
 			if(counter_of_sended_bytes == 31) begin
 				counter_of_sended_bytes <= 0;

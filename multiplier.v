@@ -22,12 +22,6 @@ module multiplier #(parameter WORD_SIZE = 16, FRACTION = 8)
 	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
-			temp1 <= 0;
-			temp2 <= 0;
-			temp3 <= 0;
-			P 		<= 0;
-		end
-		else begin
 			case({i_A[WORD_SIZE-1], i_B[WORD_SIZE-1]})
 				2'b00:
 				begin
@@ -69,6 +63,12 @@ module multiplier #(parameter WORD_SIZE = 16, FRACTION = 8)
 					temp3 <= P[WORD_SIZE - 1 + FRACTION:FRACTION];
 				end	
 			endcase
+		end
+		else begin
+			temp1 <= 0;
+			temp2 <= 0;
+			temp3 <= 0;
+			P 		<= 0;
 		end
 	end
 	assign out = temp3;

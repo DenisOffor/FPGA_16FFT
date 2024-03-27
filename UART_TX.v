@@ -1,4 +1,4 @@
-module UART_TX #(parameter CLOCK_PER_BIT = 40)
+module UART_TX #(parameter CLOCK_PER_BIT = 434)
 (
 	input 				i_clk, 
 	input					i_rst,
@@ -16,7 +16,7 @@ module UART_TX #(parameter CLOCK_PER_BIT = 40)
 	parameter 			CLEAR_STATE = 3'b100;
 	
 	reg 		[7:0]	r_TX_byte;
-	reg 		[7:0]	r_TX_counter;
+	reg 		[10:0]	r_TX_counter;
 	reg 				r_TX_data;
 	reg 				r_transfer_state;
 	reg 				r_TX_done;
@@ -34,8 +34,6 @@ module UART_TX #(parameter CLOCK_PER_BIT = 40)
 	always @(posedge i_clk or posedge i_rst)
 	begin
 		if(i_rst)
-			r_transfer_task <= IDLE_STATE;
-		else begin
 			case(r_transfer_task)
 				IDLE_STATE:
 				begin
@@ -120,6 +118,8 @@ module UART_TX #(parameter CLOCK_PER_BIT = 40)
 				end
 				default: r_transfer_task <= IDLE_STATE;
 			endcase
+		else begin
+			r_transfer_task <= IDLE_STATE;
 		end
 	end
 	

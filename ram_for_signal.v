@@ -69,15 +69,15 @@ module ram_for_signal #(parameter WORD_SIZE = 16)
 	output	reg 	[WORD_SIZE-1:0]	out15_im
 );
 	initial begin
-		out0_re  <= 0;
-		out0_im  <= 0;
-		out1_re  <= 0;
-		out1_im  <= 0;
-		out2_re  <= 0;
-		out2_im  <= 0;
-		out3_re  <= 0;
-		out3_im  <= 0;
-		out4_re  <= 0;
+		out0_re  <= 1;
+		out0_im  <= 1;
+		out1_re  <= 1;
+		out1_im  <= 1;
+		out2_re  <= 2;
+		out2_im  <= 2;
+		out3_re  <= 2;
+		out3_im  <= 2;
+		out4_re  <= 2;
 		out4_im  <= 0;
 		out5_re  <= 0;
 		out5_im  <= 0;
@@ -88,7 +88,7 @@ module ram_for_signal #(parameter WORD_SIZE = 16)
 		out8_re  <= 0;
 		out8_im  <= 0;
 		out9_re  <= 0;
-		out9_im  <= 0;
+		out9_im  <= 12;
 		out10_re <= 0;
 		out10_im <= 0;
 		out11_re <= 0;

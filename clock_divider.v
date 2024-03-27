@@ -10,18 +10,14 @@ module clock_divider
 	output	o_clk_divided64,
 	output	o_clk_divided128
 );
-	reg[6:0] counter;
-	
-	initial begin
-		counter <= 0;
-	end
+	reg[6:0] counter = 0;
 	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
-			counter <= 7'b0000000;
+			counter <= counter + 1'b1;
 		end
 		else begin
-			counter <= counter + 1'b1;
+			counter <= 0;
 		end
 	end
 

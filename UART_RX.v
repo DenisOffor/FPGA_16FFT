@@ -1,4 +1,4 @@
-module UART_RX #(parameter CLOCK_PER_BIT = 40)
+module UART_RX #(parameter CLOCK_PER_BIT = 434)
 (
 	input 			i_clk, 
 	input 			i_RX_bit, 
@@ -8,7 +8,7 @@ module UART_RX #(parameter CLOCK_PER_BIT = 40)
 );
 
 	reg i_RX_bit_switch[1:0];
-	reg [7:0]r_rx_counter;
+	reg [10:0]r_rx_counter;
 	reg [2:0]r_receive_task;
 	
 	reg [7:0]r_RX_byte;

@@ -67,6 +67,42 @@ module ram_16_byte #(parameter WORD_SIZE = 16)
 	output		reg 	[WORD_SIZE-1:0]	out15_re,
 	output		reg 	[WORD_SIZE-1:0]	out15_im
 );
+
+	initial begin
+		out0_re  <= 0;
+		out0_im  <= 0;
+		out1_re  <= 0;
+		out1_im  <= 0;
+		out2_re  <= 0;
+		out2_im  <= 0;
+		out3_re  <= 0;
+		out3_im  <= 0;
+		out4_re  <= 0;
+		out4_im  <= 0;
+		out5_re  <= 0;
+		out5_im  <= 0;
+		out6_re  <= 0;
+		out6_im  <= 0;
+		out7_re  <= 0;
+		out7_im  <= 0;
+		out8_re  <= 0;
+		out8_im  <= 0;
+		out9_re  <= 0;
+		out9_im  <= 0;
+		out10_re <= 0;
+		out10_im <= 0;
+		out11_re <= 0;
+		out11_im <= 0;
+		out12_re <= 0;
+		out12_im <= 0;
+		out13_re <= 0;
+		out13_im <= 0;
+		out14_re <= 0;
+		out14_im <= 0;
+		out15_re <= 10;
+		out15_im <= 0;
+	end
+
 	always @(posedge we) begin
 		out0_re 	<= in0_re;
 		out0_im 	<= in0_im;
