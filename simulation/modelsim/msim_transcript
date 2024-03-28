@@ -10,102 +10,145 @@
 # Copying D:/ModelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/debouncer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 07:26:18 on Mar 28,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/debouncer.v 
+# -- Compiling module debouncer
+# 
+# Top level modules:
+# 	debouncer
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 07:26:18 on Mar 28,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v 
+# -- Compiling module UART_TX
+# 
+# Top level modules:
+# 	UART_TX
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:10 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v 
 # -- Compiling module butterfly2
 # 
 # Top level modules:
 # 	butterfly2
-# End time: 23:17:10 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:10 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v 
 # -- Compiling module multiplier
 # 
 # Top level modules:
 # 	multiplier
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:01
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/get_negative.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/get_negative.v 
 # -- Compiling module get_negative
 # 
 # Top level modules:
 # 	get_negative
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v 
 # -- Compiling module adder3
 # 
 # Top level modules:
 # 	adder3
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v 
 # -- Compiling module butterfly2_tb
 # 
 # Top level modules:
 # 	butterfly2_tb
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v 
 # -- Compiling module clock_divider
 # 
 # Top level modules:
 # 	clock_divider
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux2in1.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux2in1.v 
 # -- Compiling module mux2in1
 # 
 # Top level modules:
 # 	mux2in1
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/flash.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/flash.v 
 # -- Compiling module flash
 # 
 # Top level modules:
 # 	flash
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux32in1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 07:26:18 on Mar 28,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux32in1.v 
+# -- Compiling module mux32in1
+# 
+# Top level modules:
+# 	mux32in1
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/ram_4_byte.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 07:26:18 on Mar 28,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/ram_4_byte.v 
+# -- Compiling module ram_4_byte
+# 
+# Top level modules:
+# 	ram_4_byte
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:18 on Mar 28,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v 
 # -- Compiling module butterfly2_tb
 # 
 # Top level modules:
 # 	butterfly2_tb
-# End time: 23:17:11 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 07:26:18 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  butterfly2_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" butterfly2_tb 
-# Start time: 23:17:11 on Mar 27,2024
+# Start time: 07:26:19 on Mar 28,2024
 # Loading work.butterfly2_tb
+# Loading work.debouncer
+# Loading work.ram_4_byte
+# Loading work.mux32in1
 # Loading work.butterfly2
 # Loading work.flash
 # Loading work.mux2in1
@@ -113,6 +156,11 @@
 # Loading work.get_negative
 # Loading work.adder3
 # Loading work.clock_divider
+# Loading work.UART_TX
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v(165): [TFMPC] - Too few port connections. Expected 15, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /butterfly2_tb/but2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v(165): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v(165): [TFMPC] - Missing connection for port 'clk_divided16'.
 # ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(143): [TFMPC] - Too few port connections. Expected 9, found 4.
 #    Time: 0 ps  Iteration: 0  Instance: /butterfly2_tb/but2/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
 # ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(143): [TFMPC] - Missing connection for port 'o_clk_divided2'.
@@ -120,6 +168,8 @@
 # ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(143): [TFMPC] - Missing connection for port 'o_clk_divided32'.
 # ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(143): [TFMPC] - Missing connection for port 'o_clk_divided64'.
 # ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(143): [TFMPC] - Missing connection for port 'o_clk_divided128'.
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v(185): [PCDPC] - Port size (1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /butterfly2_tb/Transmitter File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v
 # 
 # add wave *
 # view structure
@@ -127,7 +177,5 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# Break key hit
-# Break in Module butterfly2_tb at C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2_tb.v line 50
-# End time: 23:17:35 on Mar 27,2024, Elapsed time: 0:00:24
-# Errors: 0, Warnings: 6
+# End time: 07:26:42 on Mar 28,2024, Elapsed time: 0:00:23
+# Errors: 0, Warnings: 10

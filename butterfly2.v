@@ -45,8 +45,8 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	assign o_butterfly_done = r_butterfly_done; 
 
 	
-	always @(negedge i_rst or negedge clk_divided8 or negedge clk_divided16) begin
-		if(~i_rst)
+	always @(posedge i_rst or negedge clk_divided8 or negedge clk_divided16) begin
+		if(i_rst)
 			r_butterfly_done <= 1'b0;
 		else 
 			r_butterfly_done <= (~clk_divided8 && ~clk_divided16);

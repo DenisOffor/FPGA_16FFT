@@ -34,6 +34,8 @@ module UART_TX #(parameter CLOCK_PER_BIT = 434)
 	always @(posedge i_clk or posedge i_rst)
 	begin
 		if(i_rst)
+			r_transfer_task <= IDLE_STATE;
+		else begin
 			case(r_transfer_task)
 				IDLE_STATE:
 				begin
@@ -118,8 +120,6 @@ module UART_TX #(parameter CLOCK_PER_BIT = 434)
 				end
 				default: r_transfer_task <= IDLE_STATE;
 			endcase
-		else begin
-			r_transfer_task <= IDLE_STATE;
 		end
 	end
 	

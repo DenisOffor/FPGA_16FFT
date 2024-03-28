@@ -5,9 +5,9 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	output					o_TX_bit,
 	output					w_rst
 );
-	reg 									r_rst = 0;
+	reg 									r_rst;
 	//wire									w_rst;
-	assign 								w_rst = r_rst;
+	assign 								w_rst = ~r_rst;
 	
 	reg 	r_start = 0;
 	wire	w_start;
@@ -52,6 +52,14 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	
 	always @(posedge i_clk or posedge w_rst) begin
 		if(w_rst) begin
+			i_in0_re <= 0;
+			i_in0_im <= 0;
+			i_in1_re <= 0;
+			i_in1_im <= 0;
+			i_twiddle_re <= 0;
+			i_twiddle_im <= 0;
+		end
+		else begin
 			i_in0_re <= 16'b0000001000000000;
 			i_in0_im <= 16'b0000000100000000;
 
@@ -60,14 +68,6 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 
 			i_twiddle_re <= 16'b0000000100000000;
 			i_twiddle_im <= 16'b0000000000000000;
-		end
-		else begin
-			i_in0_re <= 0;
-			i_in0_im <= 0;
-			i_in1_re <= 0;
-			i_in1_im <= 0;
-			i_twiddle_re <= 0;
-			i_twiddle_im <= 0;
 		end
 	end
 	
@@ -173,7 +173,7 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	UART_TX Transmitter
 	(
 		.i_clk(i_clk),
-		.i_rst(1),
+		.i_rst(w_rst),
 		.i_start(o_butterfly_done || w_start), 
 		.i_TX_byte(w_Transmitted_byte),
 		.o_TX_bit(o_TX_bit), 
