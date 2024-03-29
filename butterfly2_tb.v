@@ -77,7 +77,7 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 	
 	always @(posedge i_clk or posedge w_TX_done) begin
 		if(w_TX_done) begin
-			r_start <= 1'b1;
+				r_start <= 1'b1;
 		end
 		else begin
 			r_start <= 1'b0;
