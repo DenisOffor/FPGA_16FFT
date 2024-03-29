@@ -49,20 +49,20 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	//wire and reg for reset FFT
 	reg								r_FFT_rst;
 	//wire							w_FFT_rst;
-	assign w_FFT_rst = r_FFT_rst;
+	assign w_FFT_rst = ~r_FFT_rst;
 	reg 	led1;
 	reg	led2;
 	assign w_led1 = led1;
 	assign w_led2 = led2;
 	
-	initial begin
-		r_FFT_rst  <= 1'b1;
-		r_TX_start <= 1'b0;
-		r_full_TX_state <= 1'b0;
-		counter_of_sended_bytes <= 0;
-		led1 <= 0;
-		led2 <= 1;
-	end
+	//initial begin
+	//	r_FFT_rst  <= 1'b1;
+	//	r_TX_start <= 1'b0;
+	//	r_full_TX_state <= 1'b0;
+	//	counter_of_sended_bytes <= 0;
+	//	led1 <= 0;
+	//	led2 <= 1;
+	//end
 	
 	//manage reset state of FFT
 	//if external reset -> then reset fft
@@ -70,10 +70,10 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	//if new byte received -> then start new cycle, so reset = 0
 	always @(posedge w_receive_state or posedge w_FFT_cycle_done) begin
 			if(w_FFT_cycle_done) begin
-				r_FFT_rst <= 1'b1;
+				r_FFT_rst <= 1'b0;
 			end
 				else if(w_receive_state) begin
-					r_FFT_rst <= 1'b0;
+					r_FFT_rst <= 1'b1;
 					led1 <= 1'b1;
 				end
 	end

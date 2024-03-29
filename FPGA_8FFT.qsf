@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE6E22C8
-set_global_assignment -name TOP_LEVEL_ENTITY butterfly2_tb
+set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:20:35  MARCH 09, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -57,11 +57,10 @@ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_formal_verification
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FFT_for_OFDM_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FFT_for_OFDM_tb -section_id FFT_for_OFDM_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE FFT16_top_tb.v -section_id FFT16_top_tb
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH butterfly2_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH top_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME FFT_for_OFDM_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME UART_RX_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id UART_RX_tb
@@ -129,15 +128,7 @@ set_location_assignment PIN_88 -to i_btn
 set_global_assignment -name EDA_TEST_BENCH_NAME butterfly2_tb_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id butterfly2_tb_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME butterfly2_tb_tb -section_id butterfly2_tb_tb
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_85 -to w_rst
-set_global_assignment -name EDA_TEST_BENCH_FILE FFT_for_OFDM_tb.v -section_id FFT_for_OFDM_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE UART_RX_tb.v -section_id UART_RX_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE top_tb.v -section_id top_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb.v -section_id butterfly2_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb_tb.v -section_id butterfly2_tb_tb
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to i_clk -section_id auto_signaltap_0
@@ -172,5 +163,15 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=32768" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=50867" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=32768" -section_id auto_signaltap_0
+set_global_assignment -name EDA_TEST_BENCH_NAME FFT16_top_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_FILE FFT_for_OFDM_tb.v -section_id FFT_for_OFDM_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE UART_RX_tb.v -section_id UART_RX_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE top_tb.v -section_id top_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb.v -section_id butterfly2_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb_tb.v -section_id butterfly2_tb_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE FFT16_top_tb.v -section_id FFT16_top_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE "C:/Users/denlo/Documents/Quartus/FPGA_16FFT/output_files/stp1_auto_stripped.stp"

@@ -22,7 +22,6 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 		//#0 r_tx_start = 1'b1;
 		//#0 byte = 8'b00110001;
 		//#20 r_tx_start = 1'b0;
-		
 		#3200000 r_tx_start = 1'b1;
 		#0 byte = 8'b00000000;
 		#20 r_tx_start = 1'b0;
