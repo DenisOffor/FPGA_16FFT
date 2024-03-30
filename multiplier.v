@@ -11,7 +11,15 @@ module multiplier #(parameter WORD_SIZE = 16, FRACTION = 8)
 	reg [WORD_SIZE-1:0]		temp1;
 	reg [WORD_SIZE-1:0]		temp2;
 	reg [WORD_SIZE-1:0]    temp3;
-		
+	
+	initial begin
+		P <= 0;
+		temp1 <= 0;
+		temp2 <= 0;
+		temp3 <= 0;
+	end
+	
+	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
 			temp1 <= 0;

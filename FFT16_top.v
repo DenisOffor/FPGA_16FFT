@@ -883,7 +883,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	
 	ram_16_byte #( .WORD_SIZE(WORD_SIZE)) ram_out
 	(
-		.we(o_butterfly_done && ~o_FFT_cycle_done),
+		.we(o_butterfly_done),
 		.in0_re(w_out0_re_butterfly),
 		.in0_im(w_out0_im_butterfly),
 		.in1_re(w_out1_re_butterfly),

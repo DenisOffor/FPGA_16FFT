@@ -20,8 +20,8 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	output 	[WORD_SIZE-1:0]			o_out1_im,
 	
 	output 					o_butterfly_done,
-	output					clk_divided8,
-	output					clk_divided16
+	output					clk_divided16,
+	output					clk_divided32
 );
 
 	//wires for divided i_clk
@@ -41,22 +41,40 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	wire		[WORD_SIZE-1:0]			w_out_re0_neg, w_out_re1_neg, w_out_im0_neg, w_out_im1_neg;
 	
 	reg  						r_butterfly_done = 0;
-	
 	assign o_butterfly_done = r_butterfly_done; 
-
+	reg			[2:0]		counter = 0;
 	
-	always @(posedge i_rst or negedge clk_divided8 or negedge clk_divided16) begin
+	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst)
-			r_butterfly_done <= 1'b0;
-		else 
-			r_butterfly_done <= (~clk_divided8 && ~clk_divided16);
+			r_butterfly_done <= 0;
+		else begin
+			if(clk_divided16 && clk_divided32) begin
+				if(counter == 6) begin
+					r_butterfly_done <= 1;
+					counter <= 0;
+				end
+				else begin
+					if(r_butterfly_done == 0)
+						counter <= counter + 1'b1;
+					r_butterfly_done <= 0;
+				end
+			end
+		end
 	end
+	
+	
+	//always @(posedge i_rst or posedge i_clk) begin
+	//	if(i_rst)
+	//		r_butterfly_done <= 1'b0;
+	//	else 
+	//		r_butterfly_done <= (clk_divided8 && clk_divided16);
+	//end
 	 //////////////////////
 	 flash #(.WORD_SIZE(WORD_SIZE)) flash1
 	 ( 
 		.i_clk(i_clk),
 		.i_word(out_multiplier),
-		.address({clk_divided16, clk_divided8}),
+		.address({clk_divided32, clk_divided16}),
 		.o_word0(w_out_re0),
 		.o_word1(w_out_im0),
 		.o_word2(w_out_im1),
@@ -66,7 +84,7 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	 ( 
 		.i_clk(i_clk),
 		.i_word(out_multiplier_negative),
-		.address({clk_divided16, clk_divided8}),
+		.address({clk_divided32, clk_divided16}),
 		.o_word0(w_out_re0_neg),
 		.o_word1(w_out_im0_neg),
 		.o_word2(w_out_im1_neg),
@@ -77,21 +95,21 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	 (
 		  .a(i_in1_re),
 		  .b(i_in1_im),
-		  .sel(clk_divided8),
+		  .sel(clk_divided16),
 		  .out(current_factor1)
 	  );
      mux2in1 #(.WORD_SIZE(WORD_SIZE)) mux2
 	 (
 		  .a(i_twiddle_re),
 		  .b(i_twiddle_im),
-		  .sel(clk_divided16),
+		  .sel(clk_divided32),
 		  .out(current_factor2)
 	  );  
 	  ///////////////////////////////
 	  multiplier #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) M1
     (
         .i_clk(i_clk),
-		  .i_rst(i_rst),
+        .i_rst(i_rst),
         .i_A(current_factor1),
         .i_B(current_factor2),
         .out(out_multiplier)
@@ -144,7 +162,7 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
-		.o_clk_divided8(clk_divided8),
-		.o_clk_divided16(clk_divided16)
+		.o_clk_divided16(clk_divided16),
+		.o_clk_divided32(clk_divided32)
 	);
 endmodule

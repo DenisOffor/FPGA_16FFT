@@ -5,9 +5,10 @@ module clock_divider
 	output	o_clk_divided2,
 	output	o_clk_divided4,
 	output	o_clk_divided8,
-	output	o_clk_divided16
+	output	o_clk_divided16,
+	output	o_clk_divided32
 );
-	reg[6:0] counter;
+	reg[4:0] counter;
 	
 	always @(posedge i_clk or posedge i_rst) begin
 		if(i_rst) begin
@@ -22,4 +23,5 @@ module clock_divider
 	assign o_clk_divided4 	= counter[1];
 	assign o_clk_divided8 	= counter[2];
 	assign o_clk_divided16 	= counter[3];
+	assign o_clk_divided32 	= counter[4];
 endmodule

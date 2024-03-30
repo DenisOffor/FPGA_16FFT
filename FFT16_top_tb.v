@@ -41,7 +41,7 @@ module FFT16_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8, STAGES = 4)
 	reg [WORD_SIZE-1:0] in_1Hz_re, in_1Hz_im, in_2Hz_re, in_2Hz_im, in_4Hz_re, in_4Hz_im, in_8Hz_re, in_8Hz_im;
 	
 	initial begin
-		#0 rst = 1;
+		#10 rst = 1;
 		#100 rst = 0;
 		//#0 in_1Hz_re = 16'b0000000101101010;
 		//#0 in_1Hz_im = 16'b0000000011001001;
@@ -70,14 +70,14 @@ module FFT16_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8, STAGES = 4)
 		#0 in_1Hz_re = 16'b0000000101101010;
 		#0 in_1Hz_im = 16'b0000000011001001;
 
-		#0 in_2Hz_re = 16'b1111111010010110;
+		#0 in_2Hz_re = 16'b0000000101101010;
 		#0 in_2Hz_im = 16'b0000000011001001;
 
 		#0 in_4Hz_re = 16'b0000000101101010;
-		#0 in_4Hz_im = 16'b1111111100110111;
+		#0 in_4Hz_im = 16'b0000000011001001;
 
-		#0 in_8Hz_re = 16'b1111111010010110;
-		#0 in_8Hz_im = 16'b1111111100110111;
+		#0 in_8Hz_re = 16'b0000000101101010;
+		#0 in_8Hz_im = 16'b0000000011001001;
 	end
 	
 	always @(*)

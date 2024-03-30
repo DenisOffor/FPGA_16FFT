@@ -1,4 +1,4 @@
-module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4, CLOCK_PER_BIT = 434)
+module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4, CLOCK_PER_BIT = 868)
 (
 	input 			i_clk,
 	input 			i_RX_bit,
