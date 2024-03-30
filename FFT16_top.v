@@ -192,19 +192,26 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 
 	wire 			[1:0]			Mux_switcher_butterfly;
 
+	reg 							buffer;
+	wire 							w_FFT_cycle_done;
+	assign 						o_FFT_cycle_done = buffer;
+	
+	always @(posedge i_clk)
+		buffer <= w_FFT_cycle_done;
+	
 	control_unit #(.STAGES(STAGES)) control_unit 
 	(
 		.i_clk(o_butterfly_done),    
 		.i_rst(i_rst),
 		.o_mux_sel(Mux_switcher_butterfly),
-		.o_cycle_done(o_FFT_cycle_done)
+		.o_cycle_done(w_FFT_cycle_done)
 	);
 	
 	
 	rom_twiddle #(.WORD_SIZE(WORD_SIZE)) twiddle_rom 
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		.reg0_re(w_twiddle0_re),
 		.reg0_im(w_twiddle0_im),	
 		.reg1_re(w_twiddle1_re),
@@ -288,7 +295,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly0
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux0_out0_re_butterfly_in),
 		.i_in0_im(w_Mux0_out0_im_butterfly_in),
@@ -371,7 +378,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly1
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux1_out0_re_butterfly_in),
 		.i_in0_im(w_Mux1_out0_im_butterfly_in),
@@ -452,7 +459,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly2
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux2_out0_re_butterfly_in),
 		.i_in0_im(w_Mux2_out0_im_butterfly_in),
@@ -533,7 +540,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly3
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux3_out0_re_butterfly_in),
 		.i_in0_im(w_Mux3_out0_im_butterfly_in),
@@ -614,7 +621,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly4
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux4_out0_re_butterfly_in),
 		.i_in0_im(w_Mux4_out0_im_butterfly_in),
@@ -695,7 +702,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly5
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux5_out0_re_butterfly_in),
 		.i_in0_im(w_Mux5_out0_im_butterfly_in),
@@ -776,7 +783,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly6
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux6_out0_re_butterfly_in),
 		.i_in0_im(w_Mux6_out0_im_butterfly_in),
@@ -857,7 +864,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	butterfly2 #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) butterfly7
 	(
 		.i_clk(i_clk),
-		.i_rst(i_rst || o_FFT_cycle_done),
+		.i_rst(i_rst),
 		
 		.i_in0_re(w_Mux7_out0_re_butterfly_in),
 		.i_in0_im(w_Mux7_out0_im_butterfly_in),
@@ -876,7 +883,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	
 	ram_16_byte #( .WORD_SIZE(WORD_SIZE)) ram_out
 	(
-		.we(o_butterfly_done && ~o_FFT_cycle_done && ~i_rst),
+		.we(o_butterfly_done && ~o_FFT_cycle_done),
 		.in0_re(w_out0_re_butterfly),
 		.in0_im(w_out0_im_butterfly),
 		.in1_re(w_out1_re_butterfly),

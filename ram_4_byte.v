@@ -12,13 +12,6 @@ module ram_4_byte #(parameter WORD_SIZE = 16)
 	output		reg 	[WORD_SIZE-1:0]	out1_im
 );
 
-	initial begin
-		out0_re  <= 0;
-		out0_im  <= 0;
-		out1_re  <= 0;
-		out1_im  <= 0;
-	end
-
 	always @(posedge we) begin
 		out0_re 	<= in0_re;
 		out0_im 	<= in0_im;

@@ -68,40 +68,6 @@ module ram_for_signal #(parameter WORD_SIZE = 16)
 	output	reg 	[WORD_SIZE-1:0]	out15_re,
 	output	reg 	[WORD_SIZE-1:0]	out15_im
 );
-	initial begin
-		out0_re  <= 1;
-		out0_im  <= 1;
-		out1_re  <= 1;
-		out1_im  <= 1;
-		out2_re  <= 2;
-		out2_im  <= 2;
-		out3_re  <= 2;
-		out3_im  <= 2;
-		out4_re  <= 2;
-		out4_im  <= 0;
-		out5_re  <= 0;
-		out5_im  <= 0;
-		out6_re  <= 0;
-		out6_im  <= 0;
-		out7_re  <= 0;
-		out7_im  <= 0;
-		out8_re  <= 0;
-		out8_im  <= 0;
-		out9_re  <= 0;
-		out9_im  <= 12;
-		out10_re <= 0;
-		out10_im <= 0;
-		out11_re <= 0;
-		out11_im <= 0;
-		out12_re <= 0;
-		out12_im <= 0;
-		out13_re <= 0;
-		out13_im <= 0;
-		out14_re <= 0;
-		out14_im <= 0;
-		out15_re <= 0;
-		out15_im <= 0;
-	end
 	
 	always @ (posedge clk) begin
 		out0_re  <= (data00_r[WORD_SIZE-1] == 0 ? (data00_r >> 4) : (~((~data00_r + 1'b1) >> 4) + 1'b1));

@@ -2,11 +2,10 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 (	
 	input 					i_clk,
 	input						i_btn,
-	output					o_TX_bit,
-	output					w_rst
+	output					o_TX_bit
 );
 	reg 									r_rst;
-	//wire									w_rst;
+	wire									w_rst;
 	assign 								w_rst = ~r_rst;
 	
 	reg 	r_start = 0;
@@ -170,7 +169,7 @@ module butterfly2_tb #(parameter WORD_SIZE = 16, FRACTION = 8, DATA_LENGTH = 8)
 		.o_butterfly_done(o_butterfly_done)
 	);
 	
-	UART_TX Transmitter
+	UART_TX #(.CLOCK_PER_BIT(434)) Transmitter
 	(
 		.i_clk(i_clk),
 		.i_rst(w_rst),

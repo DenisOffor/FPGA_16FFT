@@ -1,4 +1,4 @@
-module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4)
+module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4, CLOCK_PER_BIT = 20)
 (	
 	output	o_TX_bit,
 	output 	[DATA_LENGTH-1:0] 	o_received_byte,
@@ -22,7 +22,11 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 		//#0 r_tx_start = 1'b1;
 		//#0 byte = 8'b00110001;
 		//#20 r_tx_start = 1'b0;
-		#3200000 r_tx_start = 1'b1;
+		#3200 r_tx_start = 1'b1;
+		#0 byte = 8'b00000000;
+		#20 r_tx_start = 1'b0;
+		
+		#210000 r_tx_start = 1'b1;
 		#0 byte = 8'b00000000;
 		#20 r_tx_start = 1'b0;
 	end
@@ -32,20 +36,15 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 
 
 
-	top #(.FFT_SIZE(FFT_SIZE), .WORD_SIZE(WORD_SIZE), .DATA_LENGTH(DATA_LENGTH),.FRACTION(FRACTION), .STAGES(STAGES)) tb_top
+	top #(.FFT_SIZE(FFT_SIZE), .WORD_SIZE(WORD_SIZE), .DATA_LENGTH(DATA_LENGTH),.FRACTION(FRACTION), .STAGES(STAGES), .CLOCK_PER_BIT(CLOCK_PER_BIT)) tb_top
 	(
 		.i_clk(clk),
 		.i_RX_bit(w_TX_bit_tb),
 		
-		.o_TX_bit(o_TX_bit),
-		.w_led1(w_led1),
-		.w_led2(w_led2),
-		.w_FFT_cycle_done(w_FFT_cycle_done),
-		.w_TX_done(w_TX_done),
-		.w_FFT_rst(w_FFT_rst)
+		.o_TX_bit(o_TX_bit)
 	);
 
-	UART_TX tb_Transmitter
+	UART_TX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) tb_Transmitter
 	(
 		.i_clk(clk),
 		.i_rst(0),
@@ -56,7 +55,7 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 		.o_TX_done()
 	);
 	
-	UART_RX tb_Receiver 
+	UART_RX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) tb_Receiver 
 	(
 		.i_clk(clk),
 		.i_RX_bit(o_TX_bit),

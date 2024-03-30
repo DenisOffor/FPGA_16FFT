@@ -5,9 +5,6 @@ module mux2in1 #( parameter WORD_SIZE = 16)
 	 input 		 				sel,
     output reg  [WORD_SIZE-1:0]    out
 );
-	initial begin
-	
-	end
 
 	always @ (*) begin
 		case (sel)

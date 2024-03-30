@@ -91,7 +91,7 @@ module butterfly2 #(parameter WORD_SIZE = 16, FRACTION = 8)
 	  multiplier #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) M1
     (
         .i_clk(i_clk),
-        .i_rst(i_rst),
+		  .i_rst(i_rst),
         .i_A(current_factor1),
         .i_B(current_factor2),
         .out(out_multiplier)

@@ -10,12 +10,6 @@ module flash #(parameter WORD_SIZE = 16)
 );
 	reg [WORD_SIZE-1:0] mem [3:0];
 	
-	initial begin
-		mem[0] <= 0;
-		mem[1] <= 0;
-		mem[2] <= 0;
-		mem[3] <= 0;
-	end
 	always @(*) begin
 		mem[address] <= i_word; 
 	end

@@ -1,4 +1,4 @@
-module UART_RX #(parameter CLOCK_PER_BIT = 434)
+module UART_RX #(parameter CLOCK_PER_BIT = 5208)
 (
 	input 			i_clk, 
 	input 			i_RX_bit, 
@@ -8,7 +8,7 @@ module UART_RX #(parameter CLOCK_PER_BIT = 434)
 );
 
 	reg i_RX_bit_switch[1:0];
-	reg [10:0]r_rx_counter;
+	reg [20:0]r_rx_counter;
 	reg [2:0]r_receive_task;
 	
 	reg [7:0]r_RX_byte;
@@ -21,12 +21,6 @@ module UART_RX #(parameter CLOCK_PER_BIT = 434)
 	parameter RECEIVE_BYTE = 3'b010;
 	parameter CHECK_STOP_BIT = 3'b011;
 	parameter CLEAR_STATE = 3'b100;
-	
-	initial begin
-		r_RX_byte <= 0;
-		r_error_state <= 0;
-		r_RX_state <= 0;
-	end
 	
 	always @(posedge i_clk)
 	begin

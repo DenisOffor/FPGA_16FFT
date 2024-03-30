@@ -1,139 +1,230 @@
-# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
-# do FPGA_8FFT_run_msim_rtl_verilog.do 
+# Reading D:/ModelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do FPGA_8FFT_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/ModelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
-#          Updated modelsim.ini.
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v 
 # -- Compiling module UART_TX
 # 
 # Top level modules:
 # 	UART_TX
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_RX.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_RX.v 
 # -- Compiling module UART_RX
 # 
 # Top level modules:
 # 	UART_RX
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v 
 # -- Compiling module FFT16_top
 # 
 # Top level modules:
 # 	FFT16_top
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v 
 # -- Compiling module FFT_for_OFDM
 # 
 # Top level modules:
 # 	FFT_for_OFDM
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v 
 # -- Compiling module butterfly2
 # 
 # Top level modules:
 # 	butterfly2
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v 
 # -- Compiling module multiplier
 # 
 # Top level modules:
 # 	multiplier
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/get_negative.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/get_negative.v 
 # -- Compiling module get_negative
 # 
 # Top level modules:
 # 	get_negative
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v 
 # -- Compiling module adder3
 # 
 # Top level modules:
 # 	adder3
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v 
 # -- Compiling module clock_divider
 # 
 # Top level modules:
 # 	clock_divider
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux2in1.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux2in1.v 
 # -- Compiling module mux2in1
 # 
 # Top level modules:
 # 	mux2in1
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/flash.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/flash.v 
 # -- Compiling module flash
 # 
 # Top level modules:
 # 	flash
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_twiddle.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_twiddle.v 
 # -- Compiling module rom_twiddle
 # 
 # Top level modules:
 # 	rom_twiddle
+# End time: 12:52:55 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/ram_16_byte.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:55 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/ram_16_byte.v 
 # -- Compiling module ram_16_byte
 # 
 # Top level modules:
 # 	ram_16_byte
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux4in1.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux4in1.v 
 # -- Compiling module mux4in1
 # 
 # Top level modules:
 # 	mux4in1
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/control_unit.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/control_unit.v 
 # -- Compiling module control_unit
 # 
 # Top level modules:
 # 	control_unit
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top.v 
 # -- Compiling module top
 # 
 # Top level modules:
 # 	top
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_QAM4.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_QAM4.v 
 # -- Compiling module rom_QAM4
 # 
 # Top level modules:
 # 	rom_QAM4
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/choose_harmonic.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/choose_harmonic.v 
 # -- Compiling module choose_harmonic
 # 
 # Top level modules:
 # 	choose_harmonic
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux32in1.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux32in1.v 
 # -- Compiling module mux32in1
 # 
 # Top level modules:
 # 	mux32in1
-# 
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v 
 # -- Compiling module top_tb
 # 
 # Top level modules:
 # 	top_tb
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:52:56 on Mar 30,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT" C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v 
+# -- Compiling module top_tb
+# 
+# Top level modules:
+# 	top_tb
+# End time: 12:52:56 on Mar 30,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  top_tb
-# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps top_tb 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" top_tb 
+# Start time: 12:52:56 on Mar 30,2024
 # Loading work.top_tb
 # Loading work.top
 # Loading work.mux32in1
@@ -154,263 +245,258 @@
 # Loading work.ram_16_byte
 # Loading work.UART_RX
 # Loading work.UART_TX
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top.v(190): [PCDPC] - Port size (9 or 9) does not match connection size (8) for port 'i_byte'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(5).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [TFMPC] - Too few port connections. Expected 68, found 67.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(9).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in2_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(10).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(13).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in4_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(14).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in5_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(15).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in5_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(16).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(17).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in6_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(18).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(21).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in8_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(22).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(23).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in9_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(24).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in10_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(25).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in10_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(26).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(27).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in11_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(28).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(29).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in12_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(30).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(31).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in13_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(32).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(33).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in14_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(34).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(35).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [PCDPC] - Port size (16 or 16) does not match connection size (32) for port 'in15_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(36).
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(207): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(307): [TFMPC] - Too few port connections. Expected 15, found 13.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(307): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(307): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(388): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(388): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(388): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(388): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(469): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(469): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(469): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(469): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(550): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(550): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(550): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(550): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(631): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(631): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(631): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(631): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(712): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(712): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(712): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(712): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(793): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(793): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(793): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(793): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(874): [TFMPC] - Too few port connections. Expected 15, found 12.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(874): [TFMPC] - Missing connection for port 'o_butterfly_done'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(874): [TFMPC] - Missing connection for port 'clk_divided8'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(874): [TFMPC] - Missing connection for port 'clk_divided16'.
-# 
-# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Too few port connections. Expected 9, found 4.
-# 
-#         Region: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/clc_div
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided2'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided4'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided32'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided64'.
-# 
-# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(149): [TFMPC] - Missing connection for port 'o_clk_divided128'.
-# 
-# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v(57): [PCDPC] - Port size (1 or 1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v(4).
-# 
-#         Region: /top_tb/tb_Transmitter
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top.v(132): [PCDPC] - Port size (9) does not match connection size (8) for port 'i_byte'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(5).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(62): [TFMPC] - Too few port connections. Expected 10, found 9.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/rom_QAM4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_QAM4.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(62): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [TFMPC] - Too few port connections. Expected 68, found 67.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in2_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in2_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(10).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in4_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(13).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in4_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in5_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in5_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(16).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in6_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(17).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in6_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(18).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in8_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in8_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(22).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in9_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(23).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in9_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(24).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in10_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(25).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in10_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in11_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in11_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(28).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in12_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in12_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in13_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in13_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in14_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(33).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in14_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(34).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in15_re'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [PCDPC] - Port size (16) does not match connection size (32) for port 'in15_im'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT_for_OFDM.v(135): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(211): [TFMPC] - Too few port connections. Expected 18, found 17.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/twiddle_rom File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/rom_twiddle.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(211): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(294): [TFMPC] - Too few port connections. Expected 15, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(294): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(294): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly0/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(377): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(377): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(377): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(377): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly1/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(458): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(458): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(458): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(458): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly2/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(539): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(539): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(539): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(539): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly3/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(620): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(620): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(620): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(620): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly4/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(701): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(701): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(701): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(701): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly5/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(782): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(782): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(782): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(782): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly6/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(863): [TFMPC] - Too few port connections. Expected 15, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(863): [TFMPC] - Missing connection for port 'o_butterfly_done'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(863): [TFMPC] - Missing connection for port 'clk_divided8'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT16_top.v(863): [TFMPC] - Missing connection for port 'clk_divided16'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/M1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/multiplier.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(91): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/Add1 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(105): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/Add2 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(113): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/Add3 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(121): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/Add4 File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/adder3.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(129): [TFMPC] - Missing connection for port 'i_rst'.
+# ** Warning: (vsim-3017) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Too few port connections. Expected 6, found 4.
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_top/FFT_for_OFDM/FFT16/butterfly7/clc_div File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/clock_divider.v
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided2'.
+# ** Warning: (vsim-3722) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/butterfly2.v(138): [TFMPC] - Missing connection for port 'o_clk_divided4'.
+# ** Warning: (vsim-3015) C:/Users/denlo/Documents/Quartus/FPGA_16FFT/top_tb.v(47): [PCDPC] - Port size (1) does not match connection size (32) for port 'i_rst'. The port definition is at: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v(4).
+#    Time: 0 ps  Iteration: 0  Instance: /top_tb/tb_Transmitter File: C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_TX.v
 # 
 # add wave *
 # view structure
@@ -418,5 +504,7 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# Break key hit 
-# Break in Module UART_RX at C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_RX.v line 39
+# Break key hit
+# Break in Module UART_RX in file C:/Users/denlo/Documents/Quartus/FPGA_16FFT/UART_RX.v
+# End time: 12:53:39 on Mar 30,2024, Elapsed time: 0:00:43
+# Errors: 0, Warnings: 167

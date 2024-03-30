@@ -7,12 +7,6 @@ module demux1in4 #(parameter WORD_SIZE = 16)
 	 output reg  [WORD_SIZE-1:0]    out2,
 	 output reg  [WORD_SIZE-1:0]    out3
 );
-	initial begin
-		out0 <= 0;
-		out1 <= 0;
-		out2 <= 0;
-		out3 <= 0;
-	end
 
 	always @ (*) begin
 		case (sel)
