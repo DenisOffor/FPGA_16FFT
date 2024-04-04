@@ -97,8 +97,7 @@ module FFT32_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 	
 	always @(*)
 		#10 clk <= ~clk;
-		
-		
+	
 	FFT32_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) my_FFT32_top
 	(
 		.i_clk(clk),
@@ -239,6 +238,6 @@ module FFT32_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 		.w_FFT16_cycle_rst(w_FFT16_cycle_rst),
 		.w_STAGES(w_STAGES),
 		.w_FFT16_cycle_done_delay(w_FFT16_cycle_done_delay)
-	
 	); 
+	
 endmodule

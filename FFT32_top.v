@@ -213,6 +213,39 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	wire	[WORD_SIZE-1:0]	FFT16_out15_re;
 	wire	[WORD_SIZE-1:0]	FFT16_out15_im;	
 	
+	wire	[WORD_SIZE-1:0]	w_buffer_out0_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out0_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out1_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out1_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out2_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out2_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out3_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out3_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out4_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out4_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out5_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out5_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out6_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out6_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out7_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out7_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out8_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out8_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out9_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out9_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out10_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out10_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out11_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out11_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out12_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out12_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out13_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out13_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out14_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out14_im;
+	wire	[WORD_SIZE-1:0]	w_buffer_out15_re;
+	wire	[WORD_SIZE-1:0]	w_buffer_out15_im;	
+	
 	control_unit_FFT32	my_control_unit_FFT32
 	(
 		.i_clk(i_clk),
@@ -235,8 +268,8 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.b_im(in1_im),
 		.c_re(out0_re),
 		.c_im(out0_im),
-		.d_re(out1_re),
-		.d_im(out1_im),
+		.d_re(w_buffer_out1_re),
+		.d_im(w_buffer_out1_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in0_re),
 		.out_im(FFT16_in0_im)
@@ -248,10 +281,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in16_im),
 		.b_re(in17_re),
 		.b_im(in17_im),
-		.c_re(out16_re),
-		.c_im(out16_im),
-		.d_re(out17_re),
-		.d_im(out17_im),
+		.c_re(out8_re),
+		.c_im(out8_im),
+		.d_re(w_buffer_out9_re),
+		.d_im(w_buffer_out9_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in1_re),
 		.out_im(FFT16_in1_im)
@@ -263,10 +296,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in8_im),
 		.b_re(in9_re),
 		.b_im(in9_im),
-		.c_re(out2_re),
-		.c_im(out2_im),
-		.d_re(out3_re),
-		.d_im(out3_im),
+		.c_re(out4_re),
+		.c_im(out4_im),
+		.d_re(w_buffer_out5_re),
+		.d_im(w_buffer_out5_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in2_re),
 		.out_im(FFT16_in2_im)
@@ -278,10 +311,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in24_im),
 		.b_re(in25_re),
 		.b_im(in25_im),
-		.c_re(out18_re),
-		.c_im(out18_im),
-		.d_re(out19_re),
-		.d_im(out19_im),
+		.c_re(out12_re),
+		.c_im(out12_im),
+		.d_re(w_buffer_out13_re),
+		.d_im(w_buffer_out13_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in3_re),
 		.out_im(FFT16_in3_im)
@@ -293,10 +326,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in4_im),
 		.b_re(in5_re),
 		.b_im(in5_im),
-		.c_re(out4_re),
-		.c_im(out4_im),
-		.d_re(out5_re),
-		.d_im(out5_im),
+		.c_re(out13_re),
+		.c_im(out13_im),
+		.d_re(w_buffer_out3_re),
+		.d_im(w_buffer_out3_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in4_re),
 		.out_im(FFT16_in4_im)
@@ -308,10 +341,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in20_im),
 		.b_re(in21_re),
 		.b_im(in21_im),
-		.c_re(out20_re),
-		.c_im(out20_im),
-		.d_re(out21_re),
-		.d_im(out21_im),
+		.c_re(out10_re),
+		.c_im(out10_im),
+		.d_re(w_buffer_out11_re),
+		.d_im(w_buffer_out11_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in5_re),
 		.out_im(FFT16_in5_im)
@@ -325,8 +358,8 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.b_im(in13_im),
 		.c_re(out6_re),
 		.c_im(out6_im),
-		.d_re(out7_re),
-		.d_im(out7_im),
+		.d_re(w_buffer_out7_re),
+		.d_im(w_buffer_out7_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in6_re),
 		.out_im(FFT16_in6_im)
@@ -338,10 +371,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in28_im),
 		.b_re(in29_re),
 		.b_im(in29_im),
-		.c_re(out22_re),
-		.c_im(out22_im),
-		.d_re(out23_re),
-		.d_im(out23_im),
+		.c_re(out14_re),
+		.c_im(out14_im),
+		.d_re(w_buffer_out15_re),
+		.d_im(w_buffer_out15_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in7_re),
 		.out_im(FFT16_in7_im)
@@ -353,10 +386,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in2_im),
 		.b_re(in3_re),
 		.b_im(in3_im),
-		.c_re(out8_re),
-		.c_im(out8_im),
-		.d_re(out9_re),
-		.d_im(out9_im),
+		.c_re(out16_re),
+		.c_im(out16_im),
+		.d_re(out17_re),
+		.d_im(out17_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in8_re),
 		.out_im(FFT16_in8_im)
@@ -383,10 +416,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in10_im),
 		.b_re(in11_re),
 		.b_im(in11_im),
-		.c_re(out10_re),
-		.c_im(out10_im),
-		.d_re(out11_re),
-		.d_im(out11_im),
+		.c_re(out20_re),
+		.c_im(out20_im),
+		.d_re(out21_re),
+		.d_im(out21_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in10_re),
 		.out_im(FFT16_in10_im)
@@ -398,10 +431,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in26_im),
 		.b_re(in27_re),
 		.b_im(in27_im),
-		.c_re(out26_re),
-		.c_im(out26_im),
-		.d_re(out27_re),
-		.d_im(out27_im),
+		.c_re(out28_re),
+		.c_im(out28_im),
+		.d_re(out29_re),
+		.d_im(out29_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in11_re),
 		.out_im(FFT16_in11_im)
@@ -413,10 +446,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in6_im),
 		.b_re(in7_re),
 		.b_im(in7_im),
-		.c_re(out12_re),
-		.c_im(out12_im),
-		.d_re(out13_re),
-		.d_im(out13_im),
+		.c_re(out29_re),
+		.c_im(out29_im),
+		.d_re(out19_re),
+		.d_im(out19_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in12_re),
 		.out_im(FFT16_in12_im)
@@ -428,10 +461,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in22_im),
 		.b_re(in23_re),
 		.b_im(in23_im),
-		.c_re(out28_re),
-		.c_im(out28_im),
-		.d_re(out29_re),
-		.d_im(out29_im),
+		.c_re(our26_re),
+		.c_im(out26_im),
+		.d_re(out27_re),
+		.d_im(out27_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in13_re),
 		.out_im(FFT16_in13_im)
@@ -443,10 +476,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.a_im(in14_im),
 		.b_re(in15_re),
 		.b_im(in15_im),
-		.c_re(out14_re),
-		.c_im(out14_im),
-		.d_re(out15_re),
-		.d_im(out15_im),
+		.c_re(out22_re),
+		.c_im(out22_im),
+		.d_re(out23_re),
+		.d_im(out23_im),
 		.sel(w_mux_switcher),
 		.out_re(FFT16_in14_re),
 		.out_im(FFT16_in14_im)
@@ -472,6 +505,7 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.i_clk(i_clk),
 		.i_rst(w_FFT16_cycle_rst | i_rst),
 		.STAGES(w_STAGES),
+		.choose_twiddle(w_mux_switcher),
 		.in0_re(FFT16_in0_re),
 		.in0_im(FFT16_in0_im),
 		.in1_re(FFT16_in1_re),
@@ -541,6 +575,75 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.o_FFT_cycle_done(w_FFT16_cycle_done)
 	);
 
+	ram_16_byte #( .WORD_SIZE(WORD_SIZE)) buffer_ram
+	(
+		.we(w_FFT16_cycle_done_delay && ~w_address_switcher && (w_mux_switcher < 2)),
+		.in0_re(FFT16_out0_re),
+		.in0_im(FFT16_out0_im),
+		.in1_re(FFT16_out1_re),
+		.in1_im(FFT16_out1_im),
+		.in2_re(FFT16_out2_re),
+		.in2_im(FFT16_out2_im),
+		.in3_re(FFT16_out3_re),
+		.in3_im(FFT16_out3_im),
+		.in4_re(FFT16_out4_re),
+		.in4_im(FFT16_out4_im),
+		.in5_re(FFT16_out5_re),
+		.in5_im(FFT16_out5_im),
+		.in6_re(FFT16_out6_re),
+		.in6_im(FFT16_out6_im),
+		.in7_re(FFT16_out7_re),
+		.in7_im(FFT16_out7_im),
+		.in8_re(FFT16_out8_re),
+		.in8_im(FFT16_out8_im),
+		.in9_re(FFT16_out9_re),
+		.in9_im(FFT16_out9_im),
+		.in10_re(FFT16_out10_re),
+		.in10_im(FFT16_out10_im),
+		.in11_re(FFT16_out11_re),
+		.in11_im(FFT16_out11_im),
+		.in12_re(FFT16_out12_re),
+		.in12_im(FFT16_out12_im),
+		.in13_re(FFT16_out13_re),
+		.in13_im(FFT16_out13_im),
+		.in14_re(FFT16_out14_re),
+		.in14_im(FFT16_out14_im),
+		.in15_re(FFT16_out15_re),
+		.in15_im(FFT16_out15_im),
+		
+		.out0_re(w_buffer_out0_re),
+		.out0_im(w_buffer_out0_im),
+		.out1_re(w_buffer_out1_re),
+		.out1_im(w_buffer_out1_im),
+		.out2_re(w_buffer_out2_re),
+		.out2_im(w_buffer_out2_im),
+		.out3_re(w_buffer_out3_re),
+		.out3_im(w_buffer_out3_im),
+		.out4_re(w_buffer_out4_re),
+		.out4_im(w_buffer_out4_im),
+		.out5_re(w_buffer_out5_re),
+		.out5_im(w_buffer_out5_im),
+		.out6_re(w_buffer_out6_re),
+		.out6_im(w_buffer_out6_im),
+		.out7_re(w_buffer_out7_re),
+		.out7_im(w_buffer_out7_im),
+		.out8_re(w_buffer_out8_re),
+		.out8_im(w_buffer_out8_im),
+		.out9_re(w_buffer_out9_re),
+		.out9_im(w_buffer_out9_im),
+		.out10_re(w_buffer_out10_re),
+		.out10_im(w_buffer_out10_im),
+		.out11_re(w_buffer_out11_re),
+		.out11_im(w_buffer_out11_im),
+		.out12_re(w_buffer_out12_re),
+		.out12_im(w_buffer_out12_im),
+		.out13_re(w_buffer_out13_re),
+		.out13_im(w_buffer_out13_im),
+		.out14_re(w_buffer_out14_re),
+		.out14_im(w_buffer_out14_im),
+		.out15_re(w_buffer_out15_re),
+		.out15_im(w_buffer_out15_im)
+	);
 
 	ram_32_byte #(.WORD_SIZE(WORD_SIZE)) my_ram_32_byte 
 	(

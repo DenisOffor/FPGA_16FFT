@@ -3,6 +3,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	input						i_clk,
 	input 						i_rst,
 	input				[2:0]		STAGES,
+	input				[1:0]		choose_twiddle,
 	input       	[WORD_SIZE-1:0]     in0_re,
 	input       	[WORD_SIZE-1:0]     in0_im,
 	input       	[WORD_SIZE-1:0]     in1_re,
@@ -197,6 +198,9 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	wire 							w_FFT_cycle_done;
 	assign 						o_FFT_cycle_done = buffer;
 	
+	wire w_change_twiddle;
+	assign w_change_twiddle = (STAGES == 1 ? 1'b1 : 1'b0);
+	
 	always @(posedge i_clk)
 		buffer <= w_FFT_cycle_done;
 	
@@ -214,6 +218,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	(
 		.i_clk(i_clk),
 		.i_rst(i_rst),
+		.choose_twiddle(choose_twiddle),
 		.reg0_re(w_twiddle0_re),
 		.reg0_im(w_twiddle0_im),	
 		.reg1_re(w_twiddle1_re),
@@ -276,7 +281,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle0_re: w_twiddle0_re)),
 		.b(w_twiddle0_re),
 		.c(w_twiddle0_re),
 		.d(w_twiddle0_re),
@@ -286,7 +291,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly0_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle0_im: w_twiddle0_im)),
 		.b(w_twiddle0_im),
 		.c(w_twiddle0_im),
 		.d(w_twiddle0_im),
@@ -359,7 +364,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle1_re: w_twiddle0_re)),
 		.b(w_twiddle4_re),
 		.c(w_twiddle2_re),
 		.d(w_twiddle1_re),
@@ -369,7 +374,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly1_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle1_im: w_twiddle0_im)),
 		.b(w_twiddle4_im),
 		.c(w_twiddle2_im),
 		.d(w_twiddle1_im),
@@ -440,7 +445,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle2_re: w_twiddle0_re)),
 		.b(w_twiddle0_re),
 		.c(w_twiddle4_re),
 		.d(w_twiddle2_re),
@@ -450,7 +455,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly2_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle2_im: w_twiddle0_im)),
 		.b(w_twiddle0_im),
 		.c(w_twiddle4_im),
 		.d(w_twiddle2_im),
@@ -521,7 +526,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle3_re: w_twiddle0_re)),
 		.b(w_twiddle4_re),
 		.c(w_twiddle6_re),
 		.d(w_twiddle3_re),
@@ -531,7 +536,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly3_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle3_im: w_twiddle0_im)),
 		.b(w_twiddle4_im),
 		.c(w_twiddle6_im),
 		.d(w_twiddle3_im),
@@ -602,7 +607,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle4_re: w_twiddle0_re)),
 		.b(w_twiddle0_re),
 		.c(w_twiddle0_re),
 		.d(w_twiddle4_re),
@@ -612,7 +617,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly4_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle4_im: w_twiddle0_im)),
 		.b(w_twiddle0_im),
 		.c(w_twiddle0_im),
 		.d(w_twiddle4_im),
@@ -683,7 +688,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle5_re: w_twiddle0_re)),
 		.b(w_twiddle4_re),
 		.c(w_twiddle2_re),
 		.d(w_twiddle5_re),
@@ -693,7 +698,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly5_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle5_im: w_twiddle0_im)),
 		.b(w_twiddle4_im),
 		.c(w_twiddle2_im),
 		.d(w_twiddle5_im),
@@ -764,7 +769,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle6_re: w_twiddle0_re)),
 		.b(w_twiddle0_re),
 		.c(w_twiddle4_re),
 		.d(w_twiddle6_re),
@@ -774,7 +779,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly6_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle6_im: w_twiddle0_im)),
 		.b(w_twiddle0_im),
 		.c(w_twiddle4_im),
 		.d(w_twiddle6_im),
@@ -845,7 +850,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_twi_re 
 	(
-		.a(w_twiddle0_re),
+		.a((w_change_twiddle == 1 ? w_twiddle7_re: w_twiddle0_re)),
 		.b(w_twiddle4_re),
 		.c(w_twiddle6_re),
 		.d(w_twiddle7_re),
@@ -855,7 +860,7 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1 #(.WORD_SIZE(WORD_SIZE)) mux_butterfly7_twi_im
 	(
-		.a(w_twiddle0_im),
+		.a((w_change_twiddle == 1 ? w_twiddle7_im: w_twiddle0_im)),
 		.b(w_twiddle4_im),
 		.c(w_twiddle6_im),
 		.d(w_twiddle7_im),
