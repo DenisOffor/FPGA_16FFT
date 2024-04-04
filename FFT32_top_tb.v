@@ -31,14 +31,47 @@ module FFT32_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 	output 		[WORD_SIZE-1:0] 		out14_re,
 	output 		[WORD_SIZE-1:0] 		out14_im,
 	output 		[WORD_SIZE-1:0] 		out15_re,
-	//output 		[WORD_SIZE-1:0] 		out15_im,
+	output 		[WORD_SIZE-1:0] 		out15_im,
 	
-	output 						o_FFT_cycle_done,
-	output	[1:0]					w_mux_switcher,
-	output							w_address_switcher,
-	output							w_rst,
-	output	[2:0]	w_STAGES,
-	output						w_FFT16_cycle_done_delay
+	output 		[WORD_SIZE-1:0] 		out16_re,
+	output 		[WORD_SIZE-1:0] 		out16_im,
+	output 		[WORD_SIZE-1:0] 		out17_re,
+	output 		[WORD_SIZE-1:0] 		out17_im,
+	output 		[WORD_SIZE-1:0] 		out18_re,
+	output 		[WORD_SIZE-1:0] 		out18_im,
+	output 		[WORD_SIZE-1:0] 		out19_re,
+	output 		[WORD_SIZE-1:0] 		out19_im,
+	output 		[WORD_SIZE-1:0] 		out20_re,
+	output 		[WORD_SIZE-1:0] 		out20_im,
+	output 		[WORD_SIZE-1:0] 		out21_re,
+	output 		[WORD_SIZE-1:0] 		out21_im,
+	output 		[WORD_SIZE-1:0] 		out22_re,
+	output 		[WORD_SIZE-1:0] 		out22_im,
+	output 		[WORD_SIZE-1:0] 		out23_re,
+	output 		[WORD_SIZE-1:0] 		out23_im,
+	output 		[WORD_SIZE-1:0] 		out24_re,
+	output 		[WORD_SIZE-1:0] 		out24_im,
+	output 		[WORD_SIZE-1:0] 		out25_re,
+	output 		[WORD_SIZE-1:0] 		out25_im,
+	output 		[WORD_SIZE-1:0] 		out26_re,
+	output 		[WORD_SIZE-1:0] 		out26_im,
+	output 		[WORD_SIZE-1:0] 		out27_re,
+	output 		[WORD_SIZE-1:0] 		out27_im,
+	output 		[WORD_SIZE-1:0] 		out28_re,
+	output 		[WORD_SIZE-1:0] 		out28_im,
+	output 		[WORD_SIZE-1:0] 		out29_re,
+	output 		[WORD_SIZE-1:0] 		out29_im,
+	output 		[WORD_SIZE-1:0] 		out30_re,
+	output 		[WORD_SIZE-1:0] 		out30_im,
+	output 		[WORD_SIZE-1:0] 		out31_re,
+	output 		[WORD_SIZE-1:0] 		out31_im,
+		
+	output 									o_FFT32_cycle_done,
+	output	[1:0]							w_mux_switcher,
+	output									w_address_switcher,
+	output									w_FFT16_cycle_rst,
+	output	[2:0]							w_STAGES,
+	output									w_FFT16_cycle_done_delay
 );
 
 	reg clk = 0;
@@ -46,31 +79,8 @@ module FFT32_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 	reg [WORD_SIZE-1:0] in_1Hz_re, in_1Hz_im, in_2Hz_re, in_2Hz_im, in_4Hz_re, in_4Hz_im, in_8Hz_re, in_8Hz_im;
 	
 	initial begin
-		//#10 rst = 1;
-		//#100 rst = 0;
-		//#0 in_1Hz_re = 16'b0000000101101010;
-		//#0 in_1Hz_im = 16'b0000000011001001;
-//
-		//#0 in_2Hz_re = 16'b1111111010010110;
-		//#0 in_2Hz_im = 16'b0000000011001001;
-//
-		//#0 in_4Hz_re = 16'b0000000101101010;
-		//#0 in_4Hz_im = 16'b1111111100110111;
-//
-		//#0 in_8Hz_re = 16'b1111111010010110;
-		//#0 in_8Hz_im = 16'b1111111100110111;
-		
-		//#0 in_1Hz_re = 16'b0000000100000000;
-		//#0 in_1Hz_im = 16'b0000000100000000;
-//
-		//#0 in_2Hz_re = 16'b0000001000000000;
-		//#0 in_2Hz_im = 16'b0000000100000000;
-//
-		//#0 in_4Hz_re = 16'b0000001100000000;
-		//#0 in_4Hz_im = 16'b1111111100000000;
-//
-		//#0 in_8Hz_re = 16'b0000010000000000;
-		//#0 in_8Hz_im = 16'b1111111100000000;
+		#10 rst = 1;
+		#2000 rst = 0;
 		
 		#0 in_1Hz_re = 16'b0000000100000000;
 		#0 in_1Hz_im = 16'b0000000011001001;
@@ -190,43 +200,43 @@ module FFT32_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8)
 		.out14_im(out14_im),
 		.out15_re(out15_re),
 		.out15_im(out15_im),
-		.out16_re(),
-		.out16_im(),
-		.out17_re(),
-		.out17_im(),
-		.out18_re(),
-		.out18_im(),
-		.out19_re(),
-		.out19_im(),
-		.out20_re(),
-		.out20_im(),
-		.out21_re(),
-		.out21_im(),
-		.out22_re(),
-		.out22_im(),
-		.out23_re(),
-		.out23_im(),
-		.out24_re(),
-		.out24_im(),
-		.out25_re(),
-		.out25_im(),
-		.out26_re(),
-		.out26_im(),
-		.out27_re(),
-		.out27_im(),
-		.out28_re(),
-		.out28_im(),
-		.out29_re(),
-		.out29_im(),
-		.out30_re(),
-		.out30_im(),
-		.out31_re(),
-		.out31_im(),
+		.out16_re(out16_re),
+		.out16_im(out16_im),
+		.out17_re(out17_re),
+		.out17_im(out17_im),
+		.out18_re(out18_re),
+		.out18_im(out18_im),
+		.out19_re(out19_re),
+		.out19_im(out19_im),
+		.out20_re(out20_re),
+		.out20_im(out20_im),
+		.out21_re(out21_re),
+		.out21_im(out21_im),
+		.out22_re(out22_re),
+		.out22_im(out22_im),
+		.out23_re(out23_re),
+		.out23_im(out23_im),
+		.out24_re(out24_re),
+		.out24_im(out24_im),
+		.out25_re(out25_re),
+		.out25_im(out25_im),
+		.out26_re(out26_re),
+		.out26_im(out26_im),
+		.out27_re(out27_re),
+		.out27_im(out27_im),
+		.out28_re(out28_re),
+		.out28_im(out28_im),
+		.out29_re(out29_re),
+		.out29_im(out29_im),
+		.out30_re(out30_re),
+		.out30_im(out30_im),
+		.out31_re(out31_re),
+		.out31_im(out31_im),
 	
-		.o_FFT_cycle_done(o_FFT_cycle_done),
+		.o_FFT32_cycle_done(o_FFT32_cycle_done),
 		.w_mux_switcher(w_mux_switcher),
 		.w_address_switcher(w_address_switcher),
-		.w_rst(w_rst),
+		.w_FFT16_cycle_rst(w_FFT16_cycle_rst),
 		.w_STAGES(w_STAGES),
 		.w_FFT16_cycle_done_delay(w_FFT16_cycle_done_delay)
 	

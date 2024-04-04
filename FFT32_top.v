@@ -67,8 +67,6 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	input       	[WORD_SIZE-1:0]     in31_re,
 	input       	[WORD_SIZE-1:0]     in31_im,
 	
-	
-	
 	output       	[WORD_SIZE-1:0]     out0_re,
 	output       	[WORD_SIZE-1:0]     out0_im,
 	output       	[WORD_SIZE-1:0]     out1_re,
@@ -134,75 +132,20 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	output       	[WORD_SIZE-1:0]     out31_re,
 	output       	[WORD_SIZE-1:0]     out31_im,
 	
-	output 										o_FFT_cycle_done,
+	output 										o_FFT32_cycle_done,
 	output			[1:0]						w_mux_switcher,
 	output										w_address_switcher,
-	output										w_rst,
+	output										w_FFT16_cycle_rst,
 	output			[2:0]						w_STAGES,
 	output										w_FFT16_cycle_done_delay
 	
 ); 
-	reg	[1:0]	r_mux_switcher = 0;
-	reg  			r_address_switcher = 0;
-	reg  			r_address_switcher_delay = 0;
-	reg			r_FFT_cycle_done = 0;
-	//wire	[1:0]	w_mux_switcher;
-	//wire			w_address_switcher;
-	assign 		w_mux_switcher = r_mux_switcher;
-	assign 		w_address_switcher = r_address_switcher_delay;
-	assign 		o_FFT_cycle_done = r_FFT_cycle_done;
-	
-	reg			r_rst = 0;
-	//wire			w_rst;
-	assign		w_rst = r_rst;
-	
-	reg	[2:0]	r_STAGES;
-	//wire	[2:0]	w_STAGES;
-	assign 		w_STAGES = r_STAGES;
-	
-	wire w_FFT_cycle_done;
-	reg r_FFT16_cycle_done_delay;
-	//wire w_FFT16_cycle_done_delay;
-	assign w_FFT16_cycle_done_delay = r_FFT16_cycle_done_delay;
-	
-	always @(posedge i_clk or posedge i_rst) begin
-		if(i_rst)
-			r_FFT16_cycle_done_delay <= 1'b0;
-		else
-			r_FFT16_cycle_done_delay <= w_FFT_cycle_done;
-	end
-	
-	always @(posedge w_FFT16_cycle_done_delay or posedge i_rst) begin
-		if(i_rst) begin
-			r_mux_switcher <= 0;
-			r_address_switcher <= 0;
-		end
-		else begin
-			r_mux_switcher <= r_mux_switcher + 1'b1;
-			r_address_switcher <= ~r_address_switcher;
-			if(r_mux_switcher == 2) begin
-				r_mux_switcher <= 0;
-				r_FFT_cycle_done <= 1'b1;
-			end
-		end
-	end
-	
-	always @(posedge i_clk)
-		r_address_switcher_delay = w_address_switcher;
-	
-	always @(posedge i_clk) begin
-		if(w_mux_switcher == 0 || w_mux_switcher == 1)
-			r_STAGES <= 4;
-		else
-			r_STAGES <= 1;
-	end
-	
-	always @(posedge i_clk or posedge w_FFT16_cycle_done_delay) begin
-		if(w_FFT16_cycle_done_delay)
-			r_rst <= 1'b1;
-		else
-			r_rst <= 1'b0;
-	end
+	//wire	[1:0]					w_mux_switcher;
+	//wire							w_address_switcher;
+	//wire							w_FFT16_cycle_rst;
+	//wire	[2:0]					w_STAGES;
+	//wire 							w_FFT16_cycle_done;
+	//wire 							w_FFT16_cycle_done_delay;
 	
 	wire	[WORD_SIZE-1:0]	FFT16_in0_re;
 	wire	[WORD_SIZE-1:0]	FFT16_in0_im;
@@ -269,6 +212,20 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	wire	[WORD_SIZE-1:0]	FFT16_out14_im;
 	wire	[WORD_SIZE-1:0]	FFT16_out15_re;
 	wire	[WORD_SIZE-1:0]	FFT16_out15_im;	
+	
+	control_unit_FFT32	my_control_unit_FFT32
+	(
+		.i_clk(i_clk),
+		.i_rst(i_rst),
+		.w_FFT16_cycle_done(w_FFT16_cycle_done),
+	
+		.o_mux_switcher(w_mux_switcher),
+		.o_address_switcher(w_address_switcher),
+		.o_FFT16_cycle_rst(w_FFT16_cycle_rst),
+		.o_STAGES(w_STAGES),
+		.o_FFT16_cycle_done_delay(w_FFT16_cycle_done_delay),
+		.o_FFT32_cycle_done(o_FFT32_cycle_done)
+	);
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in0 
 	(
@@ -513,7 +470,8 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) FFT16
 	(
 		.i_clk(i_clk),
-		.i_rst(w_rst | i_rst),
+		.i_rst(w_FFT16_cycle_rst | i_rst),
+		.STAGES(w_STAGES),
 		.in0_re(FFT16_in0_re),
 		.in0_im(FFT16_in0_im),
 		.in1_re(FFT16_in1_re),
@@ -580,7 +538,7 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 		.out15_re(FFT16_out15_re),
 		.out15_im(FFT16_out15_im),
 
-		.o_FFT_cycle_done(w_FFT_cycle_done)
+		.o_FFT_cycle_done(w_FFT16_cycle_done)
 	);
 
 

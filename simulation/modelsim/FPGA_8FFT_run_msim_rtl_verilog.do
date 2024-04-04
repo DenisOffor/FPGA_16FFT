@@ -21,6 +21,7 @@ vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FF
 vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/ram_32_byte.v}
 vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/mux4in1_complex.v}
 vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT32_top_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/control_unit_FFT32.v}
 
 vlog -vlog01compat -work work +incdir+C:/Users/denlo/Documents/Quartus/FPGA_16FFT {C:/Users/denlo/Documents/Quartus/FPGA_16FFT/FFT32_top_tb.v}
 

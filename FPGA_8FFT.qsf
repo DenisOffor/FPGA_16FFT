@@ -37,14 +37,14 @@
 
 
 set_global_assignment -name FAMILY "Cyclone IV E"
-set_global_assignment -name DEVICE EP4CE30F29C8
-set_global_assignment -name TOP_LEVEL_ENTITY FFT32_top_tb
+set_global_assignment -name DEVICE EP4CE6E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:20:35  MARCH 09, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
-set_global_assignment -name EDA_SIMULATION_TOOL "QuestaSim (Verilog)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id butterfly2_tb
@@ -144,6 +144,7 @@ set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb.v -section_id butt
 set_global_assignment -name EDA_TEST_BENCH_FILE butterfly2_tb_tb.v -section_id butterfly2_tb_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE FFT16_top_tb.v -section_id FFT16_top_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE FFT32_top_tb.v -section_id FFT32_top_tb
+set_global_assignment -name VERILOG_FILE control_unit_FFT32.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
