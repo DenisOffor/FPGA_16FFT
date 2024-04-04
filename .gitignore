@@ -67,3 +67,10 @@ incremental_db/
 db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
+
+Debug/
+Drivers/
+stm32_flash.ld
+.settings
+.metadata
+build-Thermostat_GUI-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/

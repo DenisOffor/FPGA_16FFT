@@ -67,26 +67,27 @@ module FFT16_top_tb #(parameter WORD_SIZE = 16, FRACTION = 8, STAGES = 4)
 		//#0 in_8Hz_re = 16'b0000010000000000;
 		//#0 in_8Hz_im = 16'b1111111100000000;
 		
-		#0 in_1Hz_re = 16'b0000000101101010;
+		#0 in_1Hz_re = 16'b0000000100000000;
 		#0 in_1Hz_im = 16'b0000000011001001;
 
-		#0 in_2Hz_re = 16'b0000000101101010;
+		#0 in_2Hz_re = 16'b0000001100000000;
 		#0 in_2Hz_im = 16'b0000000011001001;
 
-		#0 in_4Hz_re = 16'b0000000101101010;
+		#0 in_4Hz_re = 16'b0000010100000000;
 		#0 in_4Hz_im = 16'b0000000011001001;
 
-		#0 in_8Hz_re = 16'b0000000101101010;
+		#0 in_8Hz_re = 16'b0000001000000000;
 		#0 in_8Hz_im = 16'b0000000011001001;
 	end
 	
 	always @(*)
 		#10 clk <= ~clk;
 		
-	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION), .STAGES(STAGES)) FFT16_top
+	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) FFT16_top
 	(
 		.i_clk(clk),
 		.i_rst(rst),
+		.STAGES(4),
 		.in0_re(in_1Hz_re),
 		.in0_im(in_1Hz_im),
 		.in1_re(in_2Hz_re),

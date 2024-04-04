@@ -1,10 +1,12 @@
-module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, STAGES = 4, CLOCK_PER_BIT = 868)
+module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, CLOCK_PER_BIT = 868)
 (
 	input 			i_clk,
 	input 			i_RX_bit,
 			
 	output 			o_TX_bit
 );
+	reg 	[2:0] r_STAGES = 4;
+	wire	[2:0]	w_STAGES = r_STAGES;
 	//reg and wires for UART_RX
 	wire 	[DATA_LENGTH - 1:0] 	w_Received_byte;
 	wire 							w_receive_state;
@@ -129,10 +131,11 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	);
 	
 	
-	FFT_for_OFDM #(.WORD_SIZE(WORD_SIZE),.DATA_LENGTH(DATA_LENGTH), .FRACTION(FRACTION), .STAGES(STAGES)) FFT_for_OFDM
+	FFT_for_OFDM #(.WORD_SIZE(WORD_SIZE),.DATA_LENGTH(DATA_LENGTH), .FRACTION(FRACTION)) FFT_for_OFDM
 	(
 		.i_clk(i_clk),
 		.i_rst(w_FFT_rst),
+		.STAGES(w_STAGES),
 		.i_byte(w_Received_byte),
 	
 		.out0_re(w_FFT_out0_re),

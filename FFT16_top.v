@@ -1,7 +1,8 @@
-module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter STAGES = 4)
+module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 (
 	input						i_clk,
 	input 						i_rst,
+	input				[2:0]		STAGES,
 	input       	[WORD_SIZE-1:0]     in0_re,
 	input       	[WORD_SIZE-1:0]     in0_im,
 	input       	[WORD_SIZE-1:0]     in1_re,
@@ -199,10 +200,11 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8, parameter S
 	always @(posedge i_clk)
 		buffer <= w_FFT_cycle_done;
 	
-	control_unit #(.STAGES(STAGES)) control_unit 
+	control_unit my_control_unit 
 	(
 		.i_clk(o_butterfly_done),    
 		.i_rst(i_rst),
+		.STAGES(STAGES),
 		.o_mux_sel(Mux_switcher_butterfly),
 		.o_cycle_done(w_FFT_cycle_done)
 	);

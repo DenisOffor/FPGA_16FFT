@@ -1,7 +1,8 @@
-module control_unit #(parameter STAGES = 4)
+module control_unit
 (
 	input            i_clk, 
 	input            i_rst,
+	input		[2:0]	  STAGES,
 	output   [1:0]   o_mux_sel,
 	output 	        o_cycle_done
 );
