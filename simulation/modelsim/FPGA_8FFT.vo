@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
-// DATE "04/03/2024 23:06:09"
+// DATE "04/04/2024 08:19:15"
 
 // 
 // Device: Altera EP4CE30F29C8 Package FBGA780
@@ -7632,7 +7632,7 @@ defparam \w_address_switcher~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y38_N9
 cycloneive_io_obuf \w_rst~output (
-	.i(vcc),
+	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),

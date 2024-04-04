@@ -134,12 +134,12 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	output       	[WORD_SIZE-1:0]     out31_re,
 	output       	[WORD_SIZE-1:0]     out31_im,
 	
-	output 						o_FFT_cycle_done,
-	output	[1:0]					w_mux_switcher,
-	output							w_address_switcher,
-	output							w_rst,
-	output	[2:0]	w_STAGES,
-	output						w_FFT16_cycle_done_delay
+	output 										o_FFT_cycle_done,
+	output			[1:0]						w_mux_switcher,
+	output										w_address_switcher,
+	output										w_rst,
+	output			[2:0]						w_STAGES,
+	output										w_FFT16_cycle_done_delay
 	
 ); 
 	reg	[1:0]	r_mux_switcher = 0;
@@ -152,7 +152,7 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	assign 		w_address_switcher = r_address_switcher_delay;
 	assign 		o_FFT_cycle_done = r_FFT_cycle_done;
 	
-	reg			r_rst;
+	reg			r_rst = 0;
 	//wire			w_rst;
 	assign		w_rst = r_rst;
 	
@@ -197,8 +197,8 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 			r_STAGES <= 1;
 	end
 	
-	always @(posedge i_clk or posedge w_FFT_cycle_done) begin
-		if(w_FFT_cycle_done)
+	always @(posedge i_clk or posedge w_FFT16_cycle_done_delay) begin
+		if(w_FFT16_cycle_done_delay)
 			r_rst <= 1'b1;
 		else
 			r_rst <= 1'b0;
@@ -513,7 +513,7 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	FFT16_top #(.WORD_SIZE(WORD_SIZE), .FRACTION(FRACTION)) FFT16
 	(
 		.i_clk(i_clk),
-		.i_rst(w_rst),
+		.i_rst(w_rst | i_rst),
 		.in0_re(FFT16_in0_re),
 		.in0_im(FFT16_in0_im),
 		.in1_re(FFT16_in1_re),
