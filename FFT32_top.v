@@ -277,10 +277,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in1 
 	(
-		.a_re(in16_re),
-		.a_im(in16_im),
-		.b_re(in17_re),
-		.b_im(in17_im),
+		.a_re(in2_re),
+		.a_im(in2_im),
+		.b_re(in3_re),
+		.b_im(in3_im),
 		.c_re(out8_re),
 		.c_im(out8_im),
 		.d_re(w_buffer_out9_re),
@@ -292,10 +292,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in2 
 	(
-		.a_re(in8_re),
-		.a_im(in8_im),
-		.b_re(in9_re),
-		.b_im(in9_im),
+		.a_re(in4_re),
+		.a_im(in4_im),
+		.b_re(in5_re),
+		.b_im(in5_im),
 		.c_re(out4_re),
 		.c_im(out4_im),
 		.d_re(w_buffer_out5_re),
@@ -307,10 +307,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in3 
 	(
-		.a_re(in24_re),
-		.a_im(in24_im),
-		.b_re(in25_re),
-		.b_im(in25_im),
+		.a_re(in6_re),
+		.a_im(in6_im),
+		.b_re(in7_re),
+		.b_im(in7_im),
 		.c_re(out12_re),
 		.c_im(out12_im),
 		.d_re(w_buffer_out13_re),
@@ -322,12 +322,12 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in4 
 	(
-		.a_re(in4_re),
-		.a_im(in4_im),
-		.b_re(in5_re),
-		.b_im(in5_im),
-		.c_re(out13_re),
-		.c_im(out13_im),
+		.a_re(in8_re),
+		.a_im(in8_im),
+		.b_re(in9_re),
+		.b_im(in9_im),
+		.c_re(out2_re), 
+		.c_im(out2_im), 
 		.d_re(w_buffer_out3_re),
 		.d_im(w_buffer_out3_im),
 		.sel(w_mux_switcher),
@@ -337,10 +337,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in5 
 	(
-		.a_re(in20_re),
-		.a_im(in20_im),
-		.b_re(in21_re),
-		.b_im(in21_im),
+		.a_re(in10_re),
+		.a_im(in10_im),
+		.b_re(in11_re),
+		.b_im(in11_im),
 		.c_re(out10_re),
 		.c_im(out10_im),
 		.d_re(w_buffer_out11_re),
@@ -367,10 +367,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in7 
 	(
-		.a_re(in28_re),
-		.a_im(in28_im),
-		.b_re(in29_re),
-		.b_im(in29_im),
+		.a_re(in14_re),
+		.a_im(in14_im),
+		.b_re(in15_re),
+		.b_im(in15_im),
 		.c_re(out14_re),
 		.c_im(out14_im),
 		.d_re(w_buffer_out15_re),
@@ -382,10 +382,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 		mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in8 
 	(
-		.a_re(in2_re),
-		.a_im(in2_im),
-		.b_re(in3_re),
-		.b_im(in3_im),
+		.a_re(in16_re),
+		.a_im(in16_im),
+		.b_re(in17_re),
+		.b_im(in17_im),
 		.c_re(out16_re),
 		.c_im(out16_im),
 		.d_re(out17_re),
@@ -412,10 +412,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in10 
 	(
-		.a_re(in10_re),
-		.a_im(in10_im),
-		.b_re(in11_re),
-		.b_im(in11_im),
+		.a_re(in20_re),
+		.a_im(in20_im),
+		.b_re(in21_re),
+		.b_im(in21_im),
 		.c_re(out20_re),
 		.c_im(out20_im),
 		.d_re(out21_re),
@@ -427,10 +427,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in11 
 	(
-		.a_re(in26_re),
-		.a_im(in26_im),
-		.b_re(in27_re),
-		.b_im(in27_im),
+		.a_re(in22_re),
+		.a_im(in22_im),
+		.b_re(in23_re),
+		.b_im(in23_im),
 		.c_re(out28_re),
 		.c_im(out28_im),
 		.d_re(out29_re),
@@ -442,12 +442,12 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in12 
 	(
-		.a_re(in6_re),
-		.a_im(in6_im),
-		.b_re(in7_re),
-		.b_im(in7_im),
-		.c_re(out29_re),
-		.c_im(out29_im),
+		.a_re(in24_re),
+		.a_im(in24_im),
+		.b_re(in25_re),
+		.b_im(in25_im),
+		.c_re(out18_re), 
+		.c_im(out18_im), 
 		.d_re(out19_re),
 		.d_im(out19_im),
 		.sel(w_mux_switcher),
@@ -457,11 +457,11 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in13 
 	(
-		.a_re(in22_re),
-		.a_im(in22_im),
-		.b_re(in23_re),
-		.b_im(in23_im),
-		.c_re(our26_re),
+		.a_re(in26_re),
+		.a_im(in26_im),
+		.b_re(in27_re),
+		.b_im(in27_im),
+		.c_re(out26_re),
 		.c_im(out26_im),
 		.d_re(out27_re),
 		.d_im(out27_im),
@@ -472,10 +472,10 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	
 	mux4in1_complex #(.WORD_SIZE(WORD_SIZE)) mux_FFT16_in14 
 	(
-		.a_re(in14_re),
-		.a_im(in14_im),
-		.b_re(in15_re),
-		.b_im(in15_im),
+		.a_re(in28_re),
+		.a_im(in28_im),
+		.b_re(in29_re),
+		.b_im(in29_im),
 		.c_re(out22_re),
 		.c_im(out22_im),
 		.d_re(out23_re),

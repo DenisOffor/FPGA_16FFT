@@ -203,7 +203,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		.out31_re(w_FFT_out31_re),
 		.out31_im(),
 		
-		.o_FFT_cycle_done(w_FFT_cycle_done)
+		.o_FFT32_cycle_done(w_FFT_cycle_done)
 	);
 
 	UART_RX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) Receiver 
