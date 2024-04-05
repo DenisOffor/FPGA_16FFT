@@ -23,10 +23,10 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 		//#0 byte = 8'b00110001;
 		//#20 r_tx_start = 1'b0;
 		#3200 r_tx_start = 1'b1;
-		#0 byte = 8'b00000000;
+		#0 byte = 8'b11000100;
 		#20 r_tx_start = 1'b0;
 		
-		#210000 r_tx_start = 1'b1;
+		#410000 r_tx_start = 1'b1;
 		#0 byte = 8'b00000000;
 		#20 r_tx_start = 1'b0;
 	end
@@ -36,7 +36,7 @@ module top_tb #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTI
 
 
 
-	top #(.FFT_SIZE(FFT_SIZE), .WORD_SIZE(WORD_SIZE), .DATA_LENGTH(DATA_LENGTH),.FRACTION(FRACTION), .STAGES(STAGES), .CLOCK_PER_BIT(CLOCK_PER_BIT)) tb_top
+	top #(.FFT_SIZE(FFT_SIZE), .WORD_SIZE(WORD_SIZE), .DATA_LENGTH(DATA_LENGTH),.FRACTION(FRACTION), .CLOCK_PER_BIT(CLOCK_PER_BIT)) tb_top
 	(
 		.i_clk(clk),
 		.i_RX_bit(w_TX_bit_tb),

@@ -20,7 +20,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	wire 							w_TX_done;
 	assign w_TX_start = r_TX_start;
 	assign w_full_TX_state = r_full_TX_state;
-	reg 	[5:0]	    counter_of_sended_bytes = 0;
+	reg 	[6:0]	    counter_of_sended_bytes = 0;
 	
 	//wires for out from FFT
 	wire	[WORD_SIZE-1:0]			w_FFT_out0_re;
@@ -39,7 +39,24 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
    wire	[WORD_SIZE-1:0]			w_FFT_out13_re;
    wire	[WORD_SIZE-1:0]			w_FFT_out14_re;
    wire	[WORD_SIZE-1:0]			w_FFT_out15_re;
-	wire							w_FFT_cycle_done;
+	wire	[WORD_SIZE-1:0]			w_FFT_out16_re;
+	wire	[WORD_SIZE-1:0]			w_FFT_out17_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out18_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out19_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out20_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out21_re;
+	wire	[WORD_SIZE-1:0]			w_FFT_out22_re;
+	wire	[WORD_SIZE-1:0]			w_FFT_out23_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out24_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out25_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out26_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out27_re;	
+	wire	[WORD_SIZE-1:0]			w_FFT_out28_re;
+	wire	[WORD_SIZE-1:0]			w_FFT_out29_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out30_re;
+   wire	[WORD_SIZE-1:0]			w_FFT_out31_re;
+
+	wire								w_FFT_cycle_done;
 	wire								w_FFT_cycle_done_delay;
 	reg 								r_FFT_cycle_done;
 	assign w_FFT_cycle_done_delay = r_FFT_cycle_done;
@@ -84,14 +101,14 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		end
 		else begin
 			counter_of_sended_bytes <= counter_of_sended_bytes + 1'b1;
-			if(counter_of_sended_bytes == 31) begin
+			if(counter_of_sended_bytes == 63) begin
 				counter_of_sended_bytes <= 0;
 				r_full_TX_state <= 1'b0;
 			end
 		end
 	end
 	
-	mux32in1 #(.DATA_LENGTH(DATA_LENGTH)) mymux
+	mux64in1 #(.DATA_LENGTH(DATA_LENGTH)) my_mux64in1
 	(
 		.in0(w_FFT_out0_re[7:0]),
 		.in1(w_FFT_out0_re[15:8]),
@@ -125,6 +142,39 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		.in29(w_FFT_out14_re[15:8]),
 		.in30(w_FFT_out15_re[7:0]),
 		.in31(w_FFT_out15_re[15:8]),
+		
+		.in32(w_FFT_out16_re[7:0]),
+		.in33(w_FFT_out16_re[15:8]),
+		.in34(w_FFT_out17_re[7:0]),
+		.in35(w_FFT_out17_re[15:8]),
+		.in36(w_FFT_out18_re[7:0]),
+		.in37(w_FFT_out18_re[15:8]),
+		.in38(w_FFT_out19_re[7:0]),
+		.in39(w_FFT_out19_re[15:8]),
+		.in40(w_FFT_out20_re[7:0]),
+		.in41(w_FFT_out20_re[15:8]),
+		.in42(w_FFT_out21_re[7:0]),
+		.in43(w_FFT_out21_re[15:8]),
+		.in44(w_FFT_out22_re[7:0]),
+		.in45(w_FFT_out22_re[15:8]),
+		.in46(w_FFT_out23_re[7:0]),
+		.in47(w_FFT_out23_re[15:8]),
+		.in48(w_FFT_out24_re[7:0]),
+		.in49(w_FFT_out24_re[15:8]),
+		.in50(w_FFT_out25_re[7:0]),
+		.in51(w_FFT_out25_re[15:8]),
+		.in52(w_FFT_out26_re[7:0]),
+		.in53(w_FFT_out26_re[15:8]),
+		.in54(w_FFT_out27_re[7:0]),
+		.in55(w_FFT_out27_re[15:8]),
+		.in56(w_FFT_out28_re[7:0]),
+		.in57(w_FFT_out28_re[15:8]),
+		.in58(w_FFT_out29_re[7:0]),
+		.in59(w_FFT_out29_re[15:8]),
+		.in60(w_FFT_out30_re[7:0]),
+		.in61(w_FFT_out30_re[15:8]),
+		.in62(w_FFT_out31_re[7:0]),
+		.in63(w_FFT_out31_re[15:8]),
 		
 		.sel(counter_of_sended_bytes),
 		.out(w_Transmitted_byte)
