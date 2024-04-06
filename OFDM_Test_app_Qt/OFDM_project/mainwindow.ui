@@ -532,17 +532,39 @@
     <property name="flat">
      <bool>true</bool>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QLineEdit" name="LineEdit">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>171</width>
-       <height>31</height>
+       <width>791</width>
+       <height>41</height>
       </rect>
      </property>
-     <property name="text">
-      <string>PushButton</string>
+     <property name="font">
+      <font>
+       <family>Frank Ruehl CLM</family>
+       <pointsize>18</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(115,115,115);
+color: white;
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: rgb(105,105,105);
+</string>
+     </property>
+     <property name="cursorMoveStyle">
+      <enum>Qt::VisualMoveStyle</enum>
      </property>
     </widget>
    </widget>

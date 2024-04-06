@@ -6,7 +6,7 @@ SignalGraph::SignalGraph(QGroupBox* groupBox)
     plot = new QCustomPlot(groupBox);
     AddGraph(QColor(0,0,0), 0);
     plot->setObjectName(QString::fromUtf8("Graph"));
-    plot->setGeometry(QRect(60, 100, 600, 400));
+    plot->setGeometry(QRect(10, 100, 750, 400));
     plot->setStyleSheet(QString::fromUtf8("background-color: rgb(128,128,128);"));
 
     QLinearGradient gradient(0, 0, 0, 400);
@@ -30,7 +30,7 @@ SignalGraph::~SignalGraph() {
 void SignalGraph::PlotGraph(QByteArray& data) {
 
     int integer = 0;
-    int digit = 1; // Стартовое значение для самого старшего бита
+    int digit = 1;
     for (int i = 0; i < 8; ++i) {
         if (data.at(1) & (1 << i)) {
             integer += digit;
@@ -44,7 +44,7 @@ void SignalGraph::PlotGraph(QByteArray& data) {
     }
 
     float result = 0.0;
-    float fraction = 0.5; // Стартовое значение для самого старшего бита
+    float fraction = 0.5;
     for (int i = 0; i < 8; ++i) {
         if (data.at(0) & (1 << (7 - i))) {
             result += fraction;
@@ -56,7 +56,7 @@ void SignalGraph::PlotGraph(QByteArray& data) {
         result = -1*result;
     }
 
-    float sig_instant = ( integer + result ) / 16.0f;
+    float sig_instant = ( integer + result ) / 32.0f;
 
     if(first_in == 0) {
         start_time = GetTickCount();
@@ -114,7 +114,7 @@ void SignalGraph::AddGraph(QColor color, uint8_t sensor_number) {
     XRange.second = 5;
 
     plot->xAxis->setRange(XRange.first, XRange.second);
-    plot->yAxis->setRange(0.5, -0.5);
+    plot->yAxis->setRange(0.3, -0.3);
 }
 
 void SignalGraph::ClearGraphs() {

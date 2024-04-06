@@ -78,94 +78,94 @@ module mux64in1 #(parameter DATA_LENGTH = 8)
 				out <= in1;
 			end
 			2: begin
-				out <= in2;
+				out <= in62;
 			end
 			3: begin
-				out <= in3;
+				out <= in63;
 			end
 			4: begin
-				out <= in4;
+				out <= in60;
 			end
 			5: begin
-				out <= in5;
+				out <= in61;
 			end
 			6: begin
-				out <= in6;
+				out <= in58;
 			end
 			7: begin
-				out <= in7;
+				out <= in59;
 			end
 			8: begin
-				out <= in8;
+				out <= in56;
 			end
 			9: begin
-				out <= in9;
+				out <= in57;
 			end
 			10: begin
-				out <= in10;
+				out <= in54;
 			end
 			11: begin
-				out <= in11;
+				out <= in55;
 			end
 			12: begin
-				out <= in12;
+				out <= in52;
 			end
 			13: begin
-				out <= in13;
+				out <= in53;
 			end
 			14: begin
-				out <= in14;
+				out <= in50;
 			end
 			15: begin
-				out <= in15;
+				out <= in51;
 			end
 			16: begin
-				out <= in16;
+				out <= in48;
 			end
 			17: begin
-				out <= in17;
+				out <= in49;
 			end
 			18: begin
-				out <= in18;
+				out <= in46;
 			end
 			19: begin
-				out <= in19;
+				out <= in47;
 			end
 			20: begin
-				out <= in20;
+				out <= in44;
 			end
 			21: begin
-				out <= in21;
+				out <= in45;
 			end
 			22: begin
-				out <= in22;
+				out <= in42;
 			end
 			23: begin
-				out <= in23;
+				out <= in43;
 			end
 			24: begin
-				out <= in24;
+				out <= in40;
 			end
 			25: begin
-				out <= in25;
+				out <= in41;
 			end
 			26: begin
-				out <= in26;
+				out <= in38;
 			end
 			27: begin
-				out <= in27;
+				out <= in39;
 			end
 			28: begin
-				out <= in28;
+				out <= in36;
 			end
 			29: begin
-				out <= in29;
+				out <= in37;
 			end
 			30: begin
-				out <= in30;
+				out <= in34;
 			end
 			31: begin
-				out <= in31;
+				out <= in35;
 			end
 			32: begin
 				out <= in32;
@@ -174,94 +174,94 @@ module mux64in1 #(parameter DATA_LENGTH = 8)
 				out <= in33;
 			end
 			34: begin
-				out <= in34;
+				out <= in30;
 			end
 			35: begin
-				out <= in35;
+				out <= in31;
 			end
 			36: begin
-				out <= in36;
+				out <= in28;
 			end
 			37: begin
-				out <= in37;
+				out <= in29;
 			end
 			38: begin
-				out <= in38;
+				out <= in26;
 			end
 			39: begin
-				out <= in39;
+				out <= in27;
 			end
 			40: begin
-				out <= in40;
+				out <= in24;
 			end
 			41: begin
-				out <= in41;
+				out <= in25;
 			end
 			42: begin
-				out <= in42;
+				out <= in22;
 			end
 			43: begin
-				out <= in43;
+				out <= in23;
 			end
 			44: begin
-				out <= in44;
+				out <= in20;
 			end
 			45: begin
-				out <= in45;
+				out <= in21;
 			end
 			46: begin
-				out <= in46;
+				out <= in18;
 			end
 			47: begin
-				out <= in47;
+				out <= in19;
 			end
 			48: begin
-				out <= in48;
+				out <= in16;
 			end
 			49: begin
-				out <= in49;
+				out <= in17;
 			end
 			50: begin
-				out <= in50;
+				out <= in14;
 			end
 			51: begin
-				out <= in51;
+				out <= in15;
 			end
 			52: begin
-				out <= in52;
+				out <= in12;
 			end
 			53: begin
-				out <= in53;
+				out <= in13;
 			end
 			54: begin
-				out <= in54;
+				out <= in10;
 			end
 			55: begin
-				out <= in55;
+				out <= in11;
 			end
 			56: begin
-				out <= in56;
+				out <= in8;
 			end
 			57: begin
-				out <= in57;
+				out <= in9;
 			end
 			58: begin
-				out <= in58;
+				out <= in6;
 			end
 			59: begin
-				out <= in59;
+				out <= in7;
 			end
 			60: begin
-				out <= in60;
+				out <= in4;
 			end
 			61: begin
-				out <= in61;
+				out <= in5;
 			end
 			62: begin
-				out <= in62;
+				out <= in2;
 			end
 			63: begin
-				out <= in63;
+				out <= in3;
 			end
 		endcase
 	end

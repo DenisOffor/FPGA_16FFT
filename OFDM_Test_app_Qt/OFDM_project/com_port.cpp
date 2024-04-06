@@ -35,7 +35,7 @@ void com_port::Close()
 int com_port::SetUp()
 {
     int status_error = 0;
-    status_error =  port->setBaudRate(QSerialPort::Baud57600) == false ? (1 << 0) :
+    status_error =  port->setBaudRate(QSerialPort::Baud115200) == false ? (1 << 0) :
     port->setDataBits(QSerialPort::Data8) == false ? (1 << 1) :
     port->setFlowControl(QSerialPort::NoFlowControl) == false ? (1 << 2) :
     port->setParity(QSerialPort::NoParity) == false ? (1 << 3) :
@@ -49,14 +49,13 @@ int com_port::SetUp()
 
 void com_port::Port_GetData()
 {
-    Rx_buffer.clear();
     Rx_buffer = port->readAll();
     QByteArray temp = Rx_buffer;
 
-    for(int i = 31, j = 2; i > 1; i -= 2, j += 2) {
-        temp[j] = Rx_buffer[i-1];
-        temp[j+1] = Rx_buffer[i];
-    }
+    //for(int i = 63, j = 2; i > 1; i -= 2, j += 2) {
+    //    temp[j] = Rx_buffer[i-1];
+    //    temp[j+1] = Rx_buffer[i];
+    //}
 
     emit sig_FFT_in_buffer(temp);
 }

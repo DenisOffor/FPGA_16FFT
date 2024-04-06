@@ -75,7 +75,7 @@ module FFT_for_OFDM_tb #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8
 	initial begin		
 		#10 rst = 1;
 		#50 rst = 0;
-		#0 byte = 8'b11000100;
+		#0 byte = 8'b00000000;
 	end
 	
 	always @(*)

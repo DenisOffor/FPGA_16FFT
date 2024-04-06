@@ -1,4 +1,4 @@
-module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, CLOCK_PER_BIT = 868)
+module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8, CLOCK_PER_BIT = 434)
 (
 	input 			i_clk,
 	input 			i_RX_bit,
@@ -20,7 +20,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	wire 							w_TX_done;
 	assign w_TX_start = r_TX_start;
 	assign w_full_TX_state = r_full_TX_state;
-	reg 	[6:0]	    counter_of_sended_bytes = 0;
+	reg 	[7:0]	    counter_of_sended_bytes = 0;
 	
 	//wires for out from FFT
 	wire	[WORD_SIZE-1:0]			w_FFT_out0_re;
@@ -258,7 +258,7 @@ module top #(parameter FFT_SIZE = 16, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 
 	UART_RX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) Receiver 
 	(
-		.i_clk(i_clk), // && in order to cancel receive while FFT for previous data is going  
+		.i_clk(i_clk && ~r_full_TX_state), // && in order to cancel receive while FFT for previous data is going  
 		.i_RX_bit(i_RX_bit),
 		.o_Received_byte(w_Received_byte), 
 		.o_receive_state(w_receive_state), 
