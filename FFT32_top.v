@@ -132,20 +132,14 @@ module FFT32_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	output       	[WORD_SIZE-1:0]     out31_re,
 	output       	[WORD_SIZE-1:0]     out31_im,
 	
-	output 										o_FFT32_cycle_done,
-	output			[1:0]						w_mux_switcher,
-	output										w_address_switcher,
-	output										w_FFT16_cycle_rst,
-	output			[2:0]						w_STAGES,
-	output										w_FFT16_cycle_done_delay
-	
+	output 										o_FFT32_cycle_done
 ); 
-	//wire	[1:0]					w_mux_switcher;
-	//wire							w_address_switcher;
-	//wire							w_FFT16_cycle_rst;
-	//wire	[2:0]					w_STAGES;
-	//wire 							w_FFT16_cycle_done;
-	//wire 							w_FFT16_cycle_done_delay;
+	wire	[1:0]					w_mux_switcher;
+	wire							w_address_switcher;
+	wire							w_FFT16_cycle_rst;
+	wire	[2:0]					w_STAGES;
+	wire 							w_FFT16_cycle_done;
+	wire 							w_FFT16_cycle_done_delay;
 	
 	wire	[WORD_SIZE-1:0]	FFT16_in0_re;
 	wire	[WORD_SIZE-1:0]	FFT16_in0_im;

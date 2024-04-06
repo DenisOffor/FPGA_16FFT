@@ -5,22 +5,6 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 			
 	output 			o_TX_bit
 );
-	reg 	[2:0] r_STAGES = 4;
-	wire	[2:0]	w_STAGES = r_STAGES;
-	//reg and wires for UART_RX
-	wire 	[DATA_LENGTH - 1:0] 	w_Received_byte;
-	wire 							w_receive_state;
-
-	//reg and wires for UART_TX
-	wire 	[DATA_LENGTH - 1:0] 	w_Transmitted_byte;
-	reg								r_TX_start = 0;
-	reg								r_full_TX_state = 0; //1 - process, 0 - wait
-	wire 							w_TX_start;
-	wire							w_full_TX_state;
-	wire 							w_TX_done;
-	assign w_TX_start = r_TX_start;
-	assign w_full_TX_state = r_full_TX_state;
-	reg 	[7:0]	    counter_of_sended_bytes = 0;
 	
 	//wires for out from FFT
 	wire	[WORD_SIZE-1:0]			w_FFT_out0_re;
@@ -56,57 +40,33 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
    wire	[WORD_SIZE-1:0]			w_FFT_out30_re;
    wire	[WORD_SIZE-1:0]			w_FFT_out31_re;
 
-	wire								w_FFT_cycle_done;
-	wire								w_FFT_cycle_done_delay;
-	reg 								r_FFT_cycle_done;
-	assign w_FFT_cycle_done_delay = r_FFT_cycle_done;
+	//reg and wires for UART_RX
+	wire 	[DATA_LENGTH - 1:0] 	w_Received_byte;
+	wire 								w_receive_state;
+
+	//reg and wires for UART_TX
+	wire 	[DATA_LENGTH - 1:0] 	w_Transmitted_byte;
+	wire 								w_TX_done;
+	wire 								w_TX_start;
+	wire								w_full_TX_state;
+
+	wire								w_FFT_rst;
+	wire								w_FFT32_cycle_done;
+	wire	[6:0]						w_counter_of_sended_bytes;
 	
-	//wire and reg for reset FFT
-	reg								r_FFT_rst = 0;
-	wire							w_FFT_rst;
-	assign w_FFT_rst = ~r_FFT_rst;
-	
-	//manage reset state of FFT
-	//if external reset -> then reset fft
-	//if FFT cycle done -> reset in order to save data after FFT in ram and FFT cycle not start again
-	//if new byte received -> then start new cycle, so reset = 0
-	always @(posedge w_receive_state or posedge w_FFT_cycle_done_delay) begin
-			if(w_FFT_cycle_done_delay) begin
-				r_FFT_rst <= 1'b0;
-			end
-				else if(w_receive_state) begin
-					r_FFT_rst <= 1'b1;
-				end
-	end
-	
-	//reg to start TX when first byte transmitted (start by w_FFT_cycle_done_delay) and other 31 bytes transmitted (start by w_TX_done)
-	always @(posedge i_clk or posedge w_FFT_cycle_done_delay or posedge w_TX_done) begin
-		r_FFT_cycle_done <= w_FFT_cycle_done;
-		if(w_FFT_cycle_done_delay || w_TX_done) begin
-			r_TX_start <= 1'b1;
-		end
-		else begin
-			r_TX_start <= 1'b0;
-		end
-	end
-	
-	//if w_FFT_cycle_done_delay come so we need to transfer first byte and set r_full_TX_state in "1" to indicate that transfer ongoing
-	//if w_TX_done come so trasfer of byte ended -> set next byte
-	//if counter count to 32 -> all bytes transfered, r_full_TX_state is "0" (no transfer), counter set to zero
-	//wait for next w_TX_start
-	always @(posedge w_FFT_cycle_done_delay or posedge w_TX_done) begin
-		if(w_FFT_cycle_done_delay == 1'b1) begin
-			r_full_TX_state <= 1'b1;
-			counter_of_sended_bytes <= 0;
-		end
-		else begin
-			counter_of_sended_bytes <= counter_of_sended_bytes + 1'b1;
-			if(counter_of_sended_bytes == 63) begin
-				counter_of_sended_bytes <= 0;
-				r_full_TX_state <= 1'b0;
-			end
-		end
-	end
+	top_control_unit my_top_control_unit
+	(
+		.i_clk(i_clk),
+		.i_FFT32_cycle_done(w_FFT32_cycle_done),
+		.i_receive_state(w_receive_state),
+		.i_TX_done(w_TX_done),
+		
+		.o_FFT_rst(w_FFT_rst),
+		.o_TX_start(w_TX_start),
+		.o_full_TX_state(w_full_TX_state),
+		.o_counter_of_sended_bytes(w_counter_of_sended_bytes)
+	);
+
 	
 	mux64in1 #(.DATA_LENGTH(DATA_LENGTH)) my_mux64in1
 	(
@@ -176,7 +136,7 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		.in62(w_FFT_out31_re[7:0]),
 		.in63(w_FFT_out31_re[15:8]),
 		
-		.sel(counter_of_sended_bytes),
+		.sel(w_counter_of_sended_bytes),
 		.out(w_Transmitted_byte)
 	);
 	
@@ -185,7 +145,6 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	(
 		.i_clk(i_clk),
 		.i_rst(w_FFT_rst),
-		.STAGES(w_STAGES),
 		.i_byte(w_Received_byte),
 	
 		.out0_re(w_FFT_out0_re),
@@ -253,7 +212,7 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 		.out31_re(w_FFT_out31_re),
 		.out31_im(),
 		
-		.o_FFT32_cycle_done(w_FFT_cycle_done)
+		.o_FFT32_cycle_done(w_FFT32_cycle_done)
 	);
 
 	UART_RX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) Receiver 
@@ -268,7 +227,7 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	UART_TX #(.CLOCK_PER_BIT(CLOCK_PER_BIT)) Transmitter
 	(
 		.i_clk(i_clk),
-		.i_rst(~r_full_TX_state),
+		.i_rst(~w_full_TX_state),
 		.i_start(w_TX_start), 
 		.i_TX_byte(w_Transmitted_byte),
 		.o_TX_bit(o_TX_bit), 

@@ -1,9 +1,9 @@
 module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 (
-	input						i_clk,
-	input 						i_rst,
-	input				[2:0]		STAGES,
-	input				[1:0]		choose_twiddle,
+	input										  i_clk,
+	input 									  i_rst,
+	input				[2:0]					  STAGES,
+	input				[1:0]					  choose_twiddle,
 	input       	[WORD_SIZE-1:0]     in0_re,
 	input       	[WORD_SIZE-1:0]     in0_im,
 	input       	[WORD_SIZE-1:0]     in1_re,
@@ -70,8 +70,8 @@ module FFT16_top #(parameter WORD_SIZE = 16, parameter FRACTION = 8)
 	output       	[WORD_SIZE-1:0]     out15_re,
 	output       	[WORD_SIZE-1:0]     out15_im,
 	
-	output 						o_FFT_cycle_done,
-	output 						o_butterfly_done
+	output 									  o_FFT_cycle_done,
+	output 									  o_butterfly_done
 );	   
    //wires of twiddle_rom_real & twiddle_rom_imag
 	wire        [WORD_SIZE-1:0]     w_twiddle0_re;

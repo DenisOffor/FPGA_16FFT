@@ -2,7 +2,6 @@ module FFT_for_OFDM #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8)
 (
 	input 								i_clk,
 	input 								i_rst,
-	input				[2:0]						STAGES,
 	input 			[DATA_LENGTH:0]		i_byte,		
 	
 	output 			[WORD_SIZE-1:0]     out0_re,
@@ -72,6 +71,7 @@ module FFT_for_OFDM #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8)
 	
 	output								o_FFT32_cycle_done
 );	
+	
 	//wires for choosen harmics depends on input byte
 	wire 			[WORD_SIZE-1:0]		w_1Hz_re; 
 	wire 			[WORD_SIZE-1:0]		w_1Hz_im; 
@@ -91,6 +91,13 @@ module FFT_for_OFDM #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8)
 	wire 			[WORD_SIZE-1:0]		w_constellation_point3_im;
 	wire 			[WORD_SIZE-1:0]		w_constellation_point4_re;
 	wire 			[WORD_SIZE-1:0]		w_constellation_point4_im;
+	
+	reg 								r_FFT_cycle_done;
+	wire								w_FFT32_cycle_done;
+	assign							o_FFT32_cycle_done = r_FFT_cycle_done;
+	
+	always @(posedge i_clk)
+		r_FFT_cycle_done <= w_FFT32_cycle_done;
 	
 	rom_QAM4 #(.WORD_SIZE(WORD_SIZE)) rom_QAM4
 	(
@@ -300,6 +307,6 @@ module FFT_for_OFDM #(parameter WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION = 8)
 		.out31_re(out1_re),
 		.out31_im(out1_im),
 	
-		.o_FFT32_cycle_done(o_FFT32_cycle_done)
+		.o_FFT32_cycle_done(w_FFT32_cycle_done)
 	); 
 endmodule
