@@ -3,7 +3,8 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	input 			i_clk,
 	input 			i_RX_bit,
 			
-	output 			o_TX_bit
+	output 			o_TX_bit,
+	output	[23:0]	o_counter_of_clk
 );
 	
 	//wires for out from FFT
@@ -53,6 +54,15 @@ module top #(parameter FFT_SIZE = 32, WORD_SIZE = 16, DATA_LENGTH = 8, FRACTION 
 	wire								w_FFT_rst;
 	wire								w_FFT32_cycle_done;
 	wire	[6:0]						w_counter_of_sended_bytes;
+	
+	reg [23:0] counter_of_clk = 0;
+	assign o_counter_of_clk = counter_of_clk;
+	
+	always @(posedge i_clk) begin
+		if(~w_FFT_rst) begin
+			counter_of_clk <= counter_of_clk + 1'b1;
+		end 
+	end
 	
 	top_control_unit my_top_control_unit
 	(
